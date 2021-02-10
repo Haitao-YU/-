@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="local" uuid="904fc843-36af-47b6-87e9-45ce56d3116d">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/restaurant?useSSL=false&amp;serverTimezone=Asia/Shanghai</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="linux" uuid="d869dd4a-5f48-40ec-9a41-6279c7a67b6b">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="restaurant@119.29.14.89" uuid="ab9238a9-4c07-4dc0-b027-30bd3e5e90c4">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://119.29.14.89:3306/restaurant</jdbc-url>
+    </data-source>
+  </component>
+</project>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <copy todir="C:\Users\Tyler\Desktop\毕设\代码\restaurant\target/..">
+    <fileset dir="C:\Users\Tyler\Desktop\毕设\代码\restaurant\target">
+      <include name="restaurant-1.0.jar"/>
+    </fileset>
+  </copy>
+</target>
+</project>
