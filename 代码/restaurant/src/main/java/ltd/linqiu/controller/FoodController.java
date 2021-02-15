@@ -2,6 +2,8 @@ package ltd.linqiu.controller;
 
 import ltd.linqiu.entity.CommonResult;
 import ltd.linqiu.entity.Food;
+import ltd.linqiu.entity.FoodType;
+import ltd.linqiu.entity.TableResult;
 import ltd.linqiu.front.OneOfMenu;
 import ltd.linqiu.service.IFoodService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,19 +21,16 @@ public class FoodController {
     private IFoodService foodService;
 
     @GetMapping("/all")
-    public CommonResult<List<Food>> all() {
-        CommonResult<List<Food>> ret = new CommonResult<>();
-        ret.setCode(200);
-        ret.setMessage("获得所有餐品");
-        ret.setData(foodService.getAll());
-        return ret;
+    public TableResult<Food> all() {
+        List<Food> foodList = foodService.getAll();
+        return new TableResult<>(0, "", foodList.size(), foodList);
     }
 
     @GetMapping("/{id}")
     public CommonResult<Food> showById(@PathVariable("id") Integer id) {
         CommonResult<Food> ret = new CommonResult<>();
         ret.setCode(200);
-        ret.setMessage("根据ID获得餐品");
+        ret.setMsg("根据ID获得餐品");
         ret.setData(foodService.getById(id));
         return ret;
     }
@@ -40,7 +39,7 @@ public class FoodController {
     public CommonResult<List<Food>> showByTypeId(@PathVariable("typeId") Integer typeId) {
         CommonResult<List<Food>> ret = new CommonResult<>();
         ret.setCode(200);
-        ret.setMessage("根据分类获得餐品");
+        ret.setMsg("根据分类获得餐品");
         ret.setData(foodService.getByTypeId(typeId));
         return ret;
     }

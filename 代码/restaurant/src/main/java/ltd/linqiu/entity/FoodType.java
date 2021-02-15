@@ -7,7 +7,6 @@ import lombok.NonNull;
 @Data
 @AllArgsConstructor
 public class FoodType {
-    @NonNull
     private Integer id;
     @NonNull
     private String name;

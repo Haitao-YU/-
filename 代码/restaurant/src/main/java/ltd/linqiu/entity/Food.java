@@ -1,11 +1,9 @@
 package ltd.linqiu.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NonNull;
 
 @Data
-@AllArgsConstructor
 public class Food {
     @NonNull
     private Integer id;
@@ -15,7 +13,16 @@ public class Food {
     private Double price;
     @NonNull
     private Integer typeId;
+    private String typeName;
     private String image;
+
+    public Food(@NonNull Integer id, @NonNull String name, @NonNull Double price, @NonNull Integer typeId, String image) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.typeId = typeId;
+        this.image = image;
+    }
 
     public Food(Integer id, String name, Double price, Integer typeId) {
         this(id, name, price, typeId,

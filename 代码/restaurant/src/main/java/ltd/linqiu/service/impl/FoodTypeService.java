@@ -19,7 +19,27 @@ public class FoodTypeService implements IFoodTypeService {
     }
 
     @Override
-    public List<FoodType> getById(Integer id) {
+    public FoodType getById(Integer id) {
         return foodTypeMapper.selectById(id);
+    }
+
+    @Override
+    public Integer add(FoodType foodType) {
+        return foodTypeMapper.insert(foodType);
+    }
+
+    @Override
+    public Integer delete(Integer id) {
+        return foodTypeMapper.delete(id);
+    }
+
+    @Override
+    public Integer edit(FoodType foodType) {
+        FoodType old = foodTypeMapper.selectById(foodType.getId());
+        if (old == null) {
+            return 0;
+        } else {
+            return foodTypeMapper.update(foodType);
+        }
     }
 }

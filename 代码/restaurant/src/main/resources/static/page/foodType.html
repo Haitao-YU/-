@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>食物种类管理</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/public.css" media="all">
+</head>
+
+<body>
+    <div class="layuimini-container">
+        <div class="layuimini-main">
+            <script type="text/html" id="toolbar">
+                <div class="layui-btn-container">
+                    <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>
+                </div>
+            </script>
+
+            <!-- 方法渲染数据表格 -->
+            <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+
+            <script type="text/html" id="currentTableBar">
+                <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
+                <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+            </script>
+
+        </div>
+    </div>
+
+    <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+    <script>
+        layui.use(['form', 'table'], function () {
+            var $ = layui.jquery,
+                form = layui.form,
+                table = layui.table;
+
+            table.render({
+                elem: '#currentTableId',
+                title: '食品种类表',
+                url: 'http://localhost/foodType/all',
+                toolbar: '#toolbar',
+                defaultToolbar: ['filter', 'exports', 'print'],
+                cols: [[{
+                    field: 'id',
+                    width: 200,
+                    title: 'ID',
+                    align: "center",
+                    sort: true
+                },
+                {
+                    field: 'name',
+                    width: 800,
+                    title: '名称',
+                    align: "center",
+                    sort: true
+                },
+                {
+                    title: '操作',
+                    minWidth: 150,
+                    toolbar: '#currentTableBar',
+                    align: "center"
+                }]],
+                page: false,
+                skin: 'row'
+            });
+
+            // toolbar监听事件
+            table.on('toolbar(currentTableFilter)', function (obj) {
+                if (obj.event === 'add') { // 监听添加按钮
+                    var index = layer.open({
+                        title: '添加食物种类',
+                        type: 2,
+                        shade: 0.2,
+                        area: ['40%', '30%'],
+                        content: '../page/table/addFoodType.html'
+                    });
+                    $(window).on("resize", function () {
+                        layer.full(index);
+                    });
+                }
+            });
+
+            // tool监听事件
+            table.on('tool(currentTableFilter)', function (obj) {
+                let data = obj.data;
+                if (obj.event === 'edit') { // 监听编辑按钮
+                    let index = layer.open({
+                        title: '修改种类名称',
+                        type: 2,
+                        shade: 0.2,
+                        area: ['40%', '40%'],
+                        content: '../page/table/editFoodType.html',
+                        success: function (layero, index) {
+                            var body = layer.getChildFrame('body', index);
+                            body.find("[name='id']").val(data.id);
+                            body.find("[name='name']").val(data.name);
+                        }
+                    });
+                    $(window).on("resize", function () {
+                        layer.full(index);
+                    });
+                    return false;
+                } else if (obj.event === 'delete') {
+                    layer.confirm('确定删除种类：【' + data.name + '】？' + '\n若删除该种类，会使本来属于该种类的食物失去种类，客户点餐界面上将不会出现这些失去种类的食物。建议删除种类时先将属于该种类的食物移出到其他合适种类。',
+                        { icon: 0, title: false, btn: ['仍然删除', '考虑一下'], shift: 6 },
+                        function (index) {
+                            // 向服务器发送post请求
+                            $.post(
+                                'http://localhost/foodType/delete',
+                                data,
+                                function (rs) {
+                                    if (rs.code === 0) {
+                                        layer.msg("删除成功", { icon: 1 });
+                                        parent.layer.close(index);
+                                        window.location.reload();
+                                    } else {
+                                        layer.msg("删除失败", { icon: 2 });
+                                    }
+                                }
+                            );
+                        }
+                    );
+                }
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

@@ -13,4 +13,6 @@ public interface IFoodService {
     List<Food> getByTypeId(Integer typeId);
 
     List<OneOfMenu> getMenu();
+
+    Food completeFoodTypeName(Food food);
 }

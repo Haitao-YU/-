@@ -21,7 +21,12 @@ public class FoodService implements IFoodService {
 
     @Override
     public List<Food> getAll() {
-        return foodMapper.selectAll();
+        List<Food> ret = new ArrayList<>();
+        List<Food> foodList  = foodMapper.selectAll();
+        for (Food food : foodList) {
+            ret.add(completeFoodTypeName(food));
+        }
+        return ret;
     }
 
     @Override
@@ -34,6 +39,13 @@ public class FoodService implements IFoodService {
         return foodMapper.selectByTypeId(typeId);
     }
 
+    // 补全食物类型名称
+    @Override
+    public Food completeFoodTypeName(Food food) {
+        FoodType foodType =  foodTypeMapper.selectById(food.getTypeId());
+        food.setTypeName(foodType.getName());
+        return food;
+    }
 
     // 前端接口：提供菜单
     @Override
