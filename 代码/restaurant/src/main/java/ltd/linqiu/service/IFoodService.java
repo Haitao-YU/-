@@ -14,5 +14,9 @@ public interface IFoodService {
 
     List<OneOfMenu> getMenu();
 
-    Food completeFoodTypeName(Food food);
+    Integer modify(Food food);
+
+    Integer add(Food food);
+
+    Integer delete(Food food);
 }

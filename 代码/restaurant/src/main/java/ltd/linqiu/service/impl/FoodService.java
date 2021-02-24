@@ -22,7 +22,7 @@ public class FoodService implements IFoodService {
     @Override
     public List<Food> getAll() {
         List<Food> ret = new ArrayList<>();
-        List<Food> foodList  = foodMapper.selectAll();
+        List<Food> foodList = foodMapper.selectAll();
         for (Food food : foodList) {
             ret.add(completeFoodTypeName(food));
         }
@@ -39,15 +39,30 @@ public class FoodService implements IFoodService {
         return foodMapper.selectByTypeId(typeId);
     }
 
-    // 补全食物类型名称
     @Override
-    public Food completeFoodTypeName(Food food) {
-        FoodType foodType =  foodTypeMapper.selectById(food.getTypeId());
-        food.setTypeName(foodType.getName());
-        return food;
+    public Integer modify(Food food) {
+        Food old = foodMapper.selectById(food.getId());
+        if (old == null) {
+            return 0;
+        } else {
+            food = completeFoodImage(food);
+            return foodMapper.update(food);
+        }
     }
 
-    // 前端接口：提供菜单
+    @Override
+    public Integer add(Food food) {
+        food = completeFoodImage(food);
+        return foodMapper.insert(food);
+    }
+
+    @Override
+    public Integer delete(Food food) {
+        return foodMapper.delete(food);
+    }
+
+    /** 前端接口：提供菜单
+     */
     @Override
     public List<OneOfMenu> getMenu() {
         List<OneOfMenu> menu = new ArrayList<>();
@@ -59,4 +74,30 @@ public class FoodService implements IFoodService {
         }
         return menu;
     }
+
+
+    /** 工具函数：补全餐品默认图片，写入数据库时执行该检查
+     */
+    private Food completeFoodImage(Food food) {
+        if (food == null) {
+            return null;
+        }
+        if (!(food.getImage() != null && food.getImage().trim().length() != 0)) {
+            food.setImage(
+                    "https://vkceyugu.cdn.bspapp.com/VKCEYUGU-b1ebbd3c-ca49-405b-957b-effe60782276/80b73b6d-a892-4a5c-9618-e80628b054a3.png");
+        }
+        return food;
+    }
+
+    /** 工具函数：补全餐品种类名称，传给前端页面时执行该检查
+     */
+    private Food completeFoodTypeName(Food food) {
+        if (food == null) {
+            return null;
+        }
+        FoodType foodType = foodTypeMapper.selectById(food.getTypeId());
+        food.setTypeName(foodType.getName());
+        return food;
+    }
+
 }

@@ -1,6 +1,5 @@
 package ltd.linqiu.service;
 
-import ltd.linqiu.entity.Food;
 import ltd.linqiu.entity.FoodType;
 
 import java.util.List;
@@ -10,9 +9,11 @@ public interface IFoodTypeService {
 
     FoodType getById(Integer id);
 
+    FoodType getByName(String name);
+
     Integer add(FoodType foodType);
 
-    Integer delete(Integer id);
+    Integer modify(FoodType foodType);
 
-    Integer edit(FoodType foodType);
+    Integer delete(FoodType foodType);
 }

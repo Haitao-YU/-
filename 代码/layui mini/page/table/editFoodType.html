@@ -18,7 +18,7 @@
 
 <body>
     <div class="layui-form layuimini-form">
-        <div class="layui-form-item">
+        <div class="layui-form-item" hidden>
             <label class="layui-form-label">种类ID</label>
             <div class="layui-input-block">
                 <input type="text" name="id" class="layui-input" disabled="disabled">
@@ -60,7 +60,7 @@
                                 parent.layer.close(parent.layer.getFrameIndex(window.name));
                                 window.parent.location.reload();
                             } else {
-                                layer.msg("操作失败！", { icon: 2 });
+                                layer.msg("操作失败，种类名称冲突！", { icon: 2 });
                             }
                         }
                     );

@@ -14,15 +14,18 @@
 <body>
     <div class="layuimini-container">
         <div class="layuimini-main">
+
+            <blockquote class="layui-elem-quote layui-quote-nm">
+                提示：在此定义餐品的分类，对应小程序点餐页面左侧边的不同分类条目
+            </blockquote>
+
+            <!-- 方法渲染数据表格 -->
+            <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
             <script type="text/html" id="toolbar">
                 <div class="layui-btn-container">
                     <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>
                 </div>
             </script>
-
-            <!-- 方法渲染数据表格 -->
-            <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
-
             <script type="text/html" id="currentTableBar">
                 <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
                 <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
@@ -44,26 +47,27 @@
                 url: 'http://localhost/foodType/all',
                 toolbar: '#toolbar',
                 defaultToolbar: ['filter', 'exports', 'print'],
-                cols: [[{
-                    field: 'id',
-                    width: 200,
-                    title: 'ID',
-                    align: "center",
-                    sort: true
-                },
-                {
-                    field: 'name',
-                    width: 800,
-                    title: '名称',
-                    align: "center",
-                    sort: true
-                },
-                {
-                    title: '操作',
-                    minWidth: 150,
-                    toolbar: '#currentTableBar',
-                    align: "center"
-                }]],
+                cols: [[
+                    // {
+                    //     field: 'id',
+                    //     width: 200,
+                    //     title: 'ID',
+                    //     align: "center",
+                    //     sort: true
+                    // },
+                    {
+                        field: 'name',
+                        width: 800,
+                        title: '名称',
+                        align: "center",
+                        sort: true
+                    },
+                    {
+                        title: '操作',
+                        minWidth: 150,
+                        toolbar: '#currentTableBar',
+                        align: "center"
+                    }]],
                 page: false,
                 skin: 'row'
             });
@@ -105,7 +109,7 @@
                     });
                     return false;
                 } else if (obj.event === 'delete') {
-                    layer.confirm('确定删除种类：【' + data.name + '】？' + '\n若删除该种类，会使本来属于该种类的食物失去种类，客户点餐界面上将不会出现这些失去种类的食物。建议删除种类时先将属于该种类的食物移出到其他合适种类。',
+                    layer.confirm('确定删除种类：【' + data.name + '】？' + '\n删除该种类后，客户的点餐界面上将不会出现该种类，且删除该种类前要求该种类下没有餐品。所以建议修改种类名称而不是删除种类。',
                         { icon: 0, title: false, btn: ['仍然删除', '考虑一下'], shift: 6 },
                         function (index) {
                             // 向服务器发送post请求
@@ -118,7 +122,7 @@
                                         parent.layer.close(index);
                                         window.location.reload();
                                     } else {
-                                        layer.msg("删除失败", { icon: 2 });
+                                        layer.confirm('删除失败，菜单中还存在设置为该种类的餐品，不允许删除该种类。请将那些餐品删除或者移到其他种类中。', { icon: 0, title: false, btn: ['知道了'] })
                                     }
                                 }
                             );

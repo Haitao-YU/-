@@ -36,3 +36,4 @@ mybatis:
   type-aliases-package: ltd.linqiu.entity
   configuration:
     map-underscore-to-camel-case: true # 匹配驼峰命名
+

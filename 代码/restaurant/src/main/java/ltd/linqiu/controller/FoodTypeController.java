@@ -46,7 +46,7 @@ public class FoodTypeController {
 
     @PostMapping("/edit")
     public CommonResult<Integer> edit(FoodType data) {
-        if (foodTypeService.edit(data) == 1) {
+        if (foodTypeService.modify(data) == 1) {
             return new CommonResult<>(0, "修改成功！");
         } else {
             return new CommonResult<>(400, "修改失败！");
@@ -55,8 +55,7 @@ public class FoodTypeController {
 
     @PostMapping("/delete")
     public CommonResult<Integer> delete(FoodType data) {
-        Integer id = data.getId();
-        if (foodTypeService.delete(id) == 1) {
+        if (foodTypeService.delete(data) == 1) {
             return new CommonResult<>(0, "删除成功！");
         } else {
             return new CommonResult<>(400, "删除失败！");
