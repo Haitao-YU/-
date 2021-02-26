@@ -21,10 +21,10 @@ public interface FoodMapper {
     @Select("select * from food where type_id = #{typeId}")
     List<Food> selectByTypeId(@Param("typeId") Integer typeId);
 
-    @Insert("insert into food(name,price,type_id,image) values (#{name},#{price},#{typeId},#{image})")
+    @Insert("insert into food(name,price,type_id,image,remark) values (#{name},#{price},#{typeId},#{image},#{remark})")
     Integer insert(Food food);
 
-    @Update("update food set name = #{name}, price = #{price}, type_id = #{typeId}, image = #{image} where id = #{id}")
+    @Update("update food set name = #{name}, price = #{price}, type_id = #{typeId}, image = #{image}, remark = #{remark}, state = #{state} where id = #{id}")
     Integer update(Food food);
 
     @Delete("delete from food where id = #{id}")

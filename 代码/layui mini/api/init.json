@@ -27,6 +27,12 @@
         "target": "_self"
       },
       {
+        "title": "店铺信息",
+        "href": "page/storeInfo.html",
+        "icon": "fa fa-calendar",
+        "target": "_self"
+      },
+      {
         "title": "主页模板",
         "href": "",
         "icon": "fa fa-home",

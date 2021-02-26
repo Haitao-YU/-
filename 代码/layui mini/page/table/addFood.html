@@ -72,7 +72,7 @@
 
             //初始化：从服务器获取所有种类数据以初始化select框
             $.get(
-                'http://localhost/foodType/all',
+                'http://119.29.14.89/foodType/all',
                 function (data) {
                     var typeIdList = data.data;
                     $.each(typeIdList, function (index, item) {
@@ -90,7 +90,7 @@
             form.on('submit(saveBtn)', function (data) {
                 console.log(data.field);
                 $.post(
-                    'http://localhost/food/add',
+                    'http://119.29.14.89/food/add',
                     data.field,
                     function (rs) {
                         if (rs.code === 0) {

@@ -27,11 +27,7 @@ public class FoodTypeController {
 
     @GetMapping("/{id}")
     public CommonResult<FoodType> showByTypeId(@PathVariable("id") Integer id) {
-        CommonResult<FoodType> ret = new CommonResult<>();
-        ret.setCode(200);
-        ret.setMsg("根据id获得餐品种类名称");
-        ret.setData(foodTypeService.getById(id));
-        return ret;
+        return new CommonResult<>(0, foodTypeService.getById(id), "根据id获得餐品种类名称");
     }
 
     @PostMapping("/add")

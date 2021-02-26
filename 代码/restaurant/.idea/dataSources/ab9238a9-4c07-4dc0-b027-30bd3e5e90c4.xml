@@ -914,13 +914,36 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="230" parent="6" name="food">
+    <table id="230" parent="6" name="carousel_figure">
+      <Comment>轮播图</Comment>
+    </table>
+    <table id="231" parent="6" name="food">
       <Comment>餐品表</Comment>
     </table>
-    <table id="231" parent="6" name="food_type">
+    <table id="232" parent="6" name="food_type">
       <Comment>餐品种类表</Comment>
     </table>
-    <column id="232" parent="230" name="id">
+    <table id="233" parent="6" name="order"/>
+    <table id="234" parent="6" name="store_info"/>
+    <column id="235" parent="230" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="236" parent="230" name="url">
+      <Position>2</Position>
+      <Comment>图片地址</Comment>
+      <DataType>varchar(500)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="237" parent="230" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="238" parent="231" name="id">
       <Position>1</Position>
       <Comment>餐品的ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -928,7 +951,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="233" parent="230" name="name">
+    <column id="239" parent="231" name="name">
       <Position>2</Position>
       <Comment>餐品名称</Comment>
       <DataType>varchar(50)|0s</DataType>
@@ -936,21 +959,21 @@
       <DefaultExpression>&apos;未命名&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="234" parent="230" name="price">
+    <column id="240" parent="231" name="price">
       <Position>3</Position>
       <Comment>餐品价格</Comment>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="235" parent="230" name="type_id">
+    <column id="241" parent="231" name="type_id">
       <Position>4</Position>
       <Comment>餐品所属种类</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="236" parent="230" name="image">
+    <column id="242" parent="231" name="image">
       <Position>5</Position>
       <Comment>餐品的图片在线链接</Comment>
       <DataType>varchar(500)|0s</DataType>
@@ -958,35 +981,143 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="237" parent="230" name="food_food_type_id_fk">
+    <column id="243" parent="231" name="monthlySales">
+      <Position>6</Position>
+      <Comment>本月销量</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="244" parent="231" name="remark">
+      <Position>7</Position>
+      <Comment>商品备注</Comment>
+      <DataType>varchar(500)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="245" parent="231" name="state">
+      <Position>8</Position>
+      <Comment>餐品状态: 0(正常), 1(售罄), 2(下架)</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="246" parent="231" name="food_food_type_id_fk">
       <ColNames>type_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="238" parent="230" name="PRIMARY">
+    <key id="247" parent="231" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="239" parent="230" name="food_food_type_id_fk">
+    <foreign-key id="248" parent="231" name="food_food_type_id_fk">
       <ColNames>type_id</ColNames>
       <RefTableName>food_type</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="240" parent="231" name="id">
+    <column id="249" parent="232" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="241" parent="231" name="name">
+    <column id="250" parent="232" name="name">
       <Position>2</Position>
       <Comment>种类名称</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="242" parent="231" name="PRIMARY">
+    <index id="251" parent="232" name="food_type_name_uindex">
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="252" parent="232" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="253" parent="232" name="food_type_name_uindex">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>food_type_name_uindex</UnderlyingIndexName>
+    </key>
+    <column id="254" parent="233" name="id">
+      <Position>1</Position>
+      <Comment>订单ID</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="255" parent="233" name="userPhone">
+      <Position>2</Position>
+      <Comment>用户的电话号码</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="256" parent="233" name="date">
+      <Position>3</Position>
+      <Comment>订单的创建时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="257" parent="233" name="content">
+      <Position>4</Position>
+      <Comment>点餐内容</Comment>
+      <DataType>varchar(500)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="258" parent="233" name="total">
+      <Position>5</Position>
+      <Comment>总金额</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="259" parent="233" name="discount">
+      <Position>6</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>10</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="260" parent="233" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="261" parent="234" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="262" parent="234" name="name">
+      <Position>2</Position>
+      <Comment>信息名称</Comment>
+      <DataType>varchar(500)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="263" parent="234" name="value">
+      <Position>3</Position>
+      <Comment>信息内容</Comment>
+      <DataType>varchar(500)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="264" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

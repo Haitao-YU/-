@@ -44,17 +44,10 @@
             table.render({
                 elem: '#currentTableId',
                 title: '食品种类表',
-                url: 'http://localhost/foodType/all',
+                url: 'http://119.29.14.89/foodType/all',
                 toolbar: '#toolbar',
                 defaultToolbar: ['filter', 'exports', 'print'],
                 cols: [[
-                    // {
-                    //     field: 'id',
-                    //     width: 200,
-                    //     title: 'ID',
-                    //     align: "center",
-                    //     sort: true
-                    // },
                     {
                         field: 'name',
                         width: 800,
@@ -104,9 +97,6 @@
                             body.find("[name='name']").val(data.name);
                         }
                     });
-                    $(window).on("resize", function () {
-                        layer.full(index);
-                    });
                     return false;
                 } else if (obj.event === 'delete') {
                     layer.confirm('确定删除种类：【' + data.name + '】？' + '\n删除该种类后，客户的点餐界面上将不会出现该种类，且删除该种类前要求该种类下没有餐品。所以建议修改种类名称而不是删除种类。',
@@ -114,7 +104,7 @@
                         function (index) {
                             // 向服务器发送post请求
                             $.post(
-                                'http://localhost/foodType/delete',
+                                'http://119.29.14.89/foodType/delete',
                                 data,
                                 function (rs) {
                                     if (rs.code === 0) {

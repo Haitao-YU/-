@@ -43,7 +43,7 @@
             table.render({
                 elem: '#currentTableId',
                 title: '食品表',
-                url: 'http://localhost/food/all',
+                url: 'http://119.29.14.89/food/all',
                 toolbar: '#toolbar',
                 defaultToolbar: ['filter', 'exports', 'print'],
                 cols: [[
@@ -105,9 +105,6 @@
                         area: ['80%', '80%'],
                         content: '../page/table/addFood.html'
                     });
-                    $(window).on("resize", function () {
-                        layer.full(index);
-                    });
                 }
             });
 
@@ -130,9 +127,6 @@
                             body.find("[name='image']").val(data.image);
                         }
                     });
-                    $(window).on("resize", function () {
-                        layer.full(index);
-                    });
                     return false;
                 } else if (obj.event === 'delete') {
                     layer.confirm('确定删除餐品：【' + data.name + '】？',
@@ -140,7 +134,7 @@
                         function (index) {
                             // 向服务器发送post请求
                             $.post(
-                                'http://localhost/food/delete',
+                                'http://119.29.14.89/food/delete',
                                 data,
                                 function (rs) {
                                     if (rs.code === 0) {

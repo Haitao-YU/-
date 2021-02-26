@@ -47,7 +47,7 @@
                     layer.confirm('确认添加？', { icon: 3, title: false }, function (index) {
                         // 向服务器发送post请求
                         $.post(
-                            'http://localhost/foodType/add',
+                            'http://119.29.14.89/foodType/add',
                             data.field,
                             function (rs) {
                                 if (rs.code === 0) {
