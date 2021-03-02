@@ -19,4 +19,6 @@ public interface IFoodService {
     Integer add(Food food);
 
     Integer delete(Food food);
+
+    Integer switchState(Integer id, Integer state);
 }

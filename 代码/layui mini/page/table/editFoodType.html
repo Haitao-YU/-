@@ -53,10 +53,11 @@
                 function (data) {
                     // 向服务器发送post请求
                     $.post(
-                        'http://119.29.14.89/foodType/edit',
+                        'http://localhost/foodType/edit',
                         data.field,
                         function (rs) {
                             if (rs.code === 0) {
+                                parent.parent.parent.layer.msg("修改成功！", { icon: 1 });
                                 parent.layer.close(parent.layer.getFrameIndex(window.name));
                                 window.parent.location.reload();
                             } else {

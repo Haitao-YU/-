@@ -2,7 +2,6 @@ package ltd.linqiu.controller;
 
 import ltd.linqiu.entity.CommonResult;
 import ltd.linqiu.entity.Food;
-import ltd.linqiu.entity.FoodType;
 import ltd.linqiu.entity.TableResult;
 import ltd.linqiu.front.OneOfMenu;
 import ltd.linqiu.service.IFoodService;
@@ -11,9 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/food")
@@ -54,6 +55,20 @@ public class FoodController {
         }
     }
 
+
+    @PostMapping("/switchState")
+    public CommonResult<Integer> switchState(@RequestParam Map<String, String> data) {
+        Integer id = Integer.parseInt(data.get("id"));
+        Integer state = Integer.parseInt(data.get("state"));
+        if (foodService.switchState(id, state) == 1) {
+            return new CommonResult<>(0, "修改成功！");
+        } else {
+            return new CommonResult<>(400, "修改成功！");
+        }
+
+    }
+
+
     @PostMapping("/add")
     public CommonResult<Integer> add(Food data) {
         if (foodService.add(data) == 1) {
@@ -65,7 +80,6 @@ public class FoodController {
 
     @PostMapping("/delete")
     public CommonResult<Integer> delete(Food data) {
-        System.out.println(data);
         if (foodService.delete(data) == 1) {
             return new CommonResult<>(0, "删除成功！");
         } else {
@@ -77,6 +91,6 @@ public class FoodController {
     // 小程序接口
     @GetMapping("/front/menu")
     public CommonResult<List<OneOfMenu>> menu() {
-        return new CommonResult<>(200, foodService.getMenu(), "给前端提供整个菜单");
+        return new CommonResult<>(0, foodService.getMenu(), "给前端提供整个菜单");
     }
 }

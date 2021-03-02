@@ -51,6 +51,11 @@ public class FoodService implements IFoodService {
     }
 
     @Override
+    public Integer switchState(Integer id, Integer state) {
+        return foodMapper.updateState(id, state);
+    }
+
+    @Override
     public Integer add(Food food) {
         food = completeFoodImage(food);
         return foodMapper.insert(food);

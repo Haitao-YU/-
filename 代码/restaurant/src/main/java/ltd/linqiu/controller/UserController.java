@@ -7,6 +7,7 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.crypto.Cipher;
@@ -31,6 +32,7 @@ import java.util.Map;
  * 微信小程序code换取微信用户信息
  */
 @RestController
+@RequestMapping("/user")
 public class UserController {
     private static Logger logger = LoggerFactory.getLogger(UserController.class);
 
@@ -44,14 +46,25 @@ public class UserController {
      */
     @GetMapping("/oauth")
     public String wxOauth(String encryptedData, String iv, String codes, HttpServletRequest request) {
-        Object res = getPhoneNumber(encryptedData, codes, iv);
+        String appid = "wx9d22be6c217ba61f";
+        String secret = "7783349bff07e1345065f48548b8b721";
+        Object res = getPhoneNumber(encryptedData, codes, iv, appid, secret);
         logger.info(request.toString());
         return res.toString();
     }
 
-    public Object getPhoneNumber(String encryptedData, String code, String iv) {
+    @GetMapping("/getUser")
+    public String getUser(String encryptedData, String iv, String codes, HttpServletRequest request) {
+        String appid = "wx7c3a8f93834b6cbe";
+        String secret = "4bdc862b097ed9d0d24ad11d384efb1d";
+        Object res = getPhoneNumber(encryptedData, codes, iv, appid, secret);
+        logger.info(request.toString());
+        return res.toString();
+    }
+
+    public Object getPhoneNumber(String encryptedData, String code, String iv, String appid, String secret) {
         //传入code后然后获取openid和session_key的，把他们封装到json里面
-        JSONObject json = getSessionKeyOrOpenid(code);
+        JSONObject json = getSessionKeyOrOpenid(code, appid, secret);
         String session_key;
         if (json != null) {
 
@@ -93,15 +106,14 @@ public class UserController {
 
     /**
      * 获取微信小程序 session_key 和 openid
-     *
      * @param code 调用微信登陆返回的Code
      */
-    public static JSONObject getSessionKeyOrOpenid(String code) {
+    public static JSONObject getSessionKeyOrOpenid(String code, String appid, String secret) {
         //微信端登录code值
-        String requestUrl = "https://api.weixin.qq.com/sns/jscode2session";  //请求地址 https://api.weixin.qq.com/sns/jscode2session
+        String requestUrl = "https://api.weixin.qq.com/sns/jscode2session";
         Map<String, String> requestUrlParam = new HashMap<>();
-        requestUrlParam.put("appid", "wx9d22be6c217ba61f");  //开发者设置中的appId
-        requestUrlParam.put("secret", "7783349bff07e1345065f48548b8b721"); //开发者设置中的appSecret
+        requestUrlParam.put("appid", appid);  //开发者设置中的appId
+        requestUrlParam.put("secret", secret); //开发者设置中的appSecret
         requestUrlParam.put("js_code", code); //小程序调用wx.login返回的code
         requestUrlParam.put("grant_type", "authorization_code");    //默认参数 authorization_code
 

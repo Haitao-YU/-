@@ -44,7 +44,7 @@
             table.render({
                 elem: '#currentTableId',
                 title: '食品种类表',
-                url: 'http://119.29.14.89/foodType/all',
+                url: 'http://localhost/foodType/all',
                 toolbar: '#toolbar',
                 defaultToolbar: ['filter', 'exports', 'print'],
                 cols: [[
@@ -68,7 +68,7 @@
             // toolbar监听事件
             table.on('toolbar(currentTableFilter)', function (obj) {
                 if (obj.event === 'add') { // 监听添加按钮
-                    var index = layer.open({
+                    layer.open({
                         title: '添加食物种类',
                         type: 2,
                         shade: 0.2,
@@ -85,11 +85,11 @@
             table.on('tool(currentTableFilter)', function (obj) {
                 let data = obj.data;
                 if (obj.event === 'edit') { // 监听编辑按钮
-                    let index = layer.open({
+                    layer.open({
                         title: '修改种类名称',
                         type: 2,
                         shade: 0.2,
-                        area: ['40%', '40%'],
+                        area: ['40%', '30%'],
                         content: '../page/table/editFoodType.html',
                         success: function (layero, index) {
                             var body = layer.getChildFrame('body', index);
@@ -104,11 +104,11 @@
                         function (index) {
                             // 向服务器发送post请求
                             $.post(
-                                'http://119.29.14.89/foodType/delete',
+                                'http://localhost/foodType/delete',
                                 data,
                                 function (rs) {
                                     if (rs.code === 0) {
-                                        layer.msg("删除成功", { icon: 1 });
+                                        parent.layer.msg("删除成功！", { icon: 1 });
                                         parent.layer.close(index);
                                         window.location.reload();
                                     } else {

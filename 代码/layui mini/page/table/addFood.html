@@ -57,6 +57,14 @@
         </div>
 
         <div class="layui-form-item">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <input type="text" name="remark" placeholder="请输入" value="" class="layui-input">
+                <tip>餐品份量、口味等备注信息</tip>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
             <div class="layui-input-block">
                 <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
             </div>
@@ -72,7 +80,7 @@
 
             //初始化：从服务器获取所有种类数据以初始化select框
             $.get(
-                'http://119.29.14.89/foodType/all',
+                'http://localhost/foodType/all',
                 function (data) {
                     var typeIdList = data.data;
                     $.each(typeIdList, function (index, item) {
@@ -90,10 +98,11 @@
             form.on('submit(saveBtn)', function (data) {
                 console.log(data.field);
                 $.post(
-                    'http://119.29.14.89/food/add',
+                    'http://localhost/food/add',
                     data.field,
                     function (rs) {
                         if (rs.code === 0) {
+                            parent.parent.layer.msg("添加成功！", { icon: 1 });
                             parent.layer.close(parent.layer.getFrameIndex(window.name));
                             window.parent.location.reload();
                         } else {

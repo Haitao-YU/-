@@ -47,10 +47,11 @@
                     layer.confirm('确认添加？', { icon: 3, title: false }, function (index) {
                         // 向服务器发送post请求
                         $.post(
-                            'http://119.29.14.89/foodType/add',
+                            'http://localhost/foodType/add',
                             data.field,
                             function (rs) {
                                 if (rs.code === 0) {
+                                    parent.parent.parent.layer.msg("添加成功！", { icon: 1 });
                                     parent.layer.close(parent.layer.getFrameIndex(window.name));
                                     window.parent.location.reload();
                                 } else {

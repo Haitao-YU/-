@@ -2,24 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8040201-d135-46fe-9bfc-54183968b2e6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../layui mini/api/init.json" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/api/init.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../layui mini/page/food.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/food.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../layui mini/page/foodType.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/foodType.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/storeInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/storeInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/table/addCarouselFigure.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/table/addCarouselFigure.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../layui mini/page/table/addFood.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/table/addFood.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../layui mini/page/table/addFoodType.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/table/addFoodType.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/table/editCarouselFigure.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/table/editCarouselFigure.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../layui mini/page/table/editFood.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/table/editFood.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../layui mini/page/table/editFoodType.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/table/editFoodType.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../layui mini/page/welcome-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/welcome-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant-1.1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/FoodTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/FoodTypeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/FoodController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/FoodController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/entity/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/entity/Food.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/mapper/FoodMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/mapper/FoodMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/FoodTypeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/FoodTypeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/mapper/FoodTypeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/mapper/FoodTypeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/IFoodService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/IFoodService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/FoodService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/FoodService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/FoodController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/FoodController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/entity/Food.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/entity/Food.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/mapper/FoodMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/mapper/FoodMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/mapper/FoodTypeMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/mapper/FoodTypeMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/IFoodService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/IFoodService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/FoodService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/FoodService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/restaurant-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/restaurant-1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/restaurant-1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/restaurant-1.0.jar.original" afterDir="false" />
     </list>
@@ -54,20 +59,6 @@
         <item name="restaurant@119.29.14.89" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="restaurant: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="restaurant@119.29.14.89" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="restaurant: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="food: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="restaurant@119.29.14.89" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="restaurant: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="store_info: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -182,7 +173,12 @@
       <workItem from="1614143986264" duration="5960000" />
       <workItem from="1614169739679" duration="7079000" />
       <workItem from="1614232575786" duration="2384000" />
-      <workItem from="1614312768656" duration="11273000" />
+      <workItem from="1614312768656" duration="13903000" />
+      <workItem from="1614356994178" duration="5002000" />
+      <workItem from="1614533322838" duration="1766000" />
+      <workItem from="1614573783202" duration="564000" />
+      <workItem from="1614576441339" duration="1928000" />
+      <workItem from="1614648331875" duration="2620000" />
     </task>
     <servers />
   </component>
@@ -238,10 +234,10 @@
       <screen x="67" y="0" width="1469" height="864" />
     </state>
     <state x="275" y="166" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.0.1469.864@67.0.1469.864" timestamp="1612363428578" />
-    <state x="607" y="141" key="#com.intellij.ide.util.MemberChooser" timestamp="1614333437009">
+    <state x="607" y="141" key="#com.intellij.ide.util.MemberChooser" timestamp="1614650915644">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state x="607" y="141" key="#com.intellij.ide.util.MemberChooser/67.0.1469.864@67.0.1469.864" timestamp="1614333437009" />
+    <state x="607" y="141" key="#com.intellij.ide.util.MemberChooser/67.0.1469.864@67.0.1469.864" timestamp="1614650915644" />
     <state x="433" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1614172470392">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
@@ -254,38 +250,38 @@
       <screen x="67" y="0" width="1469" height="864" />
     </state>
     <state x="582" y="190" key="FileChooserDialogImpl/67.0.1469.864@67.0.1469.864" timestamp="1612528343712" />
-    <state width="1426" height="367" key="GridCell.Tab.0.bottom" timestamp="1614351732643">
+    <state width="1426" height="211" key="GridCell.Tab.0.bottom" timestamp="1614592892117">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="367" key="GridCell.Tab.0.bottom/67.0.1469.864@67.0.1469.864" timestamp="1614351732643" />
-    <state width="1426" height="367" key="GridCell.Tab.0.center" timestamp="1614351732643">
+    <state width="1426" height="211" key="GridCell.Tab.0.bottom/67.0.1469.864@67.0.1469.864" timestamp="1614592892117" />
+    <state width="1426" height="211" key="GridCell.Tab.0.center" timestamp="1614592892116">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="367" key="GridCell.Tab.0.center/67.0.1469.864@67.0.1469.864" timestamp="1614351732643" />
-    <state width="1426" height="367" key="GridCell.Tab.0.left" timestamp="1614351732643">
+    <state width="1426" height="211" key="GridCell.Tab.0.center/67.0.1469.864@67.0.1469.864" timestamp="1614592892116" />
+    <state width="1426" height="211" key="GridCell.Tab.0.left" timestamp="1614592892116">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="367" key="GridCell.Tab.0.left/67.0.1469.864@67.0.1469.864" timestamp="1614351732643" />
-    <state width="1426" height="367" key="GridCell.Tab.0.right" timestamp="1614351732643">
+    <state width="1426" height="211" key="GridCell.Tab.0.left/67.0.1469.864@67.0.1469.864" timestamp="1614592892116" />
+    <state width="1426" height="211" key="GridCell.Tab.0.right" timestamp="1614592892116">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="367" key="GridCell.Tab.0.right/67.0.1469.864@67.0.1469.864" timestamp="1614351732643" />
-    <state width="1426" height="123" key="GridCell.Tab.1.bottom" timestamp="1614351359574">
+    <state width="1426" height="211" key="GridCell.Tab.0.right/67.0.1469.864@67.0.1469.864" timestamp="1614592892116" />
+    <state width="1426" height="211" key="GridCell.Tab.1.bottom" timestamp="1614592892117">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="123" key="GridCell.Tab.1.bottom/67.0.1469.864@67.0.1469.864" timestamp="1614351359574" />
-    <state width="1426" height="123" key="GridCell.Tab.1.center" timestamp="1614351359574">
+    <state width="1426" height="211" key="GridCell.Tab.1.bottom/67.0.1469.864@67.0.1469.864" timestamp="1614592892117" />
+    <state width="1426" height="211" key="GridCell.Tab.1.center" timestamp="1614592892117">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="123" key="GridCell.Tab.1.center/67.0.1469.864@67.0.1469.864" timestamp="1614351359574" />
-    <state width="1426" height="123" key="GridCell.Tab.1.left" timestamp="1614351359574">
+    <state width="1426" height="211" key="GridCell.Tab.1.center/67.0.1469.864@67.0.1469.864" timestamp="1614592892117" />
+    <state width="1426" height="211" key="GridCell.Tab.1.left" timestamp="1614592892117">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="123" key="GridCell.Tab.1.left/67.0.1469.864@67.0.1469.864" timestamp="1614351359574" />
-    <state width="1426" height="123" key="GridCell.Tab.1.right" timestamp="1614351359574">
+    <state width="1426" height="211" key="GridCell.Tab.1.left/67.0.1469.864@67.0.1469.864" timestamp="1614592892117" />
+    <state width="1426" height="211" key="GridCell.Tab.1.right" timestamp="1614592892117">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="123" key="GridCell.Tab.1.right/67.0.1469.864@67.0.1469.864" timestamp="1614351359574" />
+    <state width="1426" height="211" key="GridCell.Tab.1.right/67.0.1469.864@67.0.1469.864" timestamp="1614592892117" />
     <state x="261" y="181" key="Maven.ArtifactSearchDialog" timestamp="1614147448366">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
@@ -302,10 +298,10 @@
       <screen x="67" y="0" width="1469" height="864" />
     </state>
     <state x="587" y="262" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/67.0.1469.864@67.0.1469.864" timestamp="1614233011677" />
-    <state x="567" y="72" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1614352227959">
+    <state x="567" y="72" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1614650483767">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state x="567" y="72" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/67.0.1469.864@67.0.1469.864" timestamp="1614352227959" />
+    <state x="567" y="72" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/67.0.1469.864@67.0.1469.864" timestamp="1614650483767" />
     <state x="689" y="284" key="com.intellij.database.view.ui.DbObjectDialog" timestamp="1612362707161">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
@@ -326,9 +322,9 @@
       <screen x="67" y="0" width="1469" height="864" />
     </state>
     <state x="459" y="197" key="run.anything.popup/67.0.1469.864@67.0.1469.864" timestamp="1614007860580" />
-    <state x="459" y="86" width="670" height="676" key="search.everywhere.popup" timestamp="1613385158323">
+    <state x="459" y="86" width="672" height="676" key="search.everywhere.popup" timestamp="1614360358887">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state x="459" y="86" width="670" height="676" key="search.everywhere.popup/67.0.1469.864@67.0.1469.864" timestamp="1613385158323" />
+    <state x="459" y="86" width="672" height="676" key="search.everywhere.popup/67.0.1469.864@67.0.1469.864" timestamp="1614360358887" />
   </component>
 </project>

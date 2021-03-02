@@ -12,7 +12,7 @@ import java.util.List;
 
 @Mapper
 public interface FoodTypeMapper {
-    @Select("select * from food_type")
+    @Select("select * from food_type order by id")
     List<FoodType> selectAll();
 
     @Select("select * from food_type where id = #{id}")

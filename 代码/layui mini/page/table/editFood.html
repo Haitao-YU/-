@@ -26,6 +26,14 @@
             </div>
         </div>
 
+        <div class="layui-form-item" hidden>
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-block">
+                <input type="text" name="state" class="layui-input" disabled="disabled">
+                <tip>此页面不做状态的修改</tip>
+            </div>
+        </div>
+
         <div class="layui-form-item">
             <label class="layui-form-label required">名称</label>
             <div class="layui-input-block">
@@ -64,6 +72,14 @@
         </div>
 
         <div class="layui-form-item">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <input type="text" name="remark" placeholder="请输入" value="" class="layui-input">
+                <tip>餐品份量、口味等备注信息</tip>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
             <div class="layui-input-block">
                 <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
             </div>
@@ -79,7 +95,7 @@
 
             //初始化：从服务器获取所有种类数据以初始化select框
             $.get(
-                'http://119.29.14.89/foodType/all',
+                'http://localhost/foodType/all',
                 function (data) {
                     var typeIdList = data.data;
                     $.each(typeIdList, function (index, item) {
@@ -96,10 +112,11 @@
             //监听提交
             form.on('submit(saveBtn)', function (data) {
                 $.post(
-                    'http://119.29.14.89/food/edit',
+                    'http://localhost/food/edit',
                     data.field,
                     function (rs) {
                         if (rs.code === 0) {
+                            parent.parent.layer.msg("修改成功！", { icon: 1 });
                             parent.layer.close(parent.layer.getFrameIndex(window.name));
                             window.parent.location.reload();
                         } else {

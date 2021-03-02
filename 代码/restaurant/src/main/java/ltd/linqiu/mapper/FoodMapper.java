@@ -27,6 +27,9 @@ public interface FoodMapper {
     @Update("update food set name = #{name}, price = #{price}, type_id = #{typeId}, image = #{image}, remark = #{remark}, state = #{state} where id = #{id}")
     Integer update(Food food);
 
+    @Update("update food set state = #{state} where id = #{id}")
+    Integer updateState(@Param("id") Integer id, @Param("state") Integer state);
+
     @Delete("delete from food where id = #{id}")
     Integer delete(Food food);
 }
