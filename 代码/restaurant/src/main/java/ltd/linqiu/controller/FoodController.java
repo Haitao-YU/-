@@ -63,7 +63,7 @@ public class FoodController {
         if (foodService.switchState(id, state) == 1) {
             return new CommonResult<>(0, "修改成功！");
         } else {
-            return new CommonResult<>(400, "修改成功！");
+            return new CommonResult<>(400, "修改失败！");
         }
 
     }

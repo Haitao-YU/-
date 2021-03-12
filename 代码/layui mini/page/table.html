@@ -1,182 +1,224 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
-    <title>layui</title>
+    <title>餐桌管理</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="../lib/layui-v2.5.5/css/layui.css" media="all">
     <link rel="stylesheet" href="../css/public.css" media="all">
+    <style>
+        .layui-table-cell {
+            height: auto;
+        }
+    </style>
 </head>
+
 <body>
-<div class="layuimini-container">
-    <div class="layuimini-main">
 
-        <fieldset class="table-search-fieldset">
-            <legend>搜索信息</legend>
-            <div style="margin: 10px 10px 10px 10px">
-                <form class="layui-form layui-form-pane" action="">
-                    <div class="layui-form-item">
-                        <div class="layui-inline">
-                            <label class="layui-form-label">用户姓名</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="username" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">用户性别</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="sex" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">用户城市</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="city" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">用户职业</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="classify" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <button type="submit" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </fieldset>
-
-        <script type="text/html" id="toolbarDemo">
-            <div class="layui-btn-container">
-                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>
-                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="delete"> 删除 </button>
-            </div>
-        </script>
-
-        <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
-
-        <script type="text/html" id="currentTableBar">
-            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
-            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
-        </script>
-
+    <div class="layuimini-container">
+        <div class="layuimini-main">
+            <!-- 方法渲染数据表格 -->
+            <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+            <script type="text/html" id="toolbar">
+                <div class="layui-btn-container">
+                    <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加新餐桌 </button>
+                    <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="enableAll"> 全部启用 </button>
+                    <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" onclick="location.reload()" > 刷新 </button>
+                </div>
+            </script>
+            <script type="text/html" id="currentTableBar">
+                <a class="layui-btn layui-btn-normal layui-btn-xs data-count-switch" lay-event="switch">切换状态</a>
+                <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
+                <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+            </script>
+        </div>
     </div>
-</div>
-<script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
-<script>
-    layui.use(['form', 'table'], function () {
-        var $ = layui.jquery,
-            form = layui.form,
-            table = layui.table;
 
-        table.render({
-            elem: '#currentTableId',
-            url: '../api/table.json',
-            toolbar: '#toolbarDemo',
-            defaultToolbar: ['filter', 'exports', 'print', {
-                title: '提示',
-                layEvent: 'LAYTABLE_TIPS',
-                icon: 'layui-icon-tips'
-            }],
-            cols: [[
-                {type: "checkbox", width: 50},
-                {field: 'id', width: 80, title: 'ID', sort: true},
-                {field: 'username', width: 80, title: '用户名'},
-                {field: 'sex', width: 80, title: '性别', sort: true},
-                {field: 'city', width: 80, title: '城市'},
-                {field: 'sign', title: '签名', minWidth: 150},
-                {field: 'experience', width: 80, title: '积分', sort: true},
-                {field: 'score', width: 80, title: '评分', sort: true},
-                {field: 'classify', width: 80, title: '职业'},
-                {field: 'wealth', width: 135, title: '财富', sort: true},
-                {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
-            ]],
-            limits: [10, 15, 20, 25, 50, 100],
-            limit: 15,
-            page: true,
-            skin: 'line'
-        });
+    <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+    <script>
+        layui.use(['form', 'table'], function () {
+            var $ = layui.jquery,
+                form = layui.form,
+                table = layui.table;
 
-        // 监听搜索操作
-        form.on('submit(data-search-btn)', function (data) {
-            var result = JSON.stringify(data.field);
-            layer.alert(result, {
-                title: '最终的搜索信息'
+            table.render({
+                elem: '#currentTableId',
+                title: '食品表',
+                url: 'http://localhost/table/all',
+                toolbar: '#toolbar',
+                defaultToolbar: ['filter', 'exports', 'print'],
+                cols: [[
+                    {
+                        field: 'image',
+                        width: 100,
+                        title: '餐桌图片',
+                        align: "center",
+                        templet: function (d) {
+                            return '<div onclick="show_img(this)" ><img src="' + d.image + '" alt="" width="50px" height="50px"></div>';
+                        }
+                    },
+                    {
+                        field: 'id',
+                        width: 150,
+                        title: '桌号',
+                        align: "center",
+                        sort: true
+                    },
+                    {
+                        field: 'seats',
+                        width: 150,
+                        title: '座数',
+                        align: "center",
+                        sort: true
+                    },
+                    {
+                        field: 'remark',
+                        width: 400,
+                        title: '备注',
+                        templet: function (d) {
+                            return '<div style="color:gray" >' + d.remark + '</div>';
+                        }
+                    },
+                    {
+                        field: 'state',
+                        width: 120,
+                        title: '状态',
+                        align: 'center',
+                        templet: function (d) {
+                            return "<button type='button' class='layui-btn "
+                                + (d.state === 0 ? "" : d.state === 1 ? "layui-btn-warm" : "layui-btn-primary")
+                                + " layui-btn-sm layui-btn-radius'>"
+                                + (d.state === 0 ? "空闲" : d.state === 1 ? "用餐中" : "未启用") + "</button>"
+                        },
+                        sort: true
+                    },
+                    {
+                        title: '操作',
+                        minWidth: 150,
+                        toolbar: '#currentTableBar',
+                        align: "center"
+                    }]],
+                page: false,
+                skin: 'row'
             });
 
-            //执行搜索重载
-            table.reload('currentTableId', {
-                page: {
-                    curr: 1
+            // toolbar监听事件
+            table.on('toolbar(currentTableFilter)', function (obj) {
+                if (obj.event === 'add') { // 监听添加按钮
+                    layer.open({
+                        title: '添加餐桌',
+                        type: 2,
+                        shade: 0.2,
+                        area: ['50%', '65%'],
+                        content: '../page/table/addTable.html'
+                    });
+                } else if (obj.event === 'enableAll') { // 监听全部启用按钮
+                    layer.confirm('将所有状态为【未启用】的餐桌切换至【空闲】',
+                        { title: false, btn: ['确定', '取消'] },
+                        function (index) {
+                            // 向服务器发送post请求
+                            $.get(
+                                'http://localhost/table/enableAll',
+                                function (rs) {
+                                    if (rs.code === 0) {
+                                        parent.layer.msg("启用成功！", { icon: 1 });
+                                        parent.layer.close(index);
+                                        window.location.reload();
+                                    } else {
+                                        layer.confirm('启用失败！')
+                                    }
+                                }
+                            );
+                        }
+                    );
                 }
-                , where: {
-                    searchParams: result
+            });
+
+            // tool监听事件
+            table.on('tool(currentTableFilter)', function (obj) {
+                let data = obj.data;
+                if (obj.event === 'edit') { // 监听编辑按钮
+                    layer.open({
+                        title: '修改餐桌信息',
+                        type: 2,
+                        shade: 0.2,
+                        area: ['50%', '70%'],
+                        content: '../page/table/editTable.html',
+                        success: function (layero, index) {
+                            var body = layer.getChildFrame('body', index);
+                            body.find("[name='id']").val(data.id);
+                            body.find("[name='seats']").val(data.seats);
+                            body.find("[name='remark']").val(data.remark);
+                            body.find("[name='image']").val(data.image);
+                        }
+                    });
+                    return false;
+                } else if (obj.event === 'delete') {
+                    layer.confirm('确定删除餐品：【' + data.name + '】？',
+                        { icon: 0, title: false, btn: ['删除', '取消'] },
+                        function (index) {
+                            // 向服务器发送post请求
+                            $.post(
+                                'http://localhost/table/delete',
+                                data,
+                                function (rs) {
+                                    if (rs.code === 0) {
+                                        parent.layer.msg("删除成功！", { icon: 1 });
+                                        parent.layer.close(index);
+                                        window.location.reload();
+                                    } else {
+                                        layer.msg("删除失败！", { icon: 2 });
+                                    }
+                                }
+                            );
+                        }
+                    );
+                } else if (obj.event === 'switch') {
+                    layer.open({
+                        title: '选择餐桌状态',
+                        type: 2,
+                        shade: 0.3,
+                        area: ['20%', '20%'],
+                        content: '../page/table/switchTableState.html',
+                        success: function (layero, index) {
+                            var body = layer.getChildFrame('body', index);
+                            body.find("[name='id']").val(data.id);
+                            body.find("[name='state']").val(data.state);
+                        }
+                    });
                 }
-            }, 'data');
+            });
 
-            return false;
-        });
-
-        /**
-         * toolbar监听事件
-         */
-        table.on('toolbar(currentTableFilter)', function (obj) {
-            if (obj.event === 'add') {  // 监听添加操作
-                var index = layer.open({
-                    title: '添加用户',
-                    type: 2,
-                    shade: 0.2,
-                    maxmin:true,
-                    shadeClose: true,
-                    area: ['100%', '100%'],
-                    content: '../page/table/add.html',
-                });
-                $(window).on("resize", function () {
-                    layer.full(index);
-                });
-            } else if (obj.event === 'delete') {  // 监听删除操作
-                var checkStatus = table.checkStatus('currentTableId')
-                    , data = checkStatus.data;
-                layer.alert(JSON.stringify(data));
+            // 放大显示图片
+            window.show_img = function (t) {
+                var t = $(t).find("img");
+                var src = $(t).attr('src');
+                var img = new Image();
+                img.onload = function () {
+                    var max_height = $(window).height() - 100;
+                    var max_width = $(window).width();
+                    var rate = Math.min(1, max_height / img.height, max_width / img.width);
+                    var imgHeight = img.height * rate;
+                    var imgWidth = img.width * rate;
+                    var imgHtml = "<img src='" + src + "' width='" + imgWidth + "px' height='" + imgHeight + "px'/>";
+                    layer.open({
+                        type: 1,
+                        title: false,
+                        closeBtn: 0,
+                        area: ['auto', 'auto'],
+                        skin: 'layui-layer-nobg',
+                        shadeClose: true,
+                        content: imgHtml
+                    });
+                }
+                img.src = src;
             }
         });
-
-        //监听表格复选框选择
-        table.on('checkbox(currentTableFilter)', function (obj) {
-            console.log(obj)
-        });
-
-        table.on('tool(currentTableFilter)', function (obj) {
-            var data = obj.data;
-            if (obj.event === 'edit') {
-
-                var index = layer.open({
-                    title: '编辑用户',
-                    type: 2,
-                    shade: 0.2,
-                    maxmin:true,
-                    shadeClose: true,
-                    area: ['100%', '100%'],
-                    content: '../page/table/edit.html',
-                });
-                $(window).on("resize", function () {
-                    layer.full(index);
-                });
-                return false;
-            } else if (obj.event === 'delete') {
-                layer.confirm('真的删除行么', function (index) {
-                    obj.del();
-                    layer.close(index);
-                });
-            }
-        });
-
-    });
-</script>
+    </script>
 
 </body>
+
 </html>

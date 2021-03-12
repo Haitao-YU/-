@@ -48,6 +48,7 @@ public class UserController {
     public String wxOauth(String encryptedData, String iv, String codes, HttpServletRequest request) {
         String appid = "wx9d22be6c217ba61f";
         String secret = "7783349bff07e1345065f48548b8b721";
+        System.out.println(encryptedData + " || " + iv + " || " + codes);
         Object res = getPhoneNumber(encryptedData, codes, iv, appid, secret);
         logger.info(request.toString());
         return res.toString();

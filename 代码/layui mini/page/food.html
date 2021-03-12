@@ -91,6 +91,9 @@
                         field: 'remark',
                         width: 120,
                         title: '备注',
+                        templet: function (d) {
+                            return '<div style="color:gray" >' + d.remark + '</div>';
+                        }
                     },
                     {
                         field: 'state',

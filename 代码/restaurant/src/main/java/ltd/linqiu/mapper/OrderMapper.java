@@ -1,6 +1,6 @@
 package ltd.linqiu.mapper;
 
-import ltd.linqiu.entity.Food;
+import ltd.linqiu.entity.Order;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -12,21 +12,19 @@ import java.util.List;
 
 @Mapper
 public interface OrderMapper {
-    @Select("select * from food")
-    List<Food> selectAll();
+    @Select("select * from order")
+    List<Order> selectAll();
 
-    @Select("select * from food where id = #{id}")
-    Food selectById(@Param("id") Integer id);
+    @Select("select * from order where phone = #{phone}")
+    List<Order> selectByPhone(@Param("phone") String  phone);
 
-    @Select("select * from food where type_id = #{typeId}")
-    List<Food> selectByTypeId(@Param("typeId") Integer typeId);
 
-    @Insert("insert into food(name,price,type_id,image) values (#{name},#{price},#{typeId},#{image})")
-    Integer insert(Food food);
+//    @Insert("insert into order() values (#{name},#{price},#{typeId},#{image})")
+//    Integer insert(Order order);
 
-    @Update("update food set name = #{name}, price = #{price}, type_id = #{typeId}, image = #{image} where id = #{id}")
-    Integer update(Food food);
-
-    @Delete("delete from food where id = #{id}")
-    Integer delete(Food food);
+//    @Update("update order set name = #{name}, price = #{price}, type_id = #{typeId}, image = #{image} where id = #{id}")
+//    Integer update(Order order);
+//
+//    @Delete("delete from order where id = #{id}")
+//    Integer delete(Order order);
 }

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>食物管理</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/public.css" media="all">
+    <style>
+        .tables {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .tip {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .my-table {
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            user-select: none;
+            cursor: pointer;
+            position: relative;
+            height: 150px;
+            width: 150px;
+            margin: 20px;
+            background: #fff;
+            border: lightgray solid 1px;
+            border-radius: 15%;
+            display: flex;
+            /* justify-content: center; */
+        }
+
+        .busy {
+            background: rgb(255, 184, 0);
+        }
+
+        .busy:hover {
+            border: rgb(255, 184, 0) solid 1px;
+            box-shadow: 0px 0px 10px 5px rgb(255, 184, 0);
+        }
+
+        .free {
+            background: rgb(0, 150, 136);
+        }
+
+        .free:hover {
+            border: rgb(0, 150, 136) solid 1px;
+            box-shadow: 0px 0px 10px 5px rgb(0, 150, 136);
+        }
+
+        .disable {
+            background: darkgray;
+        }
+
+        .disable:hover {
+            border: darkgray solid 1px;
+            box-shadow: 0px 0px 10px 5px darkgray;
+        }
+
+
+        .layui-elem-quote {
+            width: 100%;
+        }
+
+        .my-table img {
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            bottom: 10%;
+            left: 30%;
+        }
+
+        .table-id {
+            width: 25px;
+            height: 25px;
+            margin-top: 10px;
+            margin-left: 10px;
+            background: white;
+            color: gray;
+            border-radius: 50%;
+            display: flex;
+            font-weight: bold;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .table-seats {
+            position: absolute;
+            top: 30%;
+            width: 100%;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="layuimini-container">
+        <div class="layuimini-main">
+            <div class="tip">
+                <div style="width: 25px; height: 25px; background: rgb(0,150,136); border-radius: 15%; margin: 10px;">
+                </div>空闲
+                <div style="width: 25px; height: 25px; background: rgb(255,184,0); border-radius: 15%; margin: 10px;">
+                </div>用餐中
+                <div style="width: 25px; height: 25px; background: rgb(169,169,169); border-radius: 15%; margin: 10px;">
+                </div>未启用
+            </div>
+
+            <div class="tables">
+                <span v-for="(table, index) in server_table">
+                    <div :class="'my-table '+ (table.state===0?'free':(table.state===1?'busy':'disable'))"
+                        @click="clickTable(index)">
+                        <img src='../images/table.png' draggable="false">
+                        <div class="table-id">{{table.id}}</div>
+                        <div class="table-seats">{{table.seats}} 人座</div>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <script>
+        layui.use(['form', 'table'], function () {
+            var $ = layui.jquery,
+                form = layui.form,
+                table = layui.table;
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    server_table: null
+                },
+                mounted: function () {
+                    this.init();
+                },
+                methods: {
+                    init: function () {
+                        let vm = this;
+                        this.$http.get('http://localhost/table/all').then(
+                            (response) => {
+                                vm.$set(this, "server_table", response.body.data);
+                            },
+                            (response) => {
+                                layer.msg("初始化失败！", { icon: 2 });
+                            }
+                        );
+                    },
+                    clickTable: function (index) {
+                        let table = this.server_table[index];
+                        layer.msg(JSON.stringify(table))
+                    }
+
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>

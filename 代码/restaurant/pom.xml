@@ -64,10 +64,10 @@
             <version>1.46</version>
         </dependency>
 
-        <!-- 阿里fastjson包JSON转换-->
+        <!-- 阿里fastJson包JSON转换-->
         <dependency>
             <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
+                <artifactId>fastjson</artifactId>
             <version>1.2.47</version>
         </dependency>
     </dependencies>

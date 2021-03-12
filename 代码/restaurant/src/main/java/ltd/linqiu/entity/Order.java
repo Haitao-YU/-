@@ -1,38 +1,37 @@
 package ltd.linqiu.entity;
 
+import com.alibaba.fastjson.JSON;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.sql.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 @Data
+@AllArgsConstructor
 public class Order {
     private Integer id;
-    private String userPhone;
-    private Date date;
-    private String contentJson;
+    private String phone;
     private Map<Integer, Integer> content;
+    private Integer tableId;
+    private Integer numberOfDiners;
+    private Date date;
+    private Double discount;
+    private Double sum;
+    private Integer state;
+    private String remark;
 
-    public Order(Integer id, String userPhone, Date date, String contentJson) {
-        this.id = id;
-        this.userPhone = userPhone;
-        this.date = date;
-        this.contentJson = contentJson;
-    }
-
-    public Order(Integer id, String userPhone, Date date, Map<Integer, Integer> content) {
-        this.id = id;
-        this.userPhone = userPhone;
-        this.date = date;
-        this.content = content;
-    }
-
-    // contentObject 和 content 的智能互补填充
-    public void smartFill() {
-        if ((contentJson == null && content == null)) {
-            throw new RuntimeException("contentJson和content不可同时为空");
+    public static void main(String[] args) {
+        Map<Integer, Integer> content = new HashMap<>();
+        content.put(1, 2);
+        content.put(13, 2);
+        content.put(16, 8);
+        System.out.println(JSON.toJSONString(content));
+        Map<Integer,Integer> newContent = JSON.parseObject("{16:8,1:2,13:2}", Map.class);
+        for (Integer o : newContent.keySet()) {
+            System.out.println(o);
+            System.out.println(newContent.get(o));
         }
     }
-
-
 }

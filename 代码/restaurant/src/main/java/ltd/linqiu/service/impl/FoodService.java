@@ -5,6 +5,7 @@ import ltd.linqiu.entity.FoodType;
 import ltd.linqiu.front.OneOfMenu;
 import ltd.linqiu.mapper.FoodMapper;
 import ltd.linqiu.mapper.FoodTypeMapper;
+import ltd.linqiu.mapper.StoreInfoMapper;
 import ltd.linqiu.service.IFoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,8 @@ public class FoodService implements IFoodService {
     private FoodMapper foodMapper;
     @Autowired
     private FoodTypeMapper foodTypeMapper;
+    @Autowired
+    private StoreInfoMapper storeInfoMapper;
 
     @Override
     public List<Food> getAll() {
@@ -88,8 +91,7 @@ public class FoodService implements IFoodService {
             return null;
         }
         if (!(food.getImage() != null && food.getImage().trim().length() != 0)) {
-            food.setImage(
-                    "https://vkceyugu.cdn.bspapp.com/VKCEYUGU-b1ebbd3c-ca49-405b-957b-effe60782276/80b73b6d-a892-4a5c-9618-e80628b054a3.png");
+            food.setImage(storeInfoMapper.selectByName("餐品默认图片").get(0).getValue());
         }
         return food;
     }

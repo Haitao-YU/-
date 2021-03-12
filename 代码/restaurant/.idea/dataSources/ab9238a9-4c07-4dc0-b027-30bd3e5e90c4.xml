@@ -923,28 +923,32 @@
     <table id="232" parent="6" name="food_type">
       <Comment>餐品种类表</Comment>
     </table>
-    <table id="233" parent="6" name="order"/>
-    <table id="234" parent="6" name="store_info"/>
-    <table id="235" parent="6" name="user"/>
-    <column id="236" parent="230" name="id">
+    <table id="233" parent="6" name="line"/>
+    <table id="234" parent="6" name="order"/>
+    <table id="235" parent="6" name="store_info"/>
+    <table id="236" parent="6" name="table">
+      <Comment>餐桌表</Comment>
+    </table>
+    <table id="237" parent="6" name="user"/>
+    <column id="238" parent="230" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="237" parent="230" name="url">
+    <column id="239" parent="230" name="url">
       <Position>2</Position>
       <Comment>图片地址</Comment>
       <DataType>varchar(500)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="238" parent="230" name="PRIMARY">
+    <key id="240" parent="230" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="239" parent="231" name="id">
+    <column id="241" parent="231" name="id">
       <Position>1</Position>
       <Comment>餐品的ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -952,7 +956,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="240" parent="231" name="name">
+    <column id="242" parent="231" name="name">
       <Position>2</Position>
       <Comment>餐品名称</Comment>
       <DataType>varchar(50)|0s</DataType>
@@ -960,21 +964,21 @@
       <DefaultExpression>&apos;未命名&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="241" parent="231" name="price">
+    <column id="243" parent="231" name="price">
       <Position>3</Position>
       <Comment>餐品价格</Comment>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="242" parent="231" name="type_id">
+    <column id="244" parent="231" name="type_id">
       <Position>4</Position>
       <Comment>餐品所属种类</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="231" name="image">
+    <column id="245" parent="231" name="image">
       <Position>5</Position>
       <Comment>餐品的图片在线链接</Comment>
       <DataType>varchar(500)|0s</DataType>
@@ -982,7 +986,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="231" name="monthlySales">
+    <column id="246" parent="231" name="monthlySales">
       <Position>6</Position>
       <Comment>本月销量</Comment>
       <DataType>int(11)|0s</DataType>
@@ -990,7 +994,7 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="231" name="remark">
+    <column id="247" parent="231" name="remark">
       <Position>7</Position>
       <Comment>商品备注</Comment>
       <DataType>varchar(500)|0s</DataType>
@@ -998,7 +1002,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="231" name="state">
+    <column id="248" parent="231" name="state">
       <Position>8</Position>
       <Comment>餐品状态: 0(在售), 1(售罄), 2(下架)</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1006,49 +1010,90 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="247" parent="231" name="food_food_type_id_fk">
+    <index id="249" parent="231" name="food_food_type_id_fk">
       <ColNames>type_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="248" parent="231" name="PRIMARY">
+    <key id="250" parent="231" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="249" parent="231" name="food_food_type_id_fk">
+    <foreign-key id="251" parent="231" name="food_food_type_id_fk">
       <ColNames>type_id</ColNames>
       <RefTableName>food_type</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="250" parent="232" name="id">
+    <column id="252" parent="232" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="251" parent="232" name="name">
+    <column id="253" parent="232" name="name">
       <Position>2</Position>
       <Comment>种类名称</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="252" parent="232" name="food_type_name_uindex">
+    <index id="254" parent="232" name="food_type_name_uindex">
       <ColNames>name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="253" parent="232" name="PRIMARY">
+    <key id="255" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="254" parent="232" name="food_type_name_uindex">
+    <key id="256" parent="232" name="food_type_name_uindex">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>food_type_name_uindex</UnderlyingIndexName>
     </key>
-    <column id="255" parent="233" name="id">
+    <column id="257" parent="233" name="phone">
+      <Position>1</Position>
+      <Comment>排队顾客的手机号码</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="258" parent="233" name="serialNumber">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="259" parent="233" name="mealsNumber">
+      <Position>3</Position>
+      <Comment>就餐人数</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="260" parent="233" name="date">
+      <Position>4</Position>
+      <Comment>开始排队的时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="261" parent="233" name="line_serialNumber_uindex">
+      <ColNames>serialNumber</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="262" parent="233" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>phone</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="263" parent="233" name="line_serialNumber_uindex">
+      <ColNames>serialNumber</ColNames>
+      <UnderlyingIndexName>line_serialNumber_uindex</UnderlyingIndexName>
+    </key>
+    <column id="264" parent="234" name="id">
       <Position>1</Position>
       <Comment>订单ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1056,61 +1101,89 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="233" name="userPhone">
+    <column id="265" parent="234" name="phone">
       <Position>2</Position>
       <Comment>用户的电话号码</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="233" name="date">
+    <column id="266" parent="234" name="content">
       <Position>3</Position>
-      <Comment>订单的创建时间</Comment>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="258" parent="233" name="content">
-      <Position>4</Position>
       <Comment>点餐内容</Comment>
       <DataType>varchar(500)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="233" name="total">
+    <column id="267" parent="234" name="tableId">
+      <Position>4</Position>
+      <Comment>桌号</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="268" parent="234" name="numberOfDiners">
       <Position>5</Position>
-      <Comment>总金额</Comment>
+      <Comment>用餐人数</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="233" name="discount">
+    <column id="269" parent="234" name="date">
       <Position>6</Position>
-      <DataType>int(11)|0s</DataType>
+      <Comment>订单的创建时间</Comment>
+      <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>10</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="261" parent="233" name="PRIMARY">
+    <column id="270" parent="234" name="discount">
+      <Position>7</Position>
+      <Comment>折扣</Comment>
+      <DataType>double|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>1</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="271" parent="234" name="sum">
+      <Position>8</Position>
+      <Comment>总金额</Comment>
+      <DataType>double|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="272" parent="234" name="state">
+      <Position>9</Position>
+      <Comment>订单状态：0（创建成功，已支付,开始上菜），1（上菜完成），2（用餐完成）</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="273" parent="234" name="remark">
+      <Position>10</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(500)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="274" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="262" parent="234" name="id">
+    <column id="275" parent="235" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="234" name="name">
+    <column id="276" parent="235" name="name">
       <Position>2</Position>
       <Comment>信息名称</Comment>
       <DataType>varchar(500)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="234" name="value">
+    <column id="277" parent="235" name="value">
       <Position>3</Position>
       <Comment>信息内容</Comment>
       <DataType>varchar(500)|0s</DataType>
@@ -1118,42 +1191,86 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="265" parent="234" name="PRIMARY">
+    <key id="278" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="266" parent="235" name="id">
+    <column id="279" parent="236" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="280" parent="236" name="seats">
+      <Position>2</Position>
+      <Comment>座位数</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="281" parent="236" name="state">
+      <Position>3</Position>
+      <Comment>餐桌状态：0（空闲），1（被占用），2（未启用）</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>2</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="282" parent="236" name="image">
+      <Position>4</Position>
+      <Comment>餐桌图片</Comment>
+      <DataType>varchar(500)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="283" parent="236" name="remark">
+      <Position>5</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(500)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="284" parent="236" name="orderId">
+      <Position>6</Position>
+      <Comment>正在进行的订单</Comment>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="285" parent="236" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="286" parent="237" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="267" parent="235" name="phone">
+    <column id="287" parent="237" name="phone">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="268" parent="235" name="state">
+    <column id="288" parent="237" name="state">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="269" parent="235" name="user_phone_uindex">
+    <index id="289" parent="237" name="user_phone_uindex">
       <ColNames>phone</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="270" parent="235" name="PRIMARY">
+    <key id="290" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="271" parent="235" name="user_phone_uindex">
+    <key id="291" parent="237" name="user_phone_uindex">
       <ColNames>phone</ColNames>
       <UnderlyingIndexName>user_phone_uindex</UnderlyingIndexName>
     </key>
