@@ -47,7 +47,7 @@
             table.render({
                 elem: '#currentTableId',
                 title: '食品表',
-                url: 'http://localhost/table/all',
+                url: 'http://linqiu.ltd/table/all',
                 toolbar: '#toolbar',
                 defaultToolbar: ['filter', 'exports', 'print'],
                 cols: [[
@@ -62,15 +62,22 @@
                     },
                     {
                         field: 'id',
-                        width: 150,
+                        width: 120,
                         title: '桌号',
                         align: "center",
                         sort: true
                     },
                     {
                         field: 'seats',
-                        width: 150,
-                        title: '座数',
+                        width: 120,
+                        title: '座位数',
+                        align: "center",
+                        sort: true
+                    },
+                    {
+                        field: 'position',
+                        width: 120,
+                        title: '所在位置',
                         align: "center",
                         sort: true
                     },
@@ -112,7 +119,7 @@
                         title: '添加餐桌',
                         type: 2,
                         shade: 0.2,
-                        area: ['50%', '65%'],
+                        area: ['50%', '75%'],
                         content: '../page/table/addTable.html'
                     });
                 } else if (obj.event === 'enableAll') { // 监听全部启用按钮
@@ -121,7 +128,7 @@
                         function (index) {
                             // 向服务器发送post请求
                             $.get(
-                                'http://localhost/table/enableAll',
+                                'http://linqiu.ltd/table/enableAll',
                                 function (rs) {
                                     if (rs.code === 0) {
                                         parent.layer.msg("启用成功！", { icon: 1 });
@@ -145,14 +152,16 @@
                         title: '修改餐桌信息',
                         type: 2,
                         shade: 0.2,
-                        area: ['50%', '70%'],
+                        area: ['50%', '80%'],
                         content: '../page/table/editTable.html',
                         success: function (layero, index) {
                             var body = layer.getChildFrame('body', index);
                             body.find("[name='id']").val(data.id);
                             body.find("[name='seats']").val(data.seats);
+                            body.find("[name='position']").val(data.position);
                             body.find("[name='remark']").val(data.remark);
                             body.find("[name='image']").val(data.image);
+
                         }
                     });
                     return false;
@@ -162,7 +171,7 @@
                         function (index) {
                             // 向服务器发送post请求
                             $.post(
-                                'http://localhost/table/delete',
+                                'http://linqiu.ltd/table/delete',
                                 data,
                                 function (rs) {
                                     if (rs.code === 0) {

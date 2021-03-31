@@ -16,7 +16,15 @@
             flex-wrap: wrap;
         }
 
-        .tip {
+        .head {
+            width: 100%;
+        }
+
+        .head .stat {
+            width: 100%;
+        }
+
+        .head .tip {
             width: 100%;
             display: flex;
             align-items: center;
@@ -35,7 +43,6 @@
             border: lightgray solid 1px;
             border-radius: 15%;
             display: flex;
-            /* justify-content: center; */
         }
 
         .busy {
@@ -107,13 +114,26 @@
 <body>
     <div id="app" class="layuimini-container">
         <div class="layuimini-main">
-            <div class="tip">
-                <div style="width: 25px; height: 25px; background: rgb(0,150,136); border-radius: 15%; margin: 10px;">
-                </div>空闲
-                <div style="width: 25px; height: 25px; background: rgb(255,184,0); border-radius: 15%; margin: 10px;">
-                </div>用餐中
-                <div style="width: 25px; height: 25px; background: rgb(169,169,169); border-radius: 15%; margin: 10px;">
-                </div>未启用
+
+            <div class="head">
+                <div class="stat">
+                    正在用餐总人数：
+                    被占用桌数：
+                    空闲桌数：
+                </div>
+                <hr class="layui-bg-gray" />
+                <div class="tip">
+                    <div
+                        style="width: 25px; height: 25px; background: rgb(0,150,136); border-radius: 15%; margin: 10px;">
+                    </div>空闲
+                    <div
+                        style="width: 25px; height: 25px; background: rgb(255,184,0); border-radius: 15%; margin: 10px;">
+                    </div>用餐中
+                    <div
+                        style="width: 25px; height: 25px; background: rgb(169,169,169); border-radius: 15%; margin: 10px;">
+                    </div>未启用
+                </div>
+
             </div>
 
             <div class="tables">
@@ -148,7 +168,7 @@
                 methods: {
                     init: function () {
                         let vm = this;
-                        this.$http.get('http://localhost/table/all').then(
+                        this.$http.get('http://linqiu.ltd/table/all').then(
                             (response) => {
                                 vm.$set(this, "server_table", response.body.data);
                             },

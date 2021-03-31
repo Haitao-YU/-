@@ -47,14 +47,15 @@
                     layer.confirm('确认添加？', { icon: 3, title: false }, function (index) {
                         // 向服务器发送post请求
                         $.post(
-                            'http://localhost/foodType/add',
+                            'http://linqiu.ltd/foodType/add',
                             data.field,
                             function (rs) {
                                 if (rs.code === 0) {
+                                    parent.parent.parent.layer.msg("添加成功！", { icon: 1, time: 500 });
                                     parent.layer.close(parent.layer.getFrameIndex(window.name));
                                     window.parent.location.reload();
                                 } else {
-                                    layer.msg("添加失败", { icon: 2 });
+                                    layer.msg("添加失败，该种类名称已存在！", { icon: 2, time: 500 });
                                 }
                             }
                         );

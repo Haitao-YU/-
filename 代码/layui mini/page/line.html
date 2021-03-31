@@ -58,7 +58,7 @@
             table.render({
                 elem: '#currentTableId',
                 title: '食品表',
-                url: 'http://localhost/line/all',
+                url: 'http://linqiu.ltd/line/all',
                 cols: [[
                     {
                         field: 'serialNumber',
@@ -132,7 +132,7 @@
                         function (index) {
                             // 向服务器发送post请求
                             $.post(
-                                'http://localhost/food/delete',
+                                'http://linqiu.ltd/food/delete',
                                 data,
                                 function (rs) {
                                     if (rs.code === 0) {

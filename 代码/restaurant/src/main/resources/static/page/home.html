@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>首页</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/public.css" media="all">
+    <link rel="stylesheet" href="../css/home.css" media="all">
+</head>
+
+<body>
+    <div id="app" class="app">
+
+        <!-- 门店信息 -->
+        <div class="block store-info">
+            <div class="head">
+                <div class="title">门店信息</div>
+            </div>
+            <div class="content">
+                <div class="left">
+                    <img src="../images/store.png">
+                    <div @click="openStoreInfo" class="cover-layer">打开设置</div>
+                </div>
+                <div class="right">
+                    <div class="name" v-if="server_storeName!==null">{{server_storeName}}</div>
+                    <div class="state" v-if="server_storeState!==null">状态 : {{server_storeState}}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 快捷功能 -->
+        <div class="block quick-function">
+            <div class="head">
+                <div class="title">快捷功能</div>
+            </div>
+            <div class="content">
+
+                <div class="function-button" @click="openLineManager" style="background-color: rgb(136,193,62);">
+                    <img src="../images/叫号.png">
+                    <div class="label">叫号</div>
+                </div>
+                <div class="function-button" style="background-color: rgb(245,173,52);">
+                    <img src="../images/账单.png">
+                    <div class="label">账单</div>
+                </div>
+                <div @click="onOff" class="function-button" style="background-color: rgb(253,103,112);">
+                    <img src="../images/开关.png">
+                    <div class="label">开关店</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 桌台数据 -->
+        <div class="block table-data">
+            <div class="head">
+                <div class="title">桌台数据</div>
+            </div>
+            <div class="content" v-if="server_tableStateCount!==null" style="cursor: pointer;"
+                @click="openTableManager">
+                <div class="table-info">
+                    <div class="num">{{server_tableStateCount[0]}}</div>
+                    <div class="lable">空闲桌数</div>
+                </div>
+                <div class="gap"></div>
+                <div class="table-info">
+                    <div class="num">{{server_tableStateCount[1]}}</div>
+                    <div class="lable">用餐桌数</div>
+                </div>
+                <div class="gap"></div>
+                <div class="table-info">
+                    <div class="num">{{server_tableStateCount[2]}}</div>
+                    <div class="lable">全部桌数</div>
+                </div>
+                <div class="gap"></div>
+                <div class="table-info">
+                    <div class="num">{{server_tableStateCount[3]}}</div>
+                    <div class="lable">开启桌数</div>
+                </div>
+                <div class="gap"></div>
+                <div class="table-info">
+                    <div class="num">{{server_tableStateCount[4]}}</div>
+                    <div class="lable">停用桌数</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 桌台模式 -->
+        <div class="block" style="width: 100%;">
+            <div class="head">
+                <div class="title">桌台模式</div>
+            </div>
+
+            <div class="classify">
+                <li>所在位置 : <span :class="active_index_0===-1?'option active':'option'" @click="setIndex(0,-1)">全部</span>
+                    <span v-for="(position, index) in server_positionList" @click="setIndex(0,index)"
+                        :class="active_index_0===index?'option active':'option'">{{ position }}</span>
+                </li>
+                <li>桌台容量 : <span :class="active_index_1===-1?'option active':'option'" @click="setIndex(1,-1)">全部</span>
+                    <span v-for=" (seats, index) in server_seatsList" @click="setIndex(1,index)"
+                        :class="active_index_1===index?'option active':'option'">{{ seats }}人</span>
+                </li>
+                <li>桌台状态 : <span :class="active_index_2===-1?'option active':'option'" @click="setIndex(2,-1)">全部</span>
+                    <span :class="active_index_2===0?'option active':'option'" @click="setIndex(2,0)">空闲</span>
+                    <span :class="active_index_2===1?'option active':'option'" @click="setIndex(2,1)">用餐</span>
+                    <span :class="active_index_2===2?'option active':'option'" @click="setIndex(2,2)">维修</span>
+                </li>
+            </div>
+
+            <div class="color-tips">
+                <div style="width: 25px; height: 25px; background: rgb(0,150,136); border-radius: 15%; margin: 10px;">
+                </div>空闲
+                <div style="width: 25px; height: 25px; background: rgb(255,184,0); border-radius: 15%; margin: 10px;">
+                </div>用餐
+                <div style="width: 25px; height: 25px; background: rgb(169,169,169); border-radius: 15%; margin: 10px;">
+                </div>维修
+            </div>
+
+            <div class="tables">
+                <div v-for="(table, index) in server_table" v-if="server_table!=null">
+                    <div v-if="tableFiliter(index)"
+                        :class="'my-table '+ (table.state===0?'free':(table.state===1?'busy':'disable'))"
+                        @click="clickTable(index)">
+                        <div class="top">
+                            <img :src="table.state===2?'../images/维修.png':'../images/茶杯.png'">
+                            <div class="table-id">{{table.id}}桌</div>
+                        </div>
+                        <div class="bottom">
+                            <div class="table-position">
+                                {{table.position}}
+                            </div>
+                            <div class="table-seats">
+                                {{table.seats}}人桌
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <script>
+        layui.use(['form', 'table'], function () {
+            var $ = layui.jquery,
+                form = layui.form,
+                table = layui.table;
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    // 本地定义数据
+                    active_index_0: -1,
+                    active_index_1: -1,
+                    active_index_2: -1,
+                    // 服务端数据
+                    server_table: null,
+                    server_tableStateCount: null,
+                    server_storeName: null,
+                    server_storeState: null,
+                    server_positionList: null,
+                    server_seatsList: null,
+                },
+                created: function () {
+                    this.init();
+                },
+                methods: {
+                    init: function () {
+                        this.$http.get('http://linqiu.ltd/table/stateCount').then(
+                            (response) => {
+                                this.$ATD(this, "server_tableStateCount", response.body.data);
+                            },
+                            (response) => {
+                                layer.msg("初始化失败！", { icon: 2, time: 500 });
+                            }
+                        );
+                        this.$http.get('http://linqiu.ltd/table/all').then(
+                            (response) => {
+                                this.$ATD(this, "server_table", response.body.data);
+                            },
+                            (response) => {
+                                layer.msg("初始化失败！", { icon: 2, time: 500 });
+                            }
+                        );
+                        this.$http.get('http://linqiu.ltd/storeInfo/店铺名称').then(
+                            (response) => {
+                                this.$ATD(this, "server_storeName", response.body.data.value);
+                            },
+                            (response) => {
+                                layer.msg("初始化失败！", { icon: 2, time: 500 });
+                            }
+                        );
+                        this.$http.get('http://linqiu.ltd/storeInfo/状态').then(
+                            (response) => {
+                                this.$ATD(this, "server_storeState", response.body.data.value);
+                            },
+                            (response) => {
+                                layer.msg("初始化失败！", { icon: 2, time: 500 });
+                            }
+                        );
+                        this.$http.get('http://linqiu.ltd/table/classify').then(
+                            (response) => {
+                                this.$ATD(this, "server_positionList", response.body.data.positionList);
+                                this.$ATD(this, "server_seatsList", response.body.data.seatsList);
+                            },
+                            (response) => {
+                                layer.msg("初始化失败！", { icon: 2, time: 500 });
+                            }
+                        );
+                    },
+                    onOff: function () {
+                        let msg = this.server_storeState === "营业中" ? "关闭" : "打开";
+                        layer.confirm('确定' + msg + '店铺？',
+                            { icon: 0, title: false, btn: ['确定', '取消'] },
+                            function (index) {
+                                this.$http.get('http://linqiu.ltd/storeInfo/onOff').then(
+                                    (response) => {
+                                        let code = response.body.code;
+                                        if (code === 0) {
+                                            this.$ATD(this, "server_storeState", response.body.data.value);
+                                            parent.layer.msg(msg + "成功！", { icon: 1, time: 500 });
+                                            layer.closeAll('dialog');
+                                        } else {
+                                            layer.msg("操作失败", { icon: 2, time: 500 });
+                                        }
+                                    },
+                                    (response) => {
+                                        layer.msg("连接服务器失败", { icon: 2, time: 500 });
+                                    }
+                                );
+                            }
+                        );
+
+                    },
+                    clickTable: function (index) {
+                        let table = this.server_table[index];
+                        layer.msg(JSON.stringify(table), { time: 500 })
+                    },
+                    openTableManager: function () {
+                        layer.open({
+                            title: '餐桌管理',
+                            type: 2,
+                            shade: 0.2,
+                            maxmin: true,
+                            shadeClose: true,
+                            area: ['98%', '90%'],
+                            content: '../page/table.html'
+                        });
+                    },
+                    openLineManager: function () {
+                        layer.open({
+                            title: '排队队列',
+                            type: 2,
+                            shade: 0.2,
+                            maxmin: true,
+                            shadeClose: true,
+                            area: ['98%', '90%'],
+                            content: '../page/line.html'
+                        });
+                    },
+                    openStoreInfo: function () {
+                        layer.open({
+                            title: '店铺设置',
+                            type: 2,
+                            shade: 0.2,
+                            maxmin: true,
+                            shadeClose: true,
+                            area: ['98%', '90%'],
+                            content: '../page/storeInfo.html'
+                        });
+                    },
+                    setIndex: function (index, value) {
+                        switch (index) {
+                            case 0:
+                                this.$ATD(this, "active_index_0", value);
+                                break;
+                            case 1:
+                                this.$ATD(this, "active_index_1", value);
+                                break;
+                            case 2:
+                                this.$ATD(this, "active_index_2", value);
+                                break;
+                        }
+                    },
+                    tableFiliter(index) {
+                        let table = this.server_table[index];
+                        if (this.active_index_0 !== -1) {
+                            if (table.position !== this.server_positionList[this.active_index_0]) {
+                                return false;
+                            }
+                        }
+                        if (this.active_index_1 !== -1) {
+                            if (table.seats !== this.server_seatsList[this.active_index_1]) {
+                                return false;
+                            }
+                        }
+                        if (this.active_index_2 !== -1) {
+                            if (table.state !== this.active_index_2) {
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>

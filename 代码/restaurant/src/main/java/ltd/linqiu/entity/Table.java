@@ -4,8 +4,9 @@ import lombok.Data;
 
 @Data
 public class Table {
-    private Integer id;
+    private String id;
     private Integer seats;
+    private String position;
     private Integer state;
     private String image;
     private String remark;

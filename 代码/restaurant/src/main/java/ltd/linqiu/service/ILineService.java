@@ -5,14 +5,19 @@ import ltd.linqiu.entity.Line;
 import java.util.List;
 
 public interface ILineService {
+    List<Integer> getMealsNumberOption();
 
     List<Line> getAll();
 
-    Integer getSerialNumberByPhone(String phone);
+    List<Line> getListByMealsNumber(Integer mealsNumb);
+
+    Line getByPhone(String phone);
 
     Line enqueue(Line in);
 
     Line cancelEnqueue(Line in);
 
-    Line dequeue();
+    Line dequeue(Integer mealsNumber);
+
+
 }

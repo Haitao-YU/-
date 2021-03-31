@@ -9,11 +9,17 @@ public interface ITableService {
 
     Integer add(Table table);
 
-    Integer switchState(Integer id, Integer state);
+    Integer switchState(String id, Integer state);
 
     Integer modifyById(Table table);
 
     Integer deleteById(Table table);
 
     boolean enableAll();
+
+    List<Integer> stateCount();
+
+    List<String> getAllPosition();
+
+    List<Integer> getAllSeats();
 }

@@ -28,26 +28,33 @@
         </div>
 
         <div class="layui-form-item">
-            <label class="layui-form-label required">座数</label>
+            <label class="layui-form-label required">座位数</label>
             <div class="layui-input-block">
-                <input type="text" name="seats" lay-verify="required" lay-reqtext="名称不能为空" placeholder="请输入" value=""
-                    class="layui-input">
+                <input type="text" name="seats" lay-verify="required" lay-reqtext="座位数不能为空" class="layui-input">
                 <tip>该号桌子可供几名顾客用餐</tip>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">位置</label>
+            <div class="layui-input-block">
+                <input type="text" name="position" lay-verify="required" lay-reqtext="位置不能为空" class="layui-input">
+                <tip>餐桌所在位置</tip>
             </div>
         </div>
 
         <div class="layui-form-item">
             <label class="layui-form-label">图片</label>
             <div class="layui-input-block">
-                <input type="text" name="image" placeholder="请输入图片的图床链接" value="" class="layui-input">
-                <tip>可选，为空则采用默认图片</tip>
+                <input type="text" name="image" class="layui-input">
+                <tip>可选，输入图片的图床链接,为空则采用默认图片</tip>
             </div>
         </div>
 
         <div class="layui-form-item">
             <label class="layui-form-label">备注</label>
             <div class="layui-input-block">
-                <input type="text" name="remark" placeholder="请输入" value="" class="layui-input">
+                <input type="text" name="remark" class="layui-input">
                 <tip>可选，关于该餐桌的一些说明</tip>
             </div>
         </div>
@@ -69,7 +76,7 @@
             form.on('submit(saveBtn)', function (data) {
                 console.log(data.field);
                 $.post(
-                    'http://localhost/table/edit',
+                    'http://linqiu.ltd/table/edit',
                     data.field,
                     function (rs) {
                         if (rs.code === 0) {

@@ -44,4 +44,22 @@ public class StoreInfoService implements IStoreInfoService {
     public Integer modify(StoreInfo storeInfo) {
         return storeInfoMapper.update(storeInfo);
     }
+
+    @Override
+    public StoreInfo onOff() {
+        List<StoreInfo> before = storeInfoMapper.selectByName("状态");
+        if (before.size() > 0) {
+            StoreInfo state = before.get(0);
+            if (state.getValue().equals("营业中")){
+                state.setValue("已打烊");
+            }else {
+                state.setValue("营业中");
+            }
+            storeInfoMapper.update(state);
+            return state;
+        }else{
+            return null;
+        }
+
+    }
 }

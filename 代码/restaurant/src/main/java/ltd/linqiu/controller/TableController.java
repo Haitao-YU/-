@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -47,7 +48,7 @@ public class TableController {
 
     @PostMapping("/switchState")
     public CommonResult<Integer> switchState(@RequestParam Map<String, String> data) {
-        if (tableService.switchState(Integer.parseInt(data.get("id")), Integer.parseInt(data.get("state"))) == 1) {
+        if (tableService.switchState(data.get("id"), Integer.parseInt(data.get("state"))) == 1) {
             return new CommonResult<>(0, "修改成功！");
         } else {
             return new CommonResult<>(400, "修改失败！");
@@ -63,6 +64,16 @@ public class TableController {
         }
     }
 
+    @GetMapping("/stateCount")
+    public CommonResult<List<Integer>> stateCount() {
+        List<Integer> ret = tableService.stateCount();
+        if (ret != null && ret.size() == 5) {
+            return new CommonResult<>(0, ret, "获取餐桌状态统计成功！");
+        } else {
+            return new CommonResult<>(400, "获取餐桌状态统计失败！");
+        }
+    }
+
 
     @PostMapping("/delete")
     public CommonResult<Integer> delete(Table data) {
@@ -70,6 +81,20 @@ public class TableController {
             return new CommonResult<>(0, "删除成功！");
         } else {
             return new CommonResult<>(400, "删除失败！");
+        }
+    }
+
+    @GetMapping("/classify")
+    public CommonResult<Map<String, Object>> classify() {
+        Map<String, Object> ret = new HashMap<>();
+        List<String> positionList = tableService.getAllPosition();
+        List<Integer> seatsList = tableService.getAllSeats();
+        if (positionList != null && seatsList != null) {
+            ret.put("positionList", positionList);
+            ret.put("seatsList", seatsList);
+            return new CommonResult<>(0, ret, "获取餐桌状态统计成功！");
+        } else {
+            return new CommonResult<>(400, "获取餐桌状态统计失败！");
         }
     }
 }

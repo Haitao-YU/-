@@ -1,0 +1,156 @@
+ .app {
+     display: flex;
+     flex-wrap: wrap
+ }
+
+ .block {
+     background: white;
+     border-radius: 10px;
+     margin-block: 10px;
+     margin-right: 30px;
+ }
+
+ .block .head {
+     width: 100%;
+     border-bottom: lightgray solid 1px;
+ }
+
+ .block .head .title {
+     padding-top: 10px;
+     padding-left: 15px;
+     padding-bottom: 5px;
+ }
+
+ .block .content {
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .table-data {
+     width: 40%;
+ }
+
+ .table-data .table-info {
+     height: 120px;
+     width: 20%;
+     display: flex;
+     align-items: center;
+     text-align: center;
+     flex-wrap: wrap;
+ }
+
+ .table-data .gap {
+     width: 1px;
+     height: 50px;
+     background: lightgray;
+ }
+
+ .table-data .table-info .num {
+     width: 100%;
+     font-size: 24px;
+     font-weight: bold;
+     padding-top: 30px;
+ }
+
+ .table-data .table-info .lable {
+     width: 100%;
+     padding-bottom: 30px;
+     color: gray;
+ }
+
+
+ /* 餐桌图像模块 */
+ .tables {
+     width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+ }
+
+
+ .color-tips {
+     width: 100%;
+     display: flex;
+     align-items: center;
+     margin-left: 10px;
+ }
+
+ .my-table {
+     -moz-user-select: none;
+     -khtml-user-select: none;
+     user-select: none;
+     cursor: pointer;
+     position: relative;
+     height: 150px;
+     width: 150px;
+     margin: 20px;
+     background: #fff;
+     border: lightgray solid 1px;
+     border-radius: 15%;
+     display: flex;
+ }
+
+ .busy {
+     background: rgb(255, 184, 0);
+ }
+
+ .busy:hover {
+     border: rgb(255, 184, 0) solid 1px;
+     box-shadow: 0px 0px 10px 5px rgb(255, 184, 0);
+ }
+
+ .free {
+     background: rgb(0, 150, 136);
+ }
+
+ .free:hover {
+     border: rgb(0, 150, 136) solid 1px;
+     box-shadow: 0px 0px 10px 5px rgb(0, 150, 136);
+ }
+
+ .disable {
+     background: darkgray;
+ }
+
+ .disable:hover {
+     border: darkgray solid 1px;
+     box-shadow: 0px 0px 10px 5px darkgray;
+ }
+
+
+ .layui-elem-quote {
+     width: 100%;
+ }
+
+ .my-table img {
+     position: absolute;
+     width: 40%;
+     height: 40%;
+     bottom: 10%;
+     left: 30%;
+ }
+
+ .table-id {
+     width: 25px;
+     height: 25px;
+     margin-top: 10px;
+     margin-left: 10px;
+     background: white;
+     color: gray;
+     border-radius: 50%;
+     display: flex;
+     font-weight: bold;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .table-seats {
+     position: absolute;
+     top: 30%;
+     width: 100%;
+     font-weight: bold;
+     font-size: 18px;
+     text-align: center;
+     color: white;
+ }

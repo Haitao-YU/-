@@ -19,25 +19,24 @@
 <body>
     <div class="layuimini-container">
         <div class="layuimini-main">
+            <!-- 方法渲染数据表格 -->
+            <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
             <script type="text/html" id="toolbar">
                 <div class="layui-btn-container">
                     <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>
                 </div>
             </script>
-
-            <!-- 方法渲染数据表格 -->
-            <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
-
             <script type="text/html" id="currentTableBar">
-                <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
+                <a class="layui-btn layui-btn-normal layui-btn-xs data-count-switch" lay-event="switch">切换状态</a>
+                <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">修改信息</a>
                 <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
             </script>
-
         </div>
     </div>
 
     <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
     <script>
+
         layui.use(['form', 'table'], function () {
             var $ = layui.jquery,
                 form = layui.form,
@@ -46,53 +45,76 @@
             table.render({
                 elem: '#currentTableId',
                 title: '食品表',
-                url: 'http://localhost/food/all',
+                url: 'http://linqiu.ltd/food/all',
                 toolbar: '#toolbar',
                 defaultToolbar: ['filter', 'exports', 'print'],
-                cols: [[{
-                    field: 'id',
-                    width: 65,
-                    title: 'ID',
-                    align: "center",
-                    sort: true
-                },
-                {
-                    field: 'image',
-                    width: 100,
-                    title: '图片',
-                    align: "center",
-                    templet: function (d) {
-                        return '<div onclick="show_img(this)" ><img src="' + d.image + '" alt="" width="50px" height="50px"></div>';
-                    }
-                },
-                {
-                    field: 'name',
-                    width: 350,
-                    title: '名称',
-                    align: "center",
-                    sort: true
-                },
-                {
-                    field: 'typeName',
-                    width: 350,
-                    title: '分类',
-                    align: "center",
-                    sort: true
-                },
+                cols: [[
 
-                {
-                    field: 'price',
-                    width: 120,
-                    title: '价格(元)',
-                    align: "center",
-                    sort: true
-                },
-                {
-                    title: '操作',
-                    minWidth: 150,
-                    toolbar: '#currentTableBar',
-                    align: "center"
-                }]],
+                    {
+                        field: 'image',
+                        width: 100,
+                        title: '餐品图片',
+                        align: "center",
+                        templet: function (d) {
+                            return '<div onclick="show_img(this)" ><img src="' + d.image + '" alt="" width="50px" height="50px"></div>';
+                        }
+                    },
+                    {
+                        field: 'name',
+                        width: 200,
+                        title: '名称',
+                        align: "center",
+                        sort: true
+                    },
+
+                    {
+                        field: 'typeName',
+                        width: 200,
+                        title: '分类',
+                        align: "center",
+                        sort: true
+                    },
+                    {
+                        field: 'price',
+                        width: 100,
+                        title: '价格(元)',
+                        align: "center",
+                        sort: true
+                    },
+                    {
+                        field: 'monthlySales',
+                        width: 100,
+                        title: '月售数',
+                        align: "center",
+                        sort: true
+                    },
+                    {
+                        field: 'remark',
+                        width: 120,
+                        title: '备注',
+                        templet: function (d) {
+                            return '<div style="color:gray" >' + d.remark + '</div>';
+                        }
+                    },
+                    {
+                        field: 'state',
+                        width: 120,
+                        title: '状态',
+                        align: 'center',
+                        templet: function (d) {
+                            return "<button type='button' class='layui-btn "
+                                + (d.state === 0 ? "" : d.state === 1 ? "layui-btn-primary" : "layui-btn-danger")
+                                + " layui-btn-sm layui-btn-radius'>"
+                                + (d.state === 0 ? "在售" : d.state === 1 ? "售罄" : "下架") + "</button>"
+                        },
+                        sort: true
+                    },
+                    {
+                        title: '操作',
+                        minWidth: 150,
+                        toolbar: '#currentTableBar',
+                        align: "center"
+                    }]],
                 page: false,
                 skin: 'row'
             });
@@ -100,15 +122,12 @@
             // toolbar监听事件
             table.on('toolbar(currentTableFilter)', function (obj) {
                 if (obj.event === 'add') { // 监听添加按钮
-                    var index = layer.open({
-                        title: '添加食物种类',
+                    layer.open({
+                        title: '添加餐品',
                         type: 2,
                         shade: 0.2,
-                        area: ['40%', '30%'],
-                        content: '../page/table/addFoodType.html'
-                    });
-                    $(window).on("resize", function () {
-                        layer.full(index);
+                        area: ['80%', '80%'],
+                        content: '../page/table/addFood.html'
                     });
                 }
             });
@@ -117,42 +136,56 @@
             table.on('tool(currentTableFilter)', function (obj) {
                 let data = obj.data;
                 if (obj.event === 'edit') { // 监听编辑按钮
-                    let index = layer.open({
-                        title: '修改种类名称',
+                    layer.open({
+                        title: '修改餐品信息',
                         type: 2,
                         shade: 0.2,
-                        area: ['40%', '40%'],
-                        content: '../page/table/editFoodType.html',
+                        area: ['80%', '80%'],
+                        content: '../page/table/editFood.html',
                         success: function (layero, index) {
                             var body = layer.getChildFrame('body', index);
                             body.find("[name='id']").val(data.id);
                             body.find("[name='name']").val(data.name);
+                            body.find("[name='_typeId']").val(data.typeId);
+                            body.find("[name='price']").val(data.price);
+                            body.find("[name='image']").val(data.image);
+                            body.find("[name='remark']").val(data.remark);
+                            body.find("[name='state']").val(data.state);
                         }
-                    });
-                    $(window).on("resize", function () {
-                        layer.full(index);
                     });
                     return false;
                 } else if (obj.event === 'delete') {
-                    layer.confirm('确定删除种类：【' + data.name + '】？' + '\n若删除该种类，会使本来属于该种类的食物失去种类，客户点餐界面上将不会出现这些失去种类的食物。建议删除种类时先将属于该种类的食物移出到其他合适种类。',
-                        { icon: 0, title: false, btn: ['仍然删除', '考虑一下'], shift: 6 },
+                    layer.confirm('确定删除餐品：【' + data.name + '】？',
+                        { icon: 0, title: false, btn: ['删除', '取消'] },
                         function (index) {
-                            // 向服务器发送post请求
                             $.post(
-                                'http://localhost/foodType/delete',
+                                'http://linqiu.ltd/food/delete',
                                 data,
                                 function (rs) {
                                     if (rs.code === 0) {
-                                        layer.msg("删除成功", { icon: 1 });
+                                        parent.layer.msg("删除成功！", { icon: 1, time: 500 });
                                         parent.layer.close(index);
                                         window.location.reload();
                                     } else {
-                                        layer.msg("删除失败", { icon: 2 });
+                                        layer.msg("删除失败！", { icon: 2, time: 500 });
                                     }
                                 }
                             );
                         }
                     );
+                } else if (obj.event === 'switch') {
+                    layer.open({
+                        title: '选择餐品状态',
+                        type: 2,
+                        shade: 0.3,
+                        area: ['20%', '20%'],
+                        content: '../page/table/switchFoodState.html',
+                        success: function (layero, index) {
+                            var body = layer.getChildFrame('body', index);
+                            body.find("[name='id']").val(data.id);
+                            body.find("[name='state']").val(data.state);
+                        }
+                    });
                 }
             });
 
@@ -181,9 +214,7 @@
                 img.src = src;
             }
         });
-
     </script>
-
 
 </body>
 

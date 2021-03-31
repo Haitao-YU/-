@@ -7,6 +7,7 @@ import ltd.linqiu.service.ITableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -49,7 +50,7 @@ public class TableService implements ITableService {
     }
 
     @Override
-    public Integer switchState(Integer id, Integer state) {
+    public Integer switchState(String id, Integer state) {
         Table old = tableMapper.selectById(id);
         if (old == null) {
             return 0;
@@ -61,11 +62,25 @@ public class TableService implements ITableService {
     @Override
     public boolean enableAll() {
         try {
-            tableMapper.updateAllStateByState(2, 0);
+            Integer num = tableMapper.updateAllStateByState(2, 0);
             return true;
         } catch (Exception e) {
             return false;
         }
+    }
+
+    @Override
+    public List<Integer> stateCount() {
+        List<Integer> ret = new ArrayList<>();
+        Integer countFree = tableMapper.countByState(0);
+        Integer countBusy = tableMapper.countByState(1);
+        Integer countDisable = tableMapper.countByState(2);
+        ret.add(countFree);
+        ret.add(countBusy);
+        ret.add(countFree + countBusy + countDisable);
+        ret.add(countFree + countBusy);
+        ret.add(countDisable);
+        return ret;
     }
 
     @Override
@@ -75,6 +90,26 @@ public class TableService implements ITableService {
             return 0;
         } else {
             return tableMapper.deleteById(table);
+        }
+    }
+
+    @Override
+    public List<String> getAllPosition() {
+        List<String> ret = tableMapper.selectDistinctPosition();
+        if(ret.size()>0){
+            return ret;
+        }else {
+            return null;
+        }
+    }
+
+    @Override
+    public List<Integer> getAllSeats() {
+        List<Integer> ret = tableMapper.selectDistinctSeats();
+        if(ret.size()>0){
+            return ret;
+        }else {
+            return null;
         }
     }
 }

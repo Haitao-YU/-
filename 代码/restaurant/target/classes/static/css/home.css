@@ -1,0 +1,290 @@
+ .app {
+     display: flex;
+     flex-wrap: wrap
+ }
+
+ .block {
+     background: white;
+     border-radius: 10px;
+     margin-block: 10px;
+     margin-right: 30px;
+ }
+
+ .block .head {
+     width: 100%;
+     border-bottom: lightgray solid 1px;
+ }
+
+ .block .head .title {
+     padding-top: 10px;
+     padding-left: 15px;
+     padding-bottom: 5px;
+ }
+
+ .block .content {
+     padding-left: 10px;
+     padding-right: 10px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ /* 门店信息 */
+ .store-info {
+     width: 20%;
+     height: auto;
+ }
+
+ .store-info .left {
+     position: relative;
+     width: 110px;
+     height: 110px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .store-info .left img {
+     width: 80px;
+     height: 80px;
+     border-radius: 50%;
+ }
+
+ .store-info .left .cover-layer {
+     position: absolute;
+     width: 80px;
+     height: 80px;
+     border-radius: 50%;
+     user-select: none;
+     text-decoration: underline;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background: rgba(0, 0, 0, 0);
+     color: rgba(0, 0, 0, 0);
+     cursor: pointer;
+ }
+
+ .store-info .left .cover-layer:hover {
+     background: rgba(0, 0, 0, 0.6);
+     color: white;
+ }
+
+ .store-info .right {
+     height: 110px;
+     width: 150px;
+ }
+
+ .store-info .right .name {
+     margin-top: 20px;
+     font-size: 20px;
+ }
+
+ .store-info .right .state {
+     margin-top: 10px;
+     color: gray;
+ }
+
+
+ /* 快捷功能 */
+ .quick-function {
+     width: 25%;
+     height: auto;
+ }
+
+
+ .quick-function .function-button {
+     border-radius: 10px;
+     height: 70px;
+     width: 70px;
+     margin-block: 20px;
+     margin-inline: 10px;
+     background: gray;
+     cursor: pointer;
+ }
+
+ .quick-function .function-button img {
+     width: 40%;
+     height: 40%;
+     margin-top: 15%;
+     margin-left: 30%;
+     margin-right: 30%;
+ }
+
+ .quick-function .function-button .label {
+     color: white;
+     width: 100%;
+     padding-top: 5%;
+     text-align: center;
+     user-select: none;
+ }
+
+ /* 桌台数据 */
+ .table-data {
+     width: 40%;
+     height: auto;
+ }
+
+ .table-data .table-info {
+     width: 20%;
+     display: flex;
+     margin-inline-start: 10px;
+     margin-inline-end: 10px;
+     align-items: center;
+     text-align: center;
+     flex-wrap: wrap;
+ }
+
+ .table-data .gap {
+     width: 1px;
+     height: 50px;
+     background: lightgray;
+ }
+
+ .table-data .table-info .num {
+     width: 100%;
+     font-size: 24px;
+     font-weight: bold;
+     margin-top: 30px;
+ }
+
+ .table-data .table-info .lable {
+     width: 100%;
+     margin-bottom: 30px;
+     color: gray;
+ }
+
+ /* 桌台模式 */
+ .classify {
+     margin: 20px;
+     color: gray;
+     user-select: none;
+ }
+
+ .classify li {
+     padding-top: 10px;
+     padding-bottom: 10px;
+
+ }
+
+ .classify li .option {
+     margin-inline: 15px;
+     padding: 5px;
+     cursor: pointer;
+ }
+
+ .classify li .option:hover {
+     border-bottom: currentColor solid 1px;
+ }
+
+ .classify li .active {
+     background: rgb(0, 150, 136);
+     color: white;
+ }
+
+ /* 色彩提示 */
+ .color-tips {
+     display: flex;
+     align-items: center;
+     padding-left: 10px;
+ }
+
+ /* 桌台列表 */
+ .tables {
+     width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+ }
+
+ .my-table {
+     user-select: none;
+     cursor: pointer;
+     height: 120px;
+     width: 180px;
+     margin: 20px;
+     border-radius: 10px;
+ }
+
+ .my-table .top {
+     width: 180px;
+     height: 66.6%;
+     border-top-left-radius: 10px;
+     border-top-right-radius: 10px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .my-table .bottom {
+     width: 178px;
+     height: 33.3%;
+     border-bottom-left-radius: 10px;
+     border-bottom-right-radius: 10px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .busy:hover {
+     box-shadow: 0px 0px 2px 2px rgb(255, 184, 0);
+ }
+
+ .busy .top {
+     background: rgb(255, 184, 0);
+ }
+
+ .busy .bottom {
+     border: rgb(255, 184, 0) solid 1px;
+ }
+
+ .free:hover {
+     box-shadow: 0px 0px 2px 2px rgb(0, 150, 136);
+ }
+
+ .free .top {
+     background: rgb(0, 150, 136);
+ }
+
+ .free .bottom {
+     border: rgb(0, 150, 136) solid 1px;
+ }
+
+ .disable:hover {
+     box-shadow: 0px 0px 2px 2px darkgray;
+ }
+
+ .disable .top {
+     background: darkgray;
+ }
+
+ .disable .bottom {
+     border: darkgray solid 1px;
+ }
+
+ .my-table img {
+     width: 50px;
+     height: 50px;
+     bottom: 10%;
+     left: 30%;
+ }
+
+ .table-id {
+     color: white;
+     font-size: 20px;
+     font-weight: bold;
+ }
+
+ .table-position {
+     width: 50%;
+     color: gray;
+     font-weight: bold;
+     padding-left: 10px;
+ }
+
+ .table-seats {
+     width: 50%;
+     color: gray;
+     font-weight: bold;
+     padding-right: 10px;
+     text-align: right;
+ }

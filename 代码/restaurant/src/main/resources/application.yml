@@ -2,6 +2,26 @@ server:
   port: 80
 
 spring:
+  # thymeleaf模板设置
+  thymeleaf:
+    cache: false
+    mode: HTML
+    check-template: true
+    servlet:
+      content-type: text/html
+    encoding: utf-8
+    prefix: classpath:/static/
+    suffix: .html
+    enabled: true
+  web:
+    resources:
+      chain:
+        strategy:
+          content:
+            enabled: true
+            paths: /**
+
+
   #配置数据源
   datasource:
     url: jdbc:mysql://119.29.14.89:3306/restaurant?useUnicode=true&characterEncoding=utf-8&useSSL=false
@@ -30,6 +50,7 @@ spring:
           enabled: true
           config:
             drop-table-allow: false
+
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>食物管理</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/public.css" media="all">
+    <style>
+        .layui-table-cell {
+            height: auto;
+        }
+
+        .active {
+            background: rgb(48, 168, 157);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="app" class="layuimini-container">
+
+        <div class="layuimini-main">
+            <blockquote class="layui-elem-quote layui-text layui-quote-nm">
+                <div>在该页面商家可查看客户当前的排队状况，并可手动安排提前就餐。对于参与排队却找不到的顾客，也可以将其排队作废。</div>
+                <br>
+                <div>页面每10秒向服务器发送一次请求，查询队列数据是否有变化，若有变化则更新页面显示。点击下方队列类型按钮可手动发送请求。</div>
+            </blockquote>
+            <div class="filter">
+                <div @click="switchLineType(-1)"
+                    :class="active_index_0===-1?'layui-btn layui-btn-primary active':'layui-btn layui-btn-primary'">总队列
+                </div>
+                <div v-for="(item,index) in server_mealsNumberOption" @click="switchLineType(index)"
+                    :class="active_index_0===index?'layui-btn layui-btn-primary active':'layui-btn layui-btn-primary'">
+                    {{ item + '人桌队列'}}
+                </div>
+            </div>
+            <!-- 方法渲染数据表格 -->
+            <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+            <script type="text/html" id="currentTableBar">
+                <!-- <a class="layui-btn layui-btn-normal layui-btn-xs data-count-switch" lay-event="arrange">安排就餐</a> -->
+            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">排队作废</a>
+            </script>
+
+        </div>
+    </div>
+
+    <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <script src="../../js/tools.js"></script>
+    <script>
+        layui.use(['form', 'table',], function () {
+            var $ = layui.jquery,
+                form = layui.form,
+                table = layui.table;
+
+            var app = new Vue({
+                el: "#app",
+                data() {
+                    return {
+                        // 本地定义数据
+                        active_index_0: -1,
+                        timer: null,
+                        // 服务端数据
+                        server_mealsNumberOption: null,
+                        server_table_data: null,
+                    }
+                },
+                created() {
+                    this.getMealsNumberOption();
+                },
+                mounted() {
+                    this.renderTable('总排队表', 'http://linqiu.ltd/line/all');
+                    this.bindTableTool();
+                    this.timedTask();
+                },
+                beforeDestroy() {
+                    clearInterval(this.timer);
+                    this.timer = null;
+                },
+                methods: {
+                    getMealsNumberOption() {
+                        this.$http.get('http://linqiu.ltd/line/getMealsNumberOption').then(
+                            (response) => {
+                                this.$ATD(this, "server_mealsNumberOption", response.body.data);
+                            },
+                            (response) => {
+                                layer.msg("初始化失败！", { icon: 2, time: 500 });
+                            }
+                        );
+                    },
+                    renderTable(title, url) {
+                        this.$http.get(url).then(
+                            (response) => {
+                                if (JSON.stringify(response.body.data) != JSON.stringify(this.server_table_data)) {
+                                    console.log(Date() + ':\n数据发生变化，重新渲染表格');
+                                    this.$ATD(this, "server_table_data", response.body.data);
+                                    table.render({
+                                        elem: '#currentTableId',
+                                        title: title,
+                                        url: url,
+                                        cols: [[
+                                            {
+                                                field: 'serialNumber',
+                                                width: 150,
+                                                title: '排队序号',
+                                                align: "center",
+                                                sort: true
+                                            },
+                                            {
+                                                field: 'phone',
+                                                width: 300,
+                                                title: '客户手机号码',
+                                                align: "center",
+                                            },
+                                            {
+                                                field: 'mealsNumber',
+                                                width: 200,
+                                                title: '就餐人数',
+                                                align: "center",
+                                                sort: true
+                                            },
+                                            {
+                                                title: '操作',
+                                                minWidth: 150,
+                                                toolbar: '#currentTableBar',
+                                                align: "center"
+                                            }]],
+                                        page: false,
+                                        skin: 'row'
+                                    });
+                                }
+                                else {
+                                    console.log(Date() + ':\n数据无变化，无需重新渲染表格');
+                                }
+                            }
+                        );
+                    },
+                    bindTableTool() {
+                        let that = this;
+                        table.on('tool(currentTableFilter)', function (obj) {
+                            let data = obj.data;
+                            if (obj.event === 'arrange') { // 安排就餐
+                                // TODO
+                            } else if (obj.event === 'delete') { // 排队作废
+                                layer.confirm('确定将用户【' + data.phone + '】的【' + data.mealsNumber + '人桌】排队请求作废？',
+                                    { icon: 0, title: false, btn: ['确定', '取消'] },
+                                    function (index) {
+                                        $.post(
+                                            'http://linqiu.ltd/line/enqueue/cancel',
+                                            { phone: data.phone },
+                                            function (rs) {
+                                                if (rs.code === 0) {
+                                                    layer.close(index);
+                                                    parent.layer.msg("操作成功！", { icon: 1, time: 500 });
+                                                    that.switchLineType(that.active_index_0);
+                                                } else {
+                                                    layer.msg("删除失败！", { icon: 2, time: 500 });
+                                                }
+                                            }
+                                        );
+                                    }
+                                );
+                            }
+                        });
+                    },
+                    switchLineType(value) {
+                        this.$ATD(this, "active_index_0", value);
+                        let title;
+                        let url = 'http://linqiu.ltd/line/all';
+                        if (value === -1) {
+                            title = '总排队表';
+                        } else {
+                            title = this.server_mealsNumberOption[value] + '人桌排队表';
+                            url += '/' + this.server_mealsNumberOption[value];
+                        }
+                        this.renderTable(title, url);
+                    },
+                    timedTask() {
+                        if (this.timer) {
+                            clearInterval(this.timer)
+                        } else {
+                            this.timer = setInterval(() => {
+                                let title;
+                                let url = 'http://linqiu.ltd/line/all';
+                                let index = this.active_index_0;
+                                if (index === -1) {
+                                    title = '总排队表';
+                                } else {
+                                    title = this.server_mealsNumberOption[index] + '人桌排队表';
+                                    url += '/' + this.server_mealsNumberOption[index];
+                                }
+                                this.renderTable(title, url);
+                            }, 10000);
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

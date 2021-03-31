@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>添加食物种类</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../css/public.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layui-form layuimini-form">
+        <div class="layui-form-item" hidden>
+            <label class="layui-form-label">ID</label>
+            <div class="layui-input-block">
+                <input type="text" name="id" class="layui-input" disabled="disabled">
+                <tip>ID不可修改</tip>
+            </div>
+        </div>
+
+        <div class="layui-form-item" hidden>
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-block">
+                <input type="text" name="state" class="layui-input" disabled="disabled">
+                <tip>此页面不做状态的修改</tip>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">名称</label>
+            <div class="layui-input-block">
+                <input id="inputName" type="text" name="name" lay-verify="required" lay-reqtext="名称不能为空"
+                    placeholder="请输入" value="" class="layui-input">
+                <tip>给餐品起一个标题名称</tip>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">种类</label>
+            <div class="layui-input-block" id="typeIdDIV">
+                <span id="_typeId" name="_typeId" hidden></span>
+                <select id="typeId" name="typeId" lay-verify="required" lay-filter="typeIdFilter" lay-search>
+                </select>
+                <tip>设置餐品的种类</tip>
+            </div>
+
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">价格</label>
+            <div class="layui-input-block">
+                <input class="layui-input" type="text" name="price" lay-verify="required" lay-reqtext="价格不能为空"
+                    placeholder="￥" maxlength="9" oninput="value=moneyInput(value)">
+                <tip>设置餐品的价格</tip>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">图片</label>
+            <div class="layui-input-block">
+                <input type="text" name="image" placeholder="请输入" value="" class="layui-input">
+                <tip>为空则采用默认图片</tip>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <input type="text" name="remark" placeholder="请输入" value="" class="layui-input">
+                <tip>餐品份量、口味等备注信息</tip>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+            </div>
+        </div>
+    </div>
+    <script src="../../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+    <script src="../../js/tools.js"></script>
+    <script>
+        layui.use(['form'], function () {
+            var form = layui.form,
+                layer = layui.layer,
+                $ = layui.$;
+
+            //初始化：从服务器获取所有种类数据以初始化select框
+            $.get(
+                'http://linqiu.ltd/foodType/all',
+                function (data) {
+                    var typeIdList = data.data;
+                    $.each(typeIdList, function (index, item) {
+                        $('#typeId').append(new Option(item.name, item.id));// 下拉菜单里添加元素
+                    });
+                    $(document).ready(function () {
+                        //根据值让option选中
+                        $("#typeId option[value='" + $('#_typeId').val() + "']").attr("selected", "selected");
+                    });
+                    layui.form.render("select");
+                }
+            );
+
+            //监听提交
+            form.on('submit(saveBtn)', function (data) {
+                $.post(
+                    'http://linqiu.ltd/food/edit',
+                    data.field,
+                    function (rs) {
+                        if (rs.code === 0) {
+                            parent.parent.layer.msg("修改成功！", { icon: 1, time: 500 });
+                            parent.layer.close(parent.layer.getFrameIndex(window.name));
+                            window.parent.location.reload();
+                        } else {
+                            layer.msg("操作失败！", { icon: 2, time: 500 });
+                        }
+                    }
+                );
+                return false;
+            });
+
+        });
+    </script>
+</body>
+
+</html>

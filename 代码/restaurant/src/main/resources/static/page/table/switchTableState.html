@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>修改餐桌状态</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../css/public.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+
+        .state-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layui-form layuimini-form">
+
+        <div class="layui-form-item" hidden>
+            <input type="text" name="id" class="layui-input" disabled="disabled">
+        </div>
+
+        <div class="layui-form-item state-container">
+            <button type="button" class="layui-btn state-btn" lay-submit lay-filter="free">
+                空闲
+            </button>
+            <button type="button" class="layui-btn layui-btn-warm state-btn" lay-submit lay-filter="dining">
+                就餐中
+            </button>
+            <button type="button" class="layui-btn layui-btn-primary state-btn" lay-submit lay-filter="disabled">
+                维修
+            </button>
+        </div>
+
+    </div>
+    <script src="../../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+    <script src="../../js/tools.js"></script>
+    <script>
+        layui.use(['form'], function () {
+            var form = layui.form,
+                layer = layui.layer,
+                $ = layui.$;
+
+            window.doPost = function (data, state) {
+                $.post(
+                    'http://linqiu.ltd/table/switchState',
+                    {
+                        "id": data.field.id,
+                        "state": state
+                    },
+                    function (rs) {
+                        if (rs.code === 0) {
+                            parent.parent.layer.msg("切换成功！", { icon: 1, time: 500 });
+                            parent.layer.close(parent.layer.getFrameIndex(window.name));
+                            window.parent.location.reload();
+                        } else {
+                            layer.msg("切换失败！", { icon: 2, time: 500 });
+                        }
+                    }
+                );
+            }
+
+            form.on('submit(free)', function (data) {
+                doPost(data, 0);
+                return false;
+            });
+            form.on('submit(dining)', function (data) {
+                doPost(data, 1);
+                return false;
+            });
+            form.on('submit(disabled)', function (data) {
+                doPost(data, 2);
+                return false;
+            });
+
+        });
+    </script>
+</body>
+
+</html>

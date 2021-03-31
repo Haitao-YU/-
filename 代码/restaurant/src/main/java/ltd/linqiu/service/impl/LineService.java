@@ -2,6 +2,7 @@ package ltd.linqiu.service.impl;
 
 import ltd.linqiu.entity.Line;
 import ltd.linqiu.mapper.LineMapper;
+import ltd.linqiu.mapper.TableMapper;
 import ltd.linqiu.service.ILineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,18 @@ import java.util.List;
 public class LineService implements ILineService {
     @Autowired
     private LineMapper lineMapper;
+    @Autowired
+    private TableMapper tableMapper;
 
+    @Override
+    public List<Integer> getMealsNumberOption() {
+        List<Integer> ret = tableMapper.selectDistinctSeats();
+        if (ret == null || ret.size() == 0) {
+            return null;
+        } else {
+            return ret;
+        }
+    }
 
     /**
      * 查看整个队列
@@ -22,13 +34,21 @@ public class LineService implements ILineService {
         return lineMapper.selectAll();
     }
 
+    /**
+     * 查看单个类型队列
+     */
+    @Override
+    public List<Line> getListByMealsNumber(Integer mealsNumb) {
+        return lineMapper.selectByMealsNumber(mealsNumb);
+    }
+
 
     /**
      * 根据手机号获得自身位置
      */
     @Override
-    public Integer getSerialNumberByPhone(String phone) {
-        return lineMapper.selectByPhone(phone).getSerialNumber();
+    public Line getByPhone(String phone) {
+        return lineMapper.selectByPhone(phone);
     }
 
     /**
@@ -39,7 +59,7 @@ public class LineService implements ILineService {
         // 检查是否已经存在
         if (lineMapper.selectByPhone(in.getPhone()) == null) {
             // 获得自身顺序
-            in.setSerialNumber(lineMapper.size() + 1);
+            in.setSerialNumber(lineMapper.sizeByMealsNumber(in.getMealsNumber()) + 1);
             // 入队
             if (lineMapper.insert(in) == 1) {
                 return in;
@@ -76,9 +96,9 @@ public class LineService implements ILineService {
      * 出队
      */
     @Override
-    public Line dequeue() {
+    public Line dequeue(Integer mealsNumber) {
         Line out = null;
-        List<Line> lineList = lineMapper.selectAll();
+        List<Line> lineList = lineMapper.selectByMealsNumber(mealsNumber);
         if (lineList.size() > 0) {
             // 获取要出队的元素
             out = lineList.get(0);

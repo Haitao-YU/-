@@ -3,29 +3,333 @@
   <component name="ChangeListManager">
     <list default="true" id="f8040201-d135-46fe-9bfc-54183968b2e6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../layui mini/api/init.json" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/api/init.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/index copy.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/index copy.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../layui mini/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/js/lay-module/layuimini/miniTheme.js" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/js/lay-module/layuimini/miniTheme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/counterMode.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/counterMode.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../layui mini/page/food.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/food.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/foodType.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/foodType.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/line.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/line.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/login-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/login-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/login-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/login-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/login-3.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../layui mini/page/storeInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/storeInfo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../layui mini/page/table.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/table.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/table/addCarouselFigure.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/table/addCarouselFigure.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/table/addFood.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/table/addFood.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/table/addFoodType.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/table/addFoodType.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/table/addTable.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/table/addTable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/table/editCarouselFigure.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/table/editCarouselFigure.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/table/editFood.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/table/editFood.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/table/editFoodType.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/table/editFoodType.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/table/editTable.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/table/editTable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/table/switchFoodState.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/table/switchFoodState.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/table/switchTableState.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/table/switchTableState.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layui mini/page/welcome-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/../layui mini/page/welcome-1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant-1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant-1.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant-1.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant-1.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant-3.1-1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant-3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant-3.3-1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant-3.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/CarouselFigureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/CarouselFigureController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/FoodController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/FoodController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/LineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/LineController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/StoreInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/StoreInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/TableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/TableController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/entity/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/entity/Table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/mapper/LineMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/mapper/LineMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/mapper/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/mapper/TableMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/mapper/TableMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/ILineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/ILineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/IStoreInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/IStoreInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/ITableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/ITableService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/FoodService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/FoodService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/FoodController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/FoodController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/LineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/LineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/StoreInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/StoreInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/TableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/TableService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/api/clear.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/api/init.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/api/menus.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/api/table.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/api/tableSelect.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/api/upload.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/layuimini.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/public.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/themes/default.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/captcha.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/donate_qrcode.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/icon-login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/loginbg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/echarts/echarts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/echarts/echartsTheme.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/iconPicker/iconPickerFa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/layarea/layarea.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/layuimini/miniAdmin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/layuimini/miniMenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/layuimini/miniTab.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/layuimini/miniTheme.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/layuimini/miniTongji.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/step-lay/step.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/step-lay/step.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/tableSelect/tableSelect.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/treetable-lay/treetable.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/treetable-lay/treetable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/wangEditor/fonts/w-e-icon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/wangEditor/wangEditor.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/wangEditor/wangEditor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/wangEditor/wangEditor.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/wangEditor/wangEditor.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lay-module/wangEditor/wangEditor.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/HELP-US-OUT.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/less/animated.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/less/bordered-pulled.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/less/core.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/less/fixed-width.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/less/font-awesome.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/less/icons.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/less/larger.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/less/list.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/less/mixins.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/less/path.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/less/rotated-flipped.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/less/screen-reader.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/less/stacked.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/less/variables.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/scss/_animated.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/scss/_bordered-pulled.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/scss/_core.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/scss/_fixed-width.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/scss/_icons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/scss/_larger.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/scss/_list.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/scss/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/scss/_path.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/scss/_rotated-flipped.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/scss/_screen-reader.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/scss/_stacked.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/scss/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/font-awesome-4.7.0/scss/font-awesome.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/jq-module/jquery.particleground.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/jq-module/paigusu.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/jq-module/zyupload/zyupload-1.0.0.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/jq-module/zyupload/zyupload-1.0.0.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/jquery-3.4.1/jquery-3.4.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/css/layui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/css/layui.mobile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/css/modules/code.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/css/modules/laydate/default/laydate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/css/modules/layer/default/icon-ext.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/css/modules/layer/default/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/css/modules/layer/default/layer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/css/modules/layer/default/loading-0.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/css/modules/layer/default/loading-1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/css/modules/layer/default/loading-2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/font/iconfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/font/iconfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/font/iconfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/font/iconfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/font/iconfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/0.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/10.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/11.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/12.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/13.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/14.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/15.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/16.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/17.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/18.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/19.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/20.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/21.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/22.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/23.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/24.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/25.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/26.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/27.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/28.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/29.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/30.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/31.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/32.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/33.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/34.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/35.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/36.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/37.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/38.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/39.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/4.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/40.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/41.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/42.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/43.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/44.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/45.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/46.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/47.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/48.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/49.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/5.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/50.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/51.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/52.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/53.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/54.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/55.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/56.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/57.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/58.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/59.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/6.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/60.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/61.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/62.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/63.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/64.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/65.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/66.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/67.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/68.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/69.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/7.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/70.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/71.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/8.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/images/face/9.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/carousel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/code.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/colorpicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/element.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/flow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/form.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/laydate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/layedit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/layer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/laypage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/laytpl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/mobile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/rate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/slider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/table.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/transfer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/tree.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/upload.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/lay/modules/util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/layui.all.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/layui-v2.5.5/layui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/area.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/button.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/color-select.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/editor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/food.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/foodType.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/form-step.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/icon-picker.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/icon.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/layer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/login-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/login-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/login-3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/menu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/setting.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/table-select.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/table.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/table/add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/table/addFoodType.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/table/edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/table/editFoodType.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/upload.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/user-password.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/user-setting.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/welcome-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/welcome-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/welcome-3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/CarouselFigureController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/CarouselFigureController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/LineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/LineController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/OrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/StoreInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/StoreInfoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/TableController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/TableController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/entity/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/entity/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/entity/Table.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/entity/Table.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/mapper/LineMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/mapper/LineMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/mapper/OrderMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/mapper/OrderMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/mapper/TableMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/mapper/TableMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/ILineService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/ILineService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/IStoreInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/IStoreInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/ITableService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/ITableService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/FoodService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/FoodService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/LineService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/LineService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/StoreInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/StoreInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/TableService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/TableService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/api/init.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/api/init.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/donate_qrcode.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lay-module/layuimini/miniTheme.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/layuimini/miniTheme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/font/iconfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/font/iconfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/area.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/button.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/color-select.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/editor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/food.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/page/food.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/foodType.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/page/foodType.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/form-step.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/icon-picker.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/layer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/login-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/login-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/login-3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/menu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/setting.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/table-select.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/table.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/page/table.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/table/add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/table/addFoodType.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/page/table/addFoodType.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/table/edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/table/editFoodType.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/page/table/editFoodType.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/upload.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/user-setting.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/welcome-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/welcome-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/welcome-3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/restaurant-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/restaurant-1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/restaurant-1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/restaurant-1.0.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../文档/毕业设计附件2021-缺评分标准.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../文档/问题.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../文档/问题.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../文档/附件A-2：吉林大学本科毕业论文（设计）任务书.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,33 +356,6 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="restaurant@119.29.14.89" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="restaurant@119.29.14.89" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="restaurant: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="restaurant@119.29.14.89" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="restaurant: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="carousel_figure: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="restaurant@119.29.14.89" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="restaurant: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="store_info: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="restaurant@119.29.14.89" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="restaurant: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="table: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -136,36 +413,32 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3731203" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant\target\classes\main" />
+      <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant\src\main\java\main" />
+      <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant\src\main\resources\static" />
+      <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant\src\main\resources\templates" />
       <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant\src\main\resources\mapper" />
-      <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant\src\main\java\ltd\linqiu\entity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ltd.linqiu.mapper" />
+      <recent name="ltd.linqiu.controller" />
+      <recent name="ltd.linqiu.service.impl" />
       <recent name="ltd.linqiu.service" />
+      <recent name="ltd.linqiu.mapper" />
+      <recent name="ltd.linqiu.entity" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant\src\main\java" />
+      <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant" />
+      <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant\src\main\resources\static" />
       <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant\src\main\resources\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
-    <configuration name="Order" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ltd.linqiu.entity.Order" />
-      <module name="restaurant" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ltd.linqiu.entity.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="restaurant" />
       <extension name="coverage">
         <pattern>
@@ -178,29 +451,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Spring Boot.Application" />
-        <item itemvalue="Application.Order" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
       <list>
         <serviceView>
           <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:restaurant@119.29.14.89" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:restaurant@119.29.14.89" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@1b32bb69" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </treeState>
         </serviceView>
@@ -240,6 +497,29 @@
       <workItem from="1615265642457" duration="11109000" />
       <workItem from="1615300565058" duration="396000" />
       <workItem from="1615355944658" duration="4320000" />
+      <workItem from="1615636862615" duration="4449000" />
+      <workItem from="1615709817685" duration="4505000" />
+      <workItem from="1615817545257" duration="5770000" />
+      <workItem from="1615948775214" duration="601000" />
+      <workItem from="1615981958607" duration="4614000" />
+      <workItem from="1616033370887" duration="2934000" />
+      <workItem from="1616060604437" duration="8988000" />
+      <workItem from="1616077819754" duration="1713000" />
+      <workItem from="1616079928917" duration="706000" />
+      <workItem from="1616110163741" duration="653000" />
+      <workItem from="1616114325901" duration="1295000" />
+      <workItem from="1616307260367" duration="4468000" />
+      <workItem from="1616409935882" duration="5409000" />
+      <workItem from="1616485138087" duration="17384000" />
+      <workItem from="1616547442442" duration="26455000" />
+      <workItem from="1616583388184" duration="4060000" />
+      <workItem from="1616598200042" duration="1041000" />
+      <workItem from="1616639153664" duration="416000" />
+      <workItem from="1616641340068" duration="7334000" />
+      <workItem from="1616669950097" duration="4778000" />
+      <workItem from="1617007861156" duration="13969000" />
+      <workItem from="1617075571094" duration="121000" />
+      <workItem from="1617082239104" duration="210000" />
     </task>
     <servers />
   </component>
@@ -282,99 +562,125 @@
       </set>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/src/main/java/word_replace_zip" />
+      <path value="$PROJECT_DIR$/word_replace_zip" />
+    </ignored-roots>
+  </component>
   <component name="WindowStateProjectService">
     <state x="394" y="94" width="946" height="676" key="#Deployment" timestamp="1612528353798">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
     <state x="394" y="94" width="946" height="676" key="#Deployment/67.0.1469.864@67.0.1469.864" timestamp="1612528353798" />
+    <state x="394" y="94" key="#Menus_and_Toolbars" timestamp="1615638769577">
+      <screen x="67" y="0" width="1469" height="864" />
+    </state>
+    <state x="394" y="94" key="#Menus_and_Toolbars/67.0.1469.864@67.0.1469.864" timestamp="1615638769577" />
     <state x="394" y="94" key="#Project_Structure" timestamp="1612362092316">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
     <state x="394" y="94" key="#Project_Structure/67.0.1469.864@67.0.1469.864" timestamp="1612362092316" />
-    <state x="275" y="166" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612363428578">
+    <state x="275" y="166" width="1155" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617025391001">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state x="275" y="166" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.0.1469.864@67.0.1469.864" timestamp="1612363428578" />
-    <state x="607" y="141" key="#com.intellij.ide.util.MemberChooser" timestamp="1615283603219">
+    <state x="275" y="166" width="1155" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.0.1469.864@67.0.1469.864" timestamp="1617025391001" />
+    <state x="779" y="222" key="#com.intellij.ide.util.MemberChooser" timestamp="1617010959346">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state x="607" y="141" key="#com.intellij.ide.util.MemberChooser/67.0.1469.864@67.0.1469.864" timestamp="1615283603219" />
-    <state x="433" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1614172470392">
+    <state x="779" y="222" key="#com.intellij.ide.util.MemberChooser/67.0.1469.864@67.0.1469.864" timestamp="1617010959346" />
+    <state x="433" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1616568164415">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state x="433" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.0.1469.864@67.0.1469.864" timestamp="1614172470392" />
+    <state x="433" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.0.1469.864@67.0.1469.864" timestamp="1616568164415" />
     <state x="364" y="30" key="CommitChangelistDialog2" timestamp="1614352599419">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
     <state x="364" y="30" key="CommitChangelistDialog2/67.0.1469.864@67.0.1469.864" timestamp="1614352599419" />
-    <state x="582" y="190" key="FileChooserDialogImpl" timestamp="1615300758772">
+    <state x="160" y="93" width="1283" height="678" key="DiffContextDialog" timestamp="1616673824249">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state x="582" y="190" key="FileChooserDialogImpl/67.0.1469.864@67.0.1469.864" timestamp="1615300758772" />
-    <state width="1426" height="274" key="GridCell.Tab.0.bottom" timestamp="1615363436901">
+    <state x="160" y="93" width="1283" height="678" key="DiffContextDialog/67.0.1469.864@67.0.1469.864" timestamp="1616673824249" />
+    <state x="582" y="190" key="FileChooserDialogImpl" timestamp="1616560494157">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="274" key="GridCell.Tab.0.bottom/67.0.1469.864@67.0.1469.864" timestamp="1615363436901" />
-    <state width="1426" height="274" key="GridCell.Tab.0.center" timestamp="1615363436901">
+    <state x="582" y="190" key="FileChooserDialogImpl/67.0.1469.864@67.0.1469.864" timestamp="1616560494157" />
+    <state width="1426" height="216" key="GridCell.Tab.0.bottom" timestamp="1617027783303">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="274" key="GridCell.Tab.0.center/67.0.1469.864@67.0.1469.864" timestamp="1615363436901" />
-    <state width="1426" height="274" key="GridCell.Tab.0.left" timestamp="1615363436901">
+    <state width="1426" height="216" key="GridCell.Tab.0.bottom/67.0.1469.864@67.0.1469.864" timestamp="1617027783303" />
+    <state width="1426" height="216" key="GridCell.Tab.0.center" timestamp="1617027783303">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="274" key="GridCell.Tab.0.left/67.0.1469.864@67.0.1469.864" timestamp="1615363436901" />
-    <state width="1426" height="274" key="GridCell.Tab.0.right" timestamp="1615363436901">
+    <state width="1426" height="216" key="GridCell.Tab.0.center/67.0.1469.864@67.0.1469.864" timestamp="1617027783303" />
+    <state width="1426" height="216" key="GridCell.Tab.0.left" timestamp="1617027783303">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="274" key="GridCell.Tab.0.right/67.0.1469.864@67.0.1469.864" timestamp="1615363436901" />
-    <state width="1426" height="274" key="GridCell.Tab.1.bottom" timestamp="1615363436901">
+    <state width="1426" height="216" key="GridCell.Tab.0.left/67.0.1469.864@67.0.1469.864" timestamp="1617027783303" />
+    <state width="1426" height="216" key="GridCell.Tab.0.right" timestamp="1617027783303">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="274" key="GridCell.Tab.1.bottom/67.0.1469.864@67.0.1469.864" timestamp="1615363436901" />
-    <state width="1426" height="274" key="GridCell.Tab.1.center" timestamp="1615363436901">
+    <state width="1426" height="216" key="GridCell.Tab.0.right/67.0.1469.864@67.0.1469.864" timestamp="1617027783303" />
+    <state width="1426" height="268" key="GridCell.Tab.1.bottom" timestamp="1617027783269">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="274" key="GridCell.Tab.1.center/67.0.1469.864@67.0.1469.864" timestamp="1615363436901" />
-    <state width="1426" height="274" key="GridCell.Tab.1.left" timestamp="1615363436901">
+    <state width="1426" height="268" key="GridCell.Tab.1.bottom/67.0.1469.864@67.0.1469.864" timestamp="1617027783269" />
+    <state width="1426" height="268" key="GridCell.Tab.1.center" timestamp="1617027783269">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="274" key="GridCell.Tab.1.left/67.0.1469.864@67.0.1469.864" timestamp="1615363436901" />
-    <state width="1426" height="274" key="GridCell.Tab.1.right" timestamp="1615363436901">
+    <state width="1426" height="268" key="GridCell.Tab.1.center/67.0.1469.864@67.0.1469.864" timestamp="1617027783269" />
+    <state width="1426" height="268" key="GridCell.Tab.1.left" timestamp="1617027783269">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="274" key="GridCell.Tab.1.right/67.0.1469.864@67.0.1469.864" timestamp="1615363436901" />
+    <state width="1426" height="268" key="GridCell.Tab.1.left/67.0.1469.864@67.0.1469.864" timestamp="1617027783269" />
+    <state width="1426" height="268" key="GridCell.Tab.1.right" timestamp="1617027783269">
+      <screen x="67" y="0" width="1469" height="864" />
+    </state>
+    <state width="1426" height="268" key="GridCell.Tab.1.right/67.0.1469.864@67.0.1469.864" timestamp="1617027783269" />
     <state x="261" y="181" key="Maven.ArtifactSearchDialog" timestamp="1614147448366">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
     <state x="261" y="181" key="Maven.ArtifactSearchDialog/67.0.1469.864@67.0.1469.864" timestamp="1614147448366" />
-    <state x="129" y="96" key="SettingsEditor" timestamp="1612712028214">
+    <state x="288" y="146" key="NewModule_or_Project.wizard" timestamp="1616560470389">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state x="129" y="96" key="SettingsEditor/67.0.1469.864@67.0.1469.864" timestamp="1612712028214" />
+    <state x="288" y="146" key="NewModule_or_Project.wizard/67.0.1469.864@67.0.1469.864" timestamp="1616560470389" />
+    <state x="-43" y="80" key="SettingsEditor" timestamp="1616672577480">
+      <screen x="67" y="0" width="1469" height="864" />
+    </state>
+    <state x="-43" y="80" key="SettingsEditor/67.0.1469.864@67.0.1469.864" timestamp="1616672577480" />
     <state x="686" y="325" width="333" height="226" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1614332480802">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
     <state x="686" y="325" width="333" height="226" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/67.0.1469.864@67.0.1469.864" timestamp="1614332480802" />
+    <state x="382" y="90" key="com.intellij.database.dbimport.ImportDialog" timestamp="1616513297788">
+      <screen x="67" y="0" width="1469" height="864" />
+    </state>
+    <state x="382" y="90" key="com.intellij.database.dbimport.ImportDialog/67.0.1469.864@67.0.1469.864" timestamp="1616513297788" />
     <state x="587" y="262" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1614233011677">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
     <state x="587" y="262" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/67.0.1469.864@67.0.1469.864" timestamp="1614233011677" />
-    <state x="426" y="78" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1615296750270">
+    <state x="919" y="122" width="580" height="730" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1617021129918">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state x="426" y="78" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/67.0.1469.864@67.0.1469.864" timestamp="1615296750270" />
+    <state x="919" y="122" width="580" height="730" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/67.0.1469.864@67.0.1469.864" timestamp="1617021129918" />
     <state x="689" y="284" key="com.intellij.database.view.ui.DbObjectDialog" timestamp="1612362707161">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
     <state x="689" y="284" key="com.intellij.database.view.ui.DbObjectDialog/67.0.1469.864@67.0.1469.864" timestamp="1612362707161" />
+    <state x="449" y="50" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1616509645931">
+      <screen x="67" y="0" width="1469" height="864" />
+    </state>
+    <state x="449" y="50" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.0.1469.864@67.0.1469.864" timestamp="1616509645931" />
     <state x="598" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614169930766">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
     <state x="598" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.0.1469.864@67.0.1469.864" timestamp="1614169930766" />
-    <state x="288" y="183" width="621" height="490" key="find.popup" timestamp="1615279948874">
+    <state x="288" y="183" width="755" height="548" key="find.popup" timestamp="1616590895025">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state x="288" y="183" width="621" height="490" key="find.popup/67.0.1469.864@67.0.1469.864" timestamp="1615279948874" />
+    <state x="288" y="183" width="755" height="548" key="find.popup/67.0.1469.864@67.0.1469.864" timestamp="1616590895025" />
     <state x="611" y="169" key="ftp.server.browser" timestamp="1612528351749">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
@@ -387,9 +693,9 @@
       <screen x="67" y="0" width="1469" height="864" />
     </state>
     <state x="459" y="197" key="run.anything.popup/67.0.1469.864@67.0.1469.864" timestamp="1615275675460" />
-    <state x="459" y="86" width="672" height="676" key="search.everywhere.popup" timestamp="1615277063902">
+    <state x="459" y="86" width="672" height="676" key="search.everywhere.popup" timestamp="1616673798671">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state x="459" y="86" width="672" height="676" key="search.everywhere.popup/67.0.1469.864@67.0.1469.864" timestamp="1615277063902" />
+    <state x="459" y="86" width="672" height="676" key="search.everywhere.popup/67.0.1469.864@67.0.1469.864" timestamp="1616673798671" />
   </component>
 </project>

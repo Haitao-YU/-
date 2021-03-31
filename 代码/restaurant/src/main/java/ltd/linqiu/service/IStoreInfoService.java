@@ -12,7 +12,11 @@ public interface IStoreInfoService {
 
     StoreInfo getByName(String name);
 
+    StoreInfo onOff();
+
     Integer add(StoreInfo storeInfo);
 
     Integer modify(StoreInfo storeInfo);
+
+
 }

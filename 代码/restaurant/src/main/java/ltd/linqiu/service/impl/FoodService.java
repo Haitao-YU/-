@@ -27,14 +27,17 @@ public class FoodService implements IFoodService {
         List<Food> ret = new ArrayList<>();
         List<Food> foodList = foodMapper.selectAll();
         for (Food food : foodList) {
-            ret.add(completeFoodTypeName(food));
+            completeFoodTypeName(food);
+            ret.add(food);
         }
         return ret;
     }
 
     @Override
     public Food getById(Integer id) {
-        return foodMapper.selectById(id);
+        Food ret = foodMapper.selectById(id);
+        completeFoodTypeName(ret);
+        return ret;
     }
 
     @Override
@@ -48,7 +51,7 @@ public class FoodService implements IFoodService {
         if (old == null) {
             return 0;
         } else {
-            food = completeFoodImage(food);
+            completeFoodImage(food);
             return foodMapper.update(food);
         }
     }
@@ -60,7 +63,7 @@ public class FoodService implements IFoodService {
 
     @Override
     public Integer add(Food food) {
-        food = completeFoodImage(food);
+        completeFoodImage(food);
         return foodMapper.insert(food);
     }
 
@@ -86,25 +89,23 @@ public class FoodService implements IFoodService {
 
     /** 工具函数：补全餐品默认图片，写入数据库时执行该检查
      */
-    private Food completeFoodImage(Food food) {
+    private void completeFoodImage(Food food) {
         if (food == null) {
-            return null;
+            return;
         }
         if (!(food.getImage() != null && food.getImage().trim().length() != 0)) {
             food.setImage(storeInfoMapper.selectByName("餐品默认图片").get(0).getValue());
         }
-        return food;
     }
 
     /** 工具函数：补全餐品种类名称，传给前端页面时执行该检查
      */
-    private Food completeFoodTypeName(Food food) {
+    private void completeFoodTypeName(Food food) {
         if (food == null) {
-            return null;
+            return;
         }
         FoodType foodType = foodTypeMapper.selectById(food.getTypeId());
         food.setTypeName(foodType.getName());
-        return food;
     }
 
 }

@@ -36,6 +36,7 @@
 
     <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
     <script>
+
         layui.use(['form', 'table'], function () {
             var $ = layui.jquery,
                 form = layui.form,
@@ -44,7 +45,7 @@
             table.render({
                 elem: '#currentTableId',
                 title: '食品表',
-                url: 'http://localhost/food/all',
+                url: 'http://linqiu.ltd/food/all',
                 toolbar: '#toolbar',
                 defaultToolbar: ['filter', 'exports', 'print'],
                 cols: [[
@@ -157,9 +158,8 @@
                     layer.confirm('确定删除餐品：【' + data.name + '】？',
                         { icon: 0, title: false, btn: ['删除', '取消'] },
                         function (index) {
-                            // 向服务器发送post请求
                             $.post(
-                                'http://localhost/food/delete',
+                                'http://linqiu.ltd/food/delete',
                                 data,
                                 function (rs) {
                                     if (rs.code === 0) {

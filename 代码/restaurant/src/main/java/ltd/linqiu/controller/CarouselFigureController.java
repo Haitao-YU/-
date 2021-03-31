@@ -32,7 +32,6 @@ public class CarouselFigureController {
 
     @PostMapping("/add")
     public CommonResult<Integer> add(CarouselFigure data) {
-        System.out.println(data);
         if (carouselFigureService.add(data) == 1) {
             return new CommonResult<>(0, "添加成功！");
         } else {
