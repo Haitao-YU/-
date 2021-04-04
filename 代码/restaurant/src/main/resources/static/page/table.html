@@ -166,7 +166,7 @@
                     });
                     return false;
                 } else if (obj.event === 'delete') {
-                    layer.confirm('确定删除餐品：【' + data.name + '】？',
+                    layer.confirm('确定删除餐桌：【' + data.id + '】？',
                         { icon: 0, title: false, btn: ['删除', '取消'] },
                         function (index) {
                             // 向服务器发送post请求
