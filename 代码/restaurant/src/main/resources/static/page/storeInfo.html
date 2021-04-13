@@ -121,7 +121,7 @@
 
             //初始化：从服务器获取店铺信息
             $.get(
-                'http://linqiu.ltd/storeInfo/all',
+                'http://localhost/storeInfo/all',
                 function (data) {
                     let storeInfoList = data.data;
                     for (let i = 0; i < storeInfoList.length; i++) {
@@ -137,7 +137,7 @@
             //监听提交
             form.on('submit(saveBtn_0)', function (data) {
                 $.post(
-                    'http://linqiu.ltd/storeInfo/edit',
+                    'http://localhost/storeInfo/edit',
                     data.field,
                     function (rs) {
                         if (rs.code === 0) {
@@ -152,7 +152,7 @@
             });
             form.on('submit(saveBtn_1)', function (data) {
                 $.post(
-                    'http://linqiu.ltd/storeInfo/edit',
+                    'http://localhost/storeInfo/edit',
                     data.field,
                     function (rs) {
                         if (rs.code === 0) {
@@ -169,7 +169,7 @@
             table.render({
                 elem: '#currentTableId',
                 title: '轮播图',
-                url: 'http://linqiu.ltd/carouselFigure/all',
+                url: 'http://localhost/carouselFigure/all',
                 toolbar: '#toolbar',
                 cols: [[
                     {
@@ -232,7 +232,7 @@
                         function (index) {
                             // 向服务器发送post请求
                             $.post(
-                                'http://linqiu.ltd/carouselFigure/delete',
+                                'http://localhost/carouselFigure/delete',
                                 data,
                                 function (rs) {
                                     if (rs.code === 0) {

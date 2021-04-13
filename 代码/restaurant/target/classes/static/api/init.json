@@ -2,7 +2,7 @@
 
   "homeInfo": {
     "title": "首页",
-    "href": "page/home.html?t=1"
+    "href": "page/home.html"
   },
   "logoInfo": {
     "title": "HOT POT",

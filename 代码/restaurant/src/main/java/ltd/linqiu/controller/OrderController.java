@@ -16,7 +16,6 @@ public class OrderController {
 
     @PostMapping("/add")
     public CommonResult<Integer> add(Order data) {
-//        System.out.println(data);
         if (orderService.add(data) == 1) {
             return new CommonResult<>(0, "添加成功！");
         } else {

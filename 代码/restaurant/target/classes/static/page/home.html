@@ -154,35 +154,37 @@
                 table = layui.table;
             var app = new Vue({
                 el: "#app",
-                data: {
-                    // 本地定义数据
-                    active_index_0: -1,
-                    active_index_1: -1,
-                    active_index_2: -1,
-                    // 服务端数据
-                    server_table: null,
-                    server_tableStateCount: null,
-                    server_storeName: null,
-                    server_storeState: null,
-                    server_positionList: null,
-                    server_seatsList: null,
+                data() {
+                    return {
+                        // 本地定义数据
+                        active_index_0: -1,
+                        active_index_1: -1,
+                        active_index_2: -1,
+                        timer: null,
+                        // 服务端数据
+                        server_table: null,
+                        server_tableStateCount: null,
+                        server_storeName: null,
+                        server_storeState: null,
+                        server_positionList: null,
+                        server_seatsList: null,
+                    }
                 },
-                created: function () {
+                created() {
                     this.init();
                 },
+                mounted() {
+                    this.timedTask();
+                },
+                beforeDestroy() {
+                    clearInterval(this.timer);
+                    this.timer = null;
+                },
                 methods: {
-                    init: function () {
+                    init() {
                         this.$http.get('http://linqiu.ltd/table/stateCount').then(
                             (response) => {
-                                this.$ATD(this, "server_tableStateCount", response.body.data);
-                            },
-                            (response) => {
-                                layer.msg("初始化失败！", { icon: 2, time: 500 });
-                            }
-                        );
-                        this.$http.get('http://linqiu.ltd/table/all').then(
-                            (response) => {
-                                this.$ATD(this, "server_table", response.body.data);
+                                this.$set(this, "server_tableStateCount", response.body.data);
                             },
                             (response) => {
                                 layer.msg("初始化失败！", { icon: 2, time: 500 });
@@ -190,7 +192,7 @@
                         );
                         this.$http.get('http://linqiu.ltd/storeInfo/店铺名称').then(
                             (response) => {
-                                this.$ATD(this, "server_storeName", response.body.data.value);
+                                this.$set(this, "server_storeName", response.body.data.value);
                             },
                             (response) => {
                                 layer.msg("初始化失败！", { icon: 2, time: 500 });
@@ -198,7 +200,7 @@
                         );
                         this.$http.get('http://linqiu.ltd/storeInfo/状态').then(
                             (response) => {
-                                this.$ATD(this, "server_storeState", response.body.data.value);
+                                this.$set(this, "server_storeState", response.body.data.value);
                             },
                             (response) => {
                                 layer.msg("初始化失败！", { icon: 2, time: 500 });
@@ -206,15 +208,24 @@
                         );
                         this.$http.get('http://linqiu.ltd/table/classify').then(
                             (response) => {
-                                this.$ATD(this, "server_positionList", response.body.data.positionList);
-                                this.$ATD(this, "server_seatsList", response.body.data.seatsList);
+                                this.$set(this, "server_positionList", response.body.data.positionList);
+                                this.$set(this, "server_seatsList", response.body.data.seatsList);
+                            },
+                            (response) => {
+                                layer.msg("初始化失败！", { icon: 2, time: 500 });
+                            }
+                        );
+                        this.$http.get('http://linqiu.ltd/table/all').then(
+                            (response) => {
+                                this.$set(this, "server_table", response.body.data);
                             },
                             (response) => {
                                 layer.msg("初始化失败！", { icon: 2, time: 500 });
                             }
                         );
                     },
-                    onOff: function () {
+
+                    onOff() {
                         let msg = this.server_storeState === "营业中" ? "关闭" : "打开";
                         layer.confirm('确定' + msg + '店铺？',
                             { icon: 0, title: false, btn: ['确定', '取消'] },
@@ -223,7 +234,7 @@
                                     (response) => {
                                         let code = response.body.code;
                                         if (code === 0) {
-                                            this.$ATD(this, "server_storeState", response.body.data.value);
+                                            this.$set(this, "server_storeState", response.body.data.value);
                                             parent.layer.msg(msg + "成功！", { icon: 1, time: 500 });
                                             layer.closeAll('dialog');
                                         } else {
@@ -236,13 +247,14 @@
                                 );
                             }
                         );
-
                     },
-                    clickTable: function (index) {
+
+                    clickTable(index) {
                         let table = this.server_table[index];
                         layer.msg(JSON.stringify(table), { time: 500 })
                     },
-                    openTableManager: function () {
+
+                    openTableManager() {
                         layer.open({
                             title: '餐桌管理',
                             type: 2,
@@ -253,7 +265,8 @@
                             content: '../page/table.html'
                         });
                     },
-                    openLineManager: function () {
+
+                    openLineManager() {
                         layer.open({
                             title: '排队队列',
                             type: 2,
@@ -264,7 +277,8 @@
                             content: '../page/line.html'
                         });
                     },
-                    openStoreInfo: function () {
+
+                    openStoreInfo() {
                         layer.open({
                             title: '店铺设置',
                             type: 2,
@@ -275,19 +289,21 @@
                             content: '../page/storeInfo.html'
                         });
                     },
-                    setIndex: function (index, value) {
+
+                    setIndex(index, value) {
                         switch (index) {
                             case 0:
-                                this.$ATD(this, "active_index_0", value);
+                                this.$set(this, "active_index_0", value);
                                 break;
                             case 1:
-                                this.$ATD(this, "active_index_1", value);
+                                this.$set(this, "active_index_1", value);
                                 break;
                             case 2:
-                                this.$ATD(this, "active_index_2", value);
+                                this.$set(this, "active_index_2", value);
                                 break;
                         }
                     },
+
                     tableFiliter(index) {
                         let table = this.server_table[index];
                         if (this.active_index_0 !== -1) {
@@ -306,9 +322,40 @@
                             }
                         }
                         return true;
+                    },
+
+                    timedTask() {
+                        if (this.timer) {
+                            clearInterval(this.timer)
+                        } else {
+                            this.timer = setInterval(() => {
+                                this.$http.get('http://linqiu.ltd/table/all').then(
+                                    (response) => {
+                                        let newTable = response.body.data;
+                                        if (JSON.stringify(newTable) != JSON.stringify(this.server_table)) {
+                                            this.$set(this, "server_table", newTable);
+                                            this.$http.get('http://linqiu.ltd/table/stateCount').then(
+                                                (rs) => {
+                                                    this.$set(this, "server_tableStateCount", rs.body.data);
+                                                },
+                                                (rs) => {
+                                                    layer.msg("服务器异常", { icon: 2, time: 500 });
+                                                }
+                                            );
+                                        }
+                                    },
+                                    (response) => {
+                                        layer.msg("服务器异常", { icon: 2, time: 500 });
+                                    }
+                                );
+
+                            }, 10000);
+                        }
                     }
+
                 }
             })
+
         })
     </script>
 

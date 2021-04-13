@@ -95,7 +95,7 @@
 
             //初始化：从服务器获取所有种类数据以初始化select框
             $.get(
-                'http://linqiu.ltd/foodType/all',
+                'http://localhost/foodType/all',
                 function (data) {
                     var typeIdList = data.data;
                     $.each(typeIdList, function (index, item) {
@@ -112,7 +112,7 @@
             //监听提交
             form.on('submit(saveBtn)', function (data) {
                 $.post(
-                    'http://linqiu.ltd/food/edit',
+                    'http://localhost/food/edit',
                     data.field,
                     function (rs) {
                         if (rs.code === 0) {

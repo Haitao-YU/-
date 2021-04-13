@@ -44,7 +44,7 @@
             table.render({
                 elem: '#currentTableId',
                 title: '食品种类表',
-                url: 'http://linqiu.ltd/foodType/all',
+                url: 'http://localhost/foodType/all',
                 toolbar: '#toolbar',
                 defaultToolbar: ['filter', 'exports', 'print'],
                 cols: [[
@@ -104,7 +104,7 @@
                         function (index) {
                             // 向服务器发送post请求
                             $.post(
-                                'http://linqiu.ltd/foodType/delete',
+                                'http://localhost/foodType/delete',
                                 data,
                                 function (rs) {
                                     if (rs.code === 0) {

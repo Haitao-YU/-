@@ -42,82 +42,87 @@
                 form = layui.form,
                 table = layui.table;
 
-            table.render({
-                elem: '#currentTableId',
-                title: '食品表',
-                url: 'http://linqiu.ltd/food/all',
-                toolbar: '#toolbar',
-                defaultToolbar: ['filter', 'exports', 'print'],
-                cols: [[
-
-                    {
-                        field: 'image',
-                        width: 100,
-                        title: '餐品图片',
-                        align: "center",
-                        templet: function (d) {
-                            return '<div onclick="show_img(this)" ><img src="' + d.image + '" alt="" width="50px" height="50px"></div>';
-                        }
-                    },
-                    {
-                        field: 'name',
-                        width: 200,
-                        title: '名称',
-                        align: "center",
-                        sort: true
-                    },
-
-                    {
-                        field: 'typeName',
-                        width: 200,
-                        title: '分类',
-                        align: "center",
-                        sort: true
-                    },
-                    {
-                        field: 'price',
-                        width: 100,
-                        title: '价格(元)',
-                        align: "center",
-                        sort: true
-                    },
-                    {
-                        field: 'monthlySales',
-                        width: 100,
-                        title: '月售数',
-                        align: "center",
-                        sort: true
-                    },
-                    {
-                        field: 'remark',
-                        width: 120,
-                        title: '备注',
-                        templet: function (d) {
-                            return '<div style="color:gray" >' + d.remark + '</div>';
-                        }
-                    },
-                    {
-                        field: 'state',
-                        width: 120,
-                        title: '状态',
-                        align: 'center',
-                        templet: function (d) {
-                            return "<button type='button' class='layui-btn "
-                                + (d.state === 0 ? "" : d.state === 1 ? "layui-btn-primary" : "layui-btn-danger")
-                                + " layui-btn-sm layui-btn-radius'>"
-                                + (d.state === 0 ? "在售" : d.state === 1 ? "售罄" : "下架") + "</button>"
+            window.renderTable = function () {
+                table.render({
+                    elem: '#currentTableId',
+                    id: 'currentTableId',
+                    title: '食品表',
+                    url: 'http://localhost/food/all',
+                    toolbar: '#toolbar',
+                    defaultToolbar: ['filter', 'exports', 'print'],
+                    cols: [[
+                        {
+                            field: 'image',
+                            width: 100,
+                            title: '餐品图片',
+                            align: "center",
+                            templet: function (d) {
+                                return '<div onclick="show_img(this)" ><img src="' + d.image + '" alt="" width="50px" height="50px"></div>';
+                            }
                         },
-                        sort: true
-                    },
-                    {
-                        title: '操作',
-                        minWidth: 150,
-                        toolbar: '#currentTableBar',
-                        align: "center"
-                    }]],
-                page: false,
-                skin: 'row'
-            });
+                        {
+                            field: 'name',
+                            width: 200,
+                            title: '名称',
+                            align: "center",
+                            sort: true
+                        },
+
+                        {
+                            field: 'typeName',
+                            width: 200,
+                            title: '分类',
+                            align: "center",
+                            sort: true
+                        },
+                        {
+                            field: 'price',
+                            width: 100,
+                            title: '价格(元)',
+                            align: "center",
+                            sort: true
+                        },
+                        {
+                            field: 'monthlySales',
+                            width: 100,
+                            title: '月售数',
+                            align: "center",
+                            sort: true
+                        },
+                        {
+                            field: 'remark',
+                            width: 120,
+                            title: '备注',
+                            templet: function (d) {
+                                return '<div style="color:gray" >' + d.remark + '</div>';
+                            }
+                        },
+                        {
+                            field: 'state',
+                            width: 120,
+                            title: '状态',
+                            align: 'center',
+                            templet: function (d) {
+                                return "<button type='button' class='layui-btn "
+                                    + (d.state === 0 ? "" : d.state === 1 ? "layui-btn-primary" : "layui-btn-danger")
+                                    + " layui-btn-sm layui-btn-radius'>"
+                                    + (d.state === 0 ? "在售" : d.state === 1 ? "售罄" : "下架") + "</button>"
+                            },
+                            sort: true
+                        },
+                        {
+                            title: '操作',
+                            minWidth: 150,
+                            toolbar: '#currentTableBar',
+                            align: "center"
+                        }]],
+                    page: false,
+                    skin: 'row'
+                });
+            }
+
+
+            renderTable();
 
             // toolbar监听事件
             table.on('toolbar(currentTableFilter)', function (obj) {
@@ -159,7 +164,7 @@
                         { icon: 0, title: false, btn: ['删除', '取消'] },
                         function (index) {
                             $.post(
-                                'http://linqiu.ltd/food/delete',
+                                'http://localhost/food/delete',
                                 data,
                                 function (rs) {
                                     if (rs.code === 0) {

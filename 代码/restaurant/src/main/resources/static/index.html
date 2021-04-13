@@ -332,7 +332,7 @@
                 layer = layui.layer;
 
             $.get(
-                'http://linqiu.ltd/storeInfo/ifLogged',
+                'http://localhost/storeInfo/ifLogged',
                 function (rs) {
                     if (rs.code === 0) {
                         window.location = './main.html';
@@ -366,7 +366,7 @@
                 data = data.field;
                 if (data.captcha.toLowerCase() == 'xszg') {
                     $.post(
-                        'http://linqiu.ltd/storeInfo/adminLogin',
+                        'http://localhost/storeInfo/adminLogin',
                         data,
                         function (rs) {
                             if (rs.code === 0) {

@@ -89,19 +89,20 @@
                     getMealsNumberOption() {
                         this.$http.get('http://linqiu.ltd/line/getMealsNumberOption').then(
                             (response) => {
-                                this.$ATD(this, "server_mealsNumberOption", response.body.data);
+                                this.$set(this, "server_mealsNumberOption", response.body.data);
                             },
                             (response) => {
                                 layer.msg("初始化失败！", { icon: 2, time: 500 });
                             }
                         );
                     },
+
                     renderTable(title, url) {
                         this.$http.get(url).then(
                             (response) => {
                                 if (JSON.stringify(response.body.data) != JSON.stringify(this.server_table_data)) {
                                     console.log(Date() + ':\n数据发生变化，重新渲染表格');
-                                    this.$ATD(this, "server_table_data", response.body.data);
+                                    this.$set(this, "server_table_data", response.body.data);
                                     table.render({
                                         elem: '#currentTableId',
                                         title: title,
@@ -138,11 +139,12 @@
                                     });
                                 }
                                 else {
-                                    console.log(Date() + ':\n数据无变化，无需重新渲染表格');
+                                    console.log(Date() + ':\n，无需重新渲染表格');
                                 }
                             }
                         );
                     },
+
                     bindTableTool() {
                         let that = this;
                         table.on('tool(currentTableFilter)', function (obj) {
@@ -171,8 +173,9 @@
                             }
                         });
                     },
+
                     switchLineType(value) {
-                        this.$ATD(this, "active_index_0", value);
+                        this.$set(this, "active_index_0", value);
                         let title;
                         let url = 'http://linqiu.ltd/line/all';
                         if (value === -1) {
@@ -183,6 +186,7 @@
                         }
                         this.renderTable(title, url);
                     },
+
                     timedTask() {
                         if (this.timer) {
                             clearInterval(this.timer)

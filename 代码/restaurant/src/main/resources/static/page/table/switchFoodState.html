@@ -25,18 +25,19 @@
 <body>
     <div class="layui-form layuimini-form">
 
-        <div class="layui-form-item" hidden>
-            <input type="text" name="id" class="layui-input" disabled="disabled">
-        </div>
+        <input hidden id="id" name="id" disabled="disabled">
+        <input hidden id="state" name="state" disabled="disabled">
 
         <div class="layui-form-item food-state-container">
-            <button type="button" class="layui-btn food-state-btn" lay-submit lay-filter="onSale">
+            <button id="state0" type="button" class="layui-btn food-state-btn" lay-submit lay-filter="onSale">
                 在售
             </button>
-            <button type="button" class="layui-btn layui-btn-primary food-state-btn" lay-submit lay-filter="sellOut">
+            <button id="state1" type="button" class="layui-btn layui-btn-primary food-state-btn" lay-submit
+                lay-filter="sellOut">
                 售罄
             </button>
-            <button type="button" class="layui-btn layui-btn-danger food-state-btn" lay-submit lay-filter="offShelf">
+            <button id="state2" type="button" class="layui-btn layui-btn-danger food-state-btn" lay-submit
+                lay-filter="offShelf">
                 下架
             </button>
         </div>
@@ -50,9 +51,12 @@
                 layer = layui.layer,
                 $ = layui.$;
 
-            window.doPost = function (data, state) {
+            // 删除多余按钮
+            $('#state' + $('#state').val()).remove();
+
+            function doPost(data, state) {
                 $.post(
-                    'http://linqiu.ltd/food/switchState',
+                    'http://localhost/food/switchState',
                     {
                         "id": Number(data.field.id),
                         "state": Number(state)
@@ -61,7 +65,7 @@
                         if (rs.code === 0) {
                             parent.parent.layer.msg("切换成功！", { icon: 1, time: 500 });
                             parent.layer.close(parent.layer.getFrameIndex(window.name));
-                            window.parent.location.reload();
+                            window.parent.renderTable();
                         } else {
                             layer.msg("切换失败！", { icon: 2, time: 500 });
                         }
@@ -70,15 +74,21 @@
             }
 
             form.on('submit(onSale)', function (data) {
-                doPost(data, 0);
+                if (data.field.state != 0) {
+                    doPost(data, 0);
+                }
                 return false;
             });
             form.on('submit(sellOut)', function (data) {
-                doPost(data, 1);
+                if (data.field.state != 1) {
+                    doPost(data, 1);
+                }
                 return false;
             });
             form.on('submit(offShelf)', function (data) {
-                doPost(data, 2);
+                if (data.field.state != 2) {
+                    doPost(data, 2);
+                }
                 return false;
             });
 
