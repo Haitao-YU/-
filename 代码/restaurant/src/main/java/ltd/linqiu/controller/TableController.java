@@ -6,6 +6,7 @@ import ltd.linqiu.entity.TableResult;
 import ltd.linqiu.service.ITableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +26,18 @@ public class TableController {
     public TableResult<Table> all() {
         List<Table> tableList = tableService.getAll();
         return new TableResult<>(0, "", tableList.size(), tableList);
+    }
+
+
+    @GetMapping("/{id}")
+    public CommonResult<Table> getById(@PathVariable("id") String id) {
+        Table table = tableService.getById(id);
+        if (table == null) {
+            return new CommonResult<>(400, "餐桌不存在");
+        } else {
+            return new CommonResult<>(0, table, "根据id获取餐桌");
+        }
+
     }
 
     @PostMapping("/add")

@@ -22,6 +22,12 @@ public class TableService implements ITableService {
         return tableMapper.selectAll();
     }
 
+
+    @Override
+    public Table getById(String id) {
+        return tableMapper.selectById(id);
+    }
+
     @Override
     public Integer add(Table table) {
         Table old = tableMapper.selectById(table.getId());
@@ -96,9 +102,9 @@ public class TableService implements ITableService {
     @Override
     public List<String> getAllPosition() {
         List<String> ret = tableMapper.selectDistinctPosition();
-        if(ret.size()>0){
+        if (ret.size() > 0) {
             return ret;
-        }else {
+        } else {
             return null;
         }
     }
@@ -106,9 +112,9 @@ public class TableService implements ITableService {
     @Override
     public List<Integer> getAllSeats() {
         List<Integer> ret = tableMapper.selectDistinctSeats();
-        if(ret.size()>0){
+        if (ret.size() > 0) {
             return ret;
-        }else {
+        } else {
             return null;
         }
     }

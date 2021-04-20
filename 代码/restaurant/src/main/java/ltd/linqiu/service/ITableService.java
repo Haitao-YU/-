@@ -7,6 +7,8 @@ import java.util.List;
 public interface ITableService {
     List<Table> getAll();
 
+    Table getById(String id);
+
     Integer add(Table table);
 
     Integer switchState(String id, Integer state);

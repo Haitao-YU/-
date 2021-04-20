@@ -20,7 +20,7 @@ public class Order {
     private String phone;
     private String content;
     private String tableId;
-    private Integer numberOfDiners;
+    private Integer nOfDiners;
     private Double sum;
     private String remark;
 }

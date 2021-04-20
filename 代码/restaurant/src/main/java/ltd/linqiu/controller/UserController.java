@@ -36,22 +36,14 @@ import java.util.Map;
 public class UserController {
     private static Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    /**
-     * 获取微信小程序用户openid等信息
-     * @param encryptedData 加密数据
-     * @param iv 加密算法初始向量
-     * @param codes 微信小程序code码
-     * @param request HttpServletRequest
-     * @return String
-     */
     @GetMapping("/oauth")
     public String wxOauth(String encryptedData, String iv, String codes, HttpServletRequest request) {
-        String appid = "wx9d22be6c217ba61f";
-        String secret = "7783349bff07e1345065f48548b8b721";
-        System.out.println(encryptedData + " || " + iv + " || " + codes);
-        Object res = getPhoneNumber(encryptedData, codes, iv, appid, secret);
-        logger.info(request.toString());
-        return res.toString();
+            String appid = "wx9d22be6c217ba61f";
+            String secret = "7783349bff07e1345065f48548b8b721";
+            System.out.println(encryptedData + " || " + iv + " || " + codes);
+            Object res = getPhoneNumber(encryptedData, codes, iv, appid, secret);
+            logger.info(request.toString());
+            return res.toString();
     }
 
     @GetMapping("/getUser")

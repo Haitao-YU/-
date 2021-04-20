@@ -47,7 +47,7 @@
             table.render({
                 elem: '#currentTableId',
                 title: '食品表',
-                url: 'http://localhost/table/all',
+                url: 'http://linqiu.ltd/table/all',
                 toolbar: '#toolbar',
                 defaultToolbar: ['filter', 'exports', 'print'],
                 cols: [[
@@ -128,7 +128,7 @@
                         function (index) {
                             // 向服务器发送post请求
                             $.get(
-                                'http://localhost/table/enableAll',
+                                'http://linqiu.ltd/table/enableAll',
                                 function (rs) {
                                     if (rs.code === 0) {
                                         parent.layer.msg("启用成功！", { icon: 1, time: 500 });
@@ -171,7 +171,7 @@
                         function (index) {
                             // 向服务器发送post请求
                             $.post(
-                                'http://localhost/table/delete',
+                                'http://linqiu.ltd/table/delete',
                                 data,
                                 function (rs) {
                                     if (rs.code === 0) {

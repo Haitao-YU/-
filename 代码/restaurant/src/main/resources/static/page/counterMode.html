@@ -168,7 +168,7 @@
                 methods: {
                     init: function () {
                         let vm = this;
-                        this.$http.get('http://localhost/table/all').then(
+                        this.$http.get('http://linqiu.ltd/table/all').then(
                             (response) => {
                                 vm.$ATD(this, "server_table", response.body.data);
                             },

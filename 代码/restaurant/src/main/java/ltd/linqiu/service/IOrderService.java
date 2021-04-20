@@ -8,4 +8,8 @@ public interface IOrderService {
     List<Order> getAll();
 
     Integer add(Order order);
+
+    List<Order> getByPhone(String phone);
+
+    List<Order> getByPhoneState(String phone, Integer state);
 }

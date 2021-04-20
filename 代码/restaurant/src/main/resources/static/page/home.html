@@ -182,7 +182,7 @@
                 },
                 methods: {
                     init() {
-                        this.$http.get('http://localhost/table/stateCount').then(
+                        this.$http.get('http://linqiu.ltd/table/stateCount').then(
                             (response) => {
                                 this.$set(this, "server_tableStateCount", response.body.data);
                             },
@@ -190,7 +190,7 @@
                                 layer.msg("初始化失败！", { icon: 2, time: 500 });
                             }
                         );
-                        this.$http.get('http://localhost/storeInfo/店铺名称').then(
+                        this.$http.get('http://linqiu.ltd/storeInfo/店铺名称').then(
                             (response) => {
                                 this.$set(this, "server_storeName", response.body.data.value);
                             },
@@ -198,7 +198,7 @@
                                 layer.msg("初始化失败！", { icon: 2, time: 500 });
                             }
                         );
-                        this.$http.get('http://localhost/storeInfo/状态').then(
+                        this.$http.get('http://linqiu.ltd/storeInfo/状态').then(
                             (response) => {
                                 this.$set(this, "server_storeState", response.body.data.value);
                             },
@@ -206,7 +206,7 @@
                                 layer.msg("初始化失败！", { icon: 2, time: 500 });
                             }
                         );
-                        this.$http.get('http://localhost/table/classify').then(
+                        this.$http.get('http://linqiu.ltd/table/classify').then(
                             (response) => {
                                 this.$set(this, "server_positionList", response.body.data.positionList);
                                 this.$set(this, "server_seatsList", response.body.data.seatsList);
@@ -215,7 +215,7 @@
                                 layer.msg("初始化失败！", { icon: 2, time: 500 });
                             }
                         );
-                        this.$http.get('http://localhost/table/all').then(
+                        this.$http.get('http://linqiu.ltd/table/all').then(
                             (response) => {
                                 this.$set(this, "server_table", response.body.data);
                             },
@@ -230,7 +230,7 @@
                         layer.confirm('确定' + msg + '店铺？',
                             { icon: 0, title: false, btn: ['确定', '取消'] },
                             function (index) {
-                                this.$http.get('http://localhost/storeInfo/onOff').then(
+                                this.$http.get('http://linqiu.ltd/storeInfo/onOff').then(
                                     (response) => {
                                         let code = response.body.code;
                                         if (code === 0) {
@@ -329,12 +329,12 @@
                             clearInterval(this.timer)
                         } else {
                             this.timer = setInterval(() => {
-                                this.$http.get('http://localhost/table/all').then(
+                                this.$http.get('http://linqiu.ltd/table/all').then(
                                     (response) => {
                                         let newTable = response.body.data;
                                         if (JSON.stringify(newTable) != JSON.stringify(this.server_table)) {
                                             this.$set(this, "server_table", newTable);
-                                            this.$http.get('http://localhost/table/stateCount').then(
+                                            this.$http.get('http://linqiu.ltd/table/stateCount').then(
                                                 (rs) => {
                                                     this.$set(this, "server_tableStateCount", rs.body.data);
                                                 },

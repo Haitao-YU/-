@@ -1,11 +1,7 @@
 package ltd.linqiu.service.impl;
 
-import com.alibaba.fastjson.JSON;
-import ltd.linqiu.entity.Food;
 import ltd.linqiu.entity.Order;
-import ltd.linqiu.entity.OrderContent;
 import ltd.linqiu.mapper.OrderMapper;
-import ltd.linqiu.service.IFoodService;
 import ltd.linqiu.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +13,6 @@ import java.util.List;
 public class OrderService implements IOrderService {
     @Autowired
     private OrderMapper orderMapper;
-    @Autowired
-    private IFoodService foodService;
 
     @Override
     public List<Order> getAll() {
@@ -28,44 +22,35 @@ public class OrderService implements IOrderService {
 
     @Override
     public Integer add(Order order) {
-        order.setState(0);
-        order.setDate(new Date());
-        this.completeContent(order);
         return orderMapper.insert(order);
     }
 
-    /**
-     * 工具函数：完善order的contents属性
-     */
-    void completeContent(Order order) {
-        if (order == null) {
-            return;
-        }
-        List<List<Integer>> content = JSON.parseObject(order.getContent(), List.class);
-//        System.out.println(content);
-        for (List<Integer> integers : content) {
-//            System.out.println(integers);
-            // 获取contentId
-            Integer contentId;
-            Integer foodId = integers.get(0);
-            Food food = foodService.getById(foodId);
-//            System.out.println(food);
-            OrderContent orderContent = new OrderContent(food);
-//            System.out.println(orderContent);
-            List<OrderContent> orderContentList = orderMapper.selectOneOrderContent(orderContent);
-            // 判断orderContent是否已经存在
-            if (orderContentList.size() == 0) {
-                if (orderMapper.insertOrderContent(orderContent) == 1) {
-                    contentId = orderMapper.selectOneOrderContent(orderContent).get(0).getId();
-                } else {
-                    throw new RuntimeException("插表失败！");
-                }
-            } else {
-                contentId = orderContentList.get(0).getId();
-            }
-            // 将foodId改为contentId
-            integers.set(0, contentId);
-        }
-        order.setContent(JSON.toJSONString(content));
+    @Override
+    public List<Order> getByPhone(String phone) {
+        return orderMapper.selectByPhone(phone);
     }
+
+    @Override
+    public List<Order> getByPhoneState(String phone, Integer state) {
+        return orderMapper.selectByPhoneState(phone, state);
+    }
+
+
+    //    public static void main(String[] args) {
+    //        OrderFood orderFood = new OrderFood(1, "name", 12.3, "image", "remark", 2);
+    //        System.out.println(JSON.toJSONString(orderFood));
+    //        List<OrderFood> list = new ArrayList<>();
+    //        list.add(new OrderFood(1, "name1", 12.30, "imageUrl", "remark", 1));
+    //        list.add(new OrderFood(2, "name2", 12.30, "imageUrl", "remark", 2));
+    //        list.add(new OrderFood(3, "name3", 12.30, "imageUrl", "remark", 3));
+    //        System.out.println(JSON.toJSONString(list));
+    //        List<OrderFood> l = JSON.parseObject(
+    //                "[{\"count\":2,\"id\":1,\"image\":\"image\",\"name\":\"name\"," + "\"price\":12.3," + "\"remark\":\"remark\"},{\"count\":2,\"id\":2,\"image\":\"image\",\"name\":\"name\",\"price\":12.3," + "\"remark\":\"remark\"},{\"count\":2,\"id\":3,\"image\":\"image\",\"name\":\"name\",\"price\":12.3," + "\"remark\":\"remark\"}]",
+    //                List.class);
+    //        System.out.println(l.get(1));
+    //
+    //        OrderFood f = JSON.parseObject(String.valueOf(l.get(1)), OrderFood.class);
+    //
+    //        System.out.println(f.toString());
+    //    }
 }

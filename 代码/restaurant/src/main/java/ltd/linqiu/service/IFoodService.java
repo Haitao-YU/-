@@ -12,6 +12,8 @@ public interface IFoodService {
 
     List<Food> getByTypeId(Integer typeId);
 
+    List<Food> gets(Integer[] ids);
+
     List<OneOfMenu> getMenu();
 
     Integer modify(Food food);

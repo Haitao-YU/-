@@ -36,7 +36,22 @@ public class FoodService implements IFoodService {
     @Override
     public Food getById(Integer id) {
         Food ret = foodMapper.selectById(id);
-        completeFoodTypeName(ret);
+        if (ret != null) {
+            completeFoodTypeName(ret);
+        }
+        return ret;
+    }
+
+    @Override
+    public List<Food> gets(Integer[] ids) {
+        List<Food> ret = new ArrayList<>();
+        for (Integer id : ids) {
+            Food food = foodMapper.selectById(id);
+            if (food == null) {
+                return null;
+            }
+            ret.add(food);
+        }
         return ret;
     }
 

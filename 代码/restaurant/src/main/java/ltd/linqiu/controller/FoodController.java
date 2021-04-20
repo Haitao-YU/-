@@ -30,20 +30,31 @@ public class FoodController {
 
     @GetMapping("/{id}")
     public CommonResult<Food> showById(@PathVariable("id") Integer id) {
-        CommonResult<Food> ret = new CommonResult<>();
-        ret.setCode(200);
-        ret.setMsg("根据ID获得餐品");
-        ret.setData(foodService.getById(id));
-        return ret;
+        Food ret = foodService.getById(id);
+        if (ret != null) {
+            return new CommonResult<>(0, ret, "根据ID获得餐品");
+        } else {
+            return new CommonResult<>(400, "餐品不存在");
+        }
+    }
+
+    @PostMapping("/gets")
+    public CommonResult<List<Food>> gets(Integer[] ids) {
+        List<Food> ret = foodService.gets(ids);
+        if (ret != null) {
+            return new CommonResult<>(0, ret, "批量根据id获取食物");
+        }
+        return new CommonResult<>(400, "获取食物失败");
     }
 
     @GetMapping("/type/{typeId}")
     public CommonResult<List<Food>> showByTypeId(@PathVariable("typeId") Integer typeId) {
-        CommonResult<List<Food>> ret = new CommonResult<>();
-        ret.setCode(200);
-        ret.setMsg("根据分类获得餐品");
-        ret.setData(foodService.getByTypeId(typeId));
-        return ret;
+        List<Food> ret = foodService.getByTypeId(typeId);
+        if (ret != null) {
+            return new CommonResult<>(0, ret, "根据分类获得餐品");
+        } else {
+            return new CommonResult<>(400, "分类不存在");
+        }
     }
 
     @PostMapping("/edit")
