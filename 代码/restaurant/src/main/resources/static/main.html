@@ -60,7 +60,9 @@
                         <a href="javascript:;" data-check-screen="full"><i class="fa fa-arrows-alt"></i></a>
                     </li>
                     <li class="layui-nav-item layuimini-setting">
-                        <a href="javascript:;">55170237</a>
+
+                        <a id="adminName" href="javascript:;">管理员名称</a>
+
                         <dl class="layui-nav-child">
 
                             <dd>
@@ -71,7 +73,7 @@
                                 <hr>
                             </dd>
                             <dd>
-                                <a href="javascript:;" class="login-out">退出登录</a>
+                                <a href="javascript:void(0);" class="login-out">退出登录</a>
                             </dd>
                         </dl>
                     </li>
@@ -128,12 +130,34 @@
     </div>
     <script src="lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
     <script src="js/lay-config.js?v=2.0.0" charset="utf-8"></script>
+    <script src="./js/tools.js" charset="utf-8"></script>
     <script>
         layui.use(['jquery', 'layer', 'miniAdmin', 'miniTongji'], function () {
+
             var $ = layui.jquery,
                 layer = layui.layer,
                 miniAdmin = layui.miniAdmin,
                 miniTongji = layui.miniTongji;
+
+            // 页面登录检查
+            let logInfo = JSON.parse(getCookie("logInfo"));
+            if (logInfo) {
+                $.ajax({
+                    url: 'http://linqiu.ltd/storeInfo/adminLogin',
+                    type: 'POST',
+                    data: logInfo,
+                    success: function (rs) {
+                        if (rs.code != 0) {
+                            window.location = "/";
+                        } else {
+                            $("#adminName").html(logInfo.name);
+                        }
+                    }
+                });
+            } else {
+                window.location = "/";
+            }
+
 
             var options = {
                 iniUrl: "api/init.json",    // 初始化接口
@@ -149,8 +173,9 @@
             miniAdmin.render(options);
 
             $('.login-out').on("click", function () {
-                layer.msg('退出登录成功', function () {
-                    window.location = 'page/login-3.html';
+                layer.msg('退出登录成功', { icon: 1, time: 500 }, function () {
+                    delCookie("logInfo");
+                    window.location = '/';
                 });
             });
         });

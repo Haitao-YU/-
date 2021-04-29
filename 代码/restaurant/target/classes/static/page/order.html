@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>订单管理</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/public.css" media="all">
+    <style>
+        .layui-table-cell {
+            height: auto;
+        }
+
+        .table-title {
+            height: 30px;
+            display: flex;
+            align-items: center;
+            border-left: #1E9FFF 5px solid;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layuimini-container">
+        <div class="layuimini-main">
+            <!-- 表格标题 -->
+            <div class="table-title">
+                <h2 id="tableTilte">
+                    订单管理（全部）
+                </h2>
+            </div>
+
+            <!-- 条件搜索 -->
+            <div class="layui-collapse">
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">条 件 搜 索 <i class="layui-icon layui-icon-search"></i></span></h2>
+                    <div class="layui-colla-content">
+                        <!-- 搜索框 -->
+                        <div style="margin: 10px 10px 10px 10px">
+                            <form id="conditionQuery" class="layui-form layui-form-pane">
+
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">订单状态</label>
+                                        <div class="layui-input-inline">
+                                            <select id="state" name="state">
+                                                <option value='' selected>全部</option>
+                                                <option value="0">进行中（未完成）</option>
+                                                <option value="3">已完成</option>
+                                                <option value="1">未评价（已完成）</option>
+                                                <option value="2">已评价（已完成）</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">订单编号</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" id="id" name="id" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">下单日期</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" id="date" name="date" autocomplete="off"
+                                                class="layui-input">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">客户手机号</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" id="phone" name="phone" autocomplete="off"
+                                                class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">点餐内容</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" id="content" name="content" autocomplete="off"
+                                                class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">就餐桌号</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" id="tableId" name="tableId" autocomplete="off"
+                                                class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">用餐人数</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" id="nOfDiners" name="nOfDiners" autocomplete="off"
+                                                class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">订单金额</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" id="sum" name="sum" autocomplete="off"
+                                                class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">备注信息</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" id="remark" name="remark" autocomplete="off"
+                                                class="layui-input">
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="layui-inline">
+                                        <button type="button" class="layui-btn layui-btn-primary" lay-submit
+                                            lay-filter="all">
+                                            <i class="layui-icon layui-icon-template-1"></i>查 看 全 部
+                                        </button>
+                                        <button type="button" class="layui-btn layui-btn-primary" lay-submit
+                                            lay-filter="clear">
+                                            <i class="layui-icon layui-icon-delete"></i>清 空 输 入
+                                        </button>
+                                        <button type="button" class="layui-btn layui-btn-primary" lay-submit
+                                            lay-filter="query">
+                                            <i class="layui-icon layui-icon-search"></i>执 行 搜 索
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- 方法渲染数据表格 -->
+            <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+            <script type="text/html" id="toolbar">
+                <div class="layui-btn-container">
+                    <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="reload"> 刷新表格 </button>
+                    <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="batchPass"> 计算勾选订单总金额 </button>
+                </div>
+            </script>
+            <script type="text/html" id="currentTableBar">
+                <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="review">详情</a>
+            </script>
+        </div>
+    </div>
+
+    <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+    <script src="../js/tools.js"></script>
+    <script>
+
+        layui.use(['form', 'table', 'laydate', 'element'], function () {
+            var $ = layui.jquery,
+                form = layui.form,
+                table = layui.table,
+                laydate = layui.laydate,
+                element = layui.element;
+
+            window.queryConditions = '';
+            window.renderTable = () => {
+                table.render({
+                    elem: '#currentTableId',
+                    id: 'currentTableId',
+                    title: '订单管理',
+                    url: 'http://linqiu.ltd/order/all?' + queryConditions,
+                    toolbar: '#toolbar',
+                    defaultToolbar: ['filter', 'exports', 'print'],
+                    page: false,
+                    skin: 'row',
+                    cols: [[
+                        {
+                            type: "checkbox",
+                            width: 50
+                        },
+                        {
+                            field: 'id',
+                            width: 100,
+                            title: '编号',
+                            align: "center",
+                            sort: true
+                        },
+                        {
+                            field: 'date',
+                            width: 150,
+                            title: '下单时间',
+                            align: "center",
+                            sort: true,
+                            templet: function (item) {
+                                const date = new Date(item.date);
+                                return dateFormat("YYYY-mm-dd HH:MM", date);
+                            },
+                        },
+                        {
+                            field: 'state',
+                            width: 90,
+                            title: '状态',
+                            align: 'center',
+                            templet: function (item) {
+                                const state = item.state;
+                                return "<button type='button' class='layui-btn "
+                                    + (state === 0 ? "layui-btn-warm" : state === 1 ? "layui-btn-primary" : "")
+                                    + " layui-btn-sm layui-btn-radius'>"
+                                    + (state === 0 ? "进行中" : state === 1 ? "待评价" : "已评价") + "</button>"
+                            },
+                            sort: true
+                        },
+                        {
+                            field: 'content',
+                            width: 270,
+                            title: '点餐内容',
+                            templet: function (item) {
+                                const content = JSON.parse(item.content);
+                                let ret = "";
+                                for (let food of content) {
+                                    ret += food.name + 'x' + food.count + ',';
+                                }
+                                return ret.substring(0, ret.length - 1);
+                            },
+                            sort: true
+                        },
+                        {
+                            field: 'phone',
+                            width: 130,
+                            title: '客户手机号',
+                            align: "center",
+                            sort: true
+                        },
+                        {
+                            field: 'tableId',
+                            width: 100,
+                            title: '餐桌号',
+                            align: "center",
+                            sort: true
+                        },
+                        {
+                            field: 'nofDiners',
+                            width: 110,
+                            title: '就餐人数',
+                            align: "center",
+                            sort: true
+                        },
+                        {
+                            field: 'sum',
+                            width: 120,
+                            title: '订单金额(¥)',
+                            align: "center",
+                            sort: true
+                        },
+                        {
+                            title: '操作',
+                            minWidth: 50,
+                            toolbar: '#currentTableBar',
+                            align: "center"
+                        }
+                    ]],
+                });
+            }
+            renderTable();
+            laydate.render({
+                elem: '#date'
+            });
+            laydate.render({
+                elem: '#serviceDate'
+            });
+
+            const review = (data) => {
+                layer.open({
+                    title: '订单详情',
+                    type: 2,
+                    shade: 0.2,
+                    maxmin: true,
+                    area: ['50%', '95%'],
+                    content: '../page/orderDetail.html?tableid=' + data.tableId + "&orderid=" + data.id,
+                });
+            };
+
+
+            // toolbar监听事件
+            table.on('toolbar(currentTableFilter)', function (obj) {
+                if (obj.event === 'batchPass') { // 统计勾选总金额
+                    var checkStatus = table.checkStatus('currentTableId');
+                    var list = checkStatus.data;
+                    var sum = 0;
+                    for (var item of list) {
+                        sum += item.sum;
+                    }
+                    layer.confirm("勾选订单金额统计：总计" + sum + "元", { btn: ['确认'] });
+                } else if (obj.event === 'reload') {
+                    renderTable();
+                }
+            });
+
+            // 行双击事件
+            table.on('rowDouble(currentTableFilter)', function (obj) {
+                let data = obj.data;
+                obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
+                review(obj.data);
+            })
+
+            // 操作栏
+            table.on('tool(currentTableFilter)', function (obj) {
+                let data = obj.data;
+                if (obj.event === 'review') {
+                    review(obj.data);
+                }
+            });
+
+            // 搜索栏：查看全部
+            form.on('submit(all)', function () {
+                $("#id").val('');
+                $("#date").val('');
+                $("#state").val('');
+                $("#phone").val('');
+                $("#content").val('');
+                $("#tableId").val('');
+                $("#nOfDiners").val('');
+                $("#sum").val('');
+                $("#remark").val('');
+                form.render();
+                $("#tableTilte").html("订单管理（全部）");
+                queryConditions = '';
+                renderTable();
+            })
+
+            // 搜索栏：清空输入
+            form.on('submit(clear)', function () {
+                $("#id").val('');
+                $("#date").val('');
+                $("#state").val('');
+                $("#phone").val('');
+                $("#content").val('');
+                $("#tableId").val('');
+                $("#nOfDiners").val('');
+                $("#sum").val('');
+                $("#remark").val('');
+                form.render();
+            })
+
+            // 搜索栏：执行搜索
+            form.on('submit(query)', function (obj) {
+                const data = obj.field;
+                newCondition = '';
+                for (let att in data) {
+                    let val = data[att];
+                    if (val != '') {
+                        newCondition += '&' + att + '=' + val;
+                    }
+                }
+                if (newCondition != queryConditions) {
+                    queryConditions = newCondition;
+                    if (newCondition == '') {
+                        $("#tableTilte").html("订单管理（全部）");
+                    } else {
+                        $("#tableTilte").html("订单管理（条件搜素结果）");
+                    }
+                }
+                renderTable();
+            })
+
+        });
+    </script>
+
+</body>
+
+</html>

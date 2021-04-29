@@ -1148,7 +1148,7 @@
       <Position>9</Position>
       <Comment>备注</Comment>
       <DataType>varchar(500)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="272" parent="235" name="PRIMARY">

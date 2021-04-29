@@ -68,7 +68,7 @@ public class TableService implements ITableService {
     @Override
     public boolean enableAll() {
         try {
-            Integer num = tableMapper.updateAllStateByState(2, 0);
+            tableMapper.updateAllStateByState(2, 0);
             return true;
         } catch (Exception e) {
             return false;

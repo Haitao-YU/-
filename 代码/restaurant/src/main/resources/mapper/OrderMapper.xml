@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="ltd.linqiu.mapper.OrderMapper">
+
+    <!--  插入一个Order并回填id  -->
+    <insert id="insert" parameterType="ltd.linqiu.entity.Order"
+            useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        insert into `order` (date, state, phone, content, tableId, nOfDiners, sum, remark)
+        values (now(), 0, #{phone}, #{content}, #{tableId}, #{nOfDiners}, #{sum}, #{remark})
+    </insert>
+
+
+    <!--  条件查询  -->
+    <select id="selectByConditions" parameterType="ltd.linqiu.entity.Order"
+            resultType="ltd.linqiu.entity.Order">
+        select * from `order`
+        <where>
+            <if test="id!=null">id=#{id}</if>
+            <if test="date!=null">and date between #{date} and date_add(#{date}, interval 1 day)</if>
+            <if test="state!=null">and state=#{state}</if>
+            <if test="phone!=null">and phone like concat('%',#{phone},'%')</if>
+            <if test="content!=null">and content like concat('%',#{content},'%')</if>
+            <if test="tableId!=null">and tableId=#{tableId}</if>
+            <if test="nOfDiners!=null">and nOfDiners=#{nOfDiners}</if>
+            <if test="sum!=null">and sum=#{sum}</if>
+            <if test="remark!=null">and remark like concat('%',#{remark},'%')</if>
+        </where>
+    </select>
+
+    <!--  条件查询  -->
+    <select id="selectByConditionsStateGreater" parameterType="ltd.linqiu.entity.Order"
+            resultType="ltd.linqiu.entity.Order">
+        select * from `order`
+        <where>
+            <if test="id!=null">id=#{id}</if>
+            <if test="date!=null">and date between #{date} and date_add(#{date}, interval 1 day)</if>
+            <if test="state!=null">and state>#{state}</if>
+            <if test="phone!=null">and phone like concat('%',#{phone},'%')</if>
+            <if test="content!=null">and content like concat('%',#{content},'%')</if>
+            <if test="tableId!=null">and tableId=#{tableId}</if>
+            <if test="nOfDiners!=null">and nOfDiners=#{nOfDiners}</if>
+            <if test="sum!=null">and sum=#{sum}</if>
+            <if test="remark!=null">and remark like concat('%',#{remark},'%')</if>
+        </where>
+    </select>
+
+</mapper>

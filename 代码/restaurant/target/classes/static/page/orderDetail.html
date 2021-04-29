@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>订单详情</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="divport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/public.css" media="all">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <style>
+        .main {
+            padding: 0;
+            margin: 0;
+        }
+
+        .top {
+            width: 100%;
+            height: 50px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .top .left {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .top .left .text {
+            color: white;
+            margin-left: 15px;
+        }
+
+        .top .right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .block {
+            width: 90%;
+            margin: 5%;
+            padding-top: 15px;
+            background: white;
+            border-radius: 15px;
+        }
+
+        .block .head {
+            font-size: 15px;
+            font-weight: bold;
+            padding-left: 20px;
+            color: #515151;
+            padding-bottom: 10px;
+            border-bottom: lightgray solid 2px;
+        }
+
+        .block .food_item {
+            display: flex;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .block .food_item .image_info {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .block .food_item .image_info img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+        }
+
+        .block .food_item .text_info {
+            position: relative;
+            flex: 2;
+        }
+
+        .block .food_item .text_info .name {
+            margin: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .block .food_item .text_info .remark {
+            margin: 10px;
+            font-size: 10px;
+            color: #515151;
+            text-align: left;
+        }
+
+        .block .food_item .text_info .price {
+            width: 20%;
+            margin: 10px;
+            font-size: 15px;
+            text-align: left;
+            color: #C92D2D;
+            font-weight: bold;
+        }
+
+
+        .block .food_item .text_info .count {
+            position: absolute;
+            right: 10%;
+            bottom: 10%;
+            display: flex;
+        }
+
+        .block .food_item .text_info .count .num {
+            font-size: 15px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .block .other_item {
+            display: flex;
+            margin-top: 30px;
+        }
+
+        .block .other_item .left {
+            flex: 1;
+            color: #606060;
+            font-size: 14px;
+            padding-left: 80px;
+        }
+
+        .block .other_item .left sapn {
+            color: #C92D2D;
+        }
+
+        .block .other_item .right {
+            flex: 1;
+            color: #606060;
+            font-size: 14px;
+            padding-right: 85px;
+            text-align: right;
+        }
+
+
+
+        .block .bottom {
+            padding: 30px;
+            text-align: right;
+            font-size: 15px;
+        }
+
+        .block .cus_remark {
+            font-size: 14px;
+            padding: 20px;
+        }
+
+        .block .order_info {
+            padding: 20px;
+        }
+
+        .block .order_info .info {
+            display: flex;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .block .order_info .info .left {
+            flex: 1;
+            color: #515151;
+        }
+
+        .block .order_info .info .right {
+            flex: 3;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="main" v-if="server_order">
+
+        <div class="block" style="margin-top: 70px;">
+            <div class="head">收费明细</div>
+            <div class="food_item" v-for="(food, index) in server_order.content">
+                <div class="image_info">
+                    <img :src="food.image">
+                </div>
+                <div class="text_info">
+                    <div class="name" v-html="food.name"></div>
+                    <div class="remark" v-html="food.remark"></div>
+                    <div class="price" v-html="'¥'+food.price"></div>
+                    <div class="count">
+                        <div class="num" v-html="'x'+food.count"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="other_item">
+                <div class="left">餐位费 <span>¥0</span></div>
+                <div class="right" v-html="'x'+server_order.nofDiners"></div>
+            </div>
+            <div class="bottom">
+                <div>合计 <span style="color: #C92D2D; font-weight: bold; font-size: 20px;"
+                        v-html="'¥'+server_order.sum"></span> </div>
+            </div>
+        </div>
+
+        <div class="block">
+            <div class="head">客户备注</div>
+            <div class="cus_remark" v-html="server_order.remark==''?'无':server_order.remark">
+            </div>
+        </div>
+
+        <div class="block">
+            <div class="head">订单信息</div>
+            <div class="order_info">
+                <div class="info">
+                    <div class="left">订单编号</div>
+                    <div class="right" v-html="server_order.id"></div>
+                </div>
+                <div class="info">
+                    <div class="left">下单时间</div>
+                    <div class="right" v-html="server_order.date"></div>
+                </div>
+                <div class="info">
+                    <div class="left">就餐桌号</div>
+                    <div class="right" v-html="server_order.tableId+'号桌'"></div>
+                </div>
+                <div class="info">
+                    <div class="left">用餐人数</div>
+                    <div class="right" v-html="server_order.nofDiners+'人'"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="top">
+            <div class="left">
+                <div class="text">桌号: <span v-html="server_order.tableId"></span></div>
+                <div class="text">客户手机号: <span v-html="server_order.phone"></span></div>
+            </div>
+
+            <div class="right" v-show="write">
+                <button @click="tally" class="layui-btn" style="margin-right: 20px;">
+                    结算订单
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+    <script src="../js/tools.js" charset="utf-8"></script>
+
+    <script>
+        layui.use(['form', 'table'], function () {
+            var $ = layui.jquery,
+                form = layui.form,
+                table = layui.table;
+            var app = new Vue({
+                el: "#app",
+                data() {
+                    return {
+                        // 本地定义数据
+                        orderId: null,
+                        tableId: null,
+                        write: false,
+                        // 服务端数据
+                        server_order: null
+                    }
+                },
+                created() {
+                    this.orderId = getQueryVariable("orderid");
+                    this.tableId = getQueryVariable("tableid");
+                    this.write = getQueryVariable("write");
+                    console.log(this.write);
+                    this.$http.get('http://linqiu.ltd/order/id/' + this.orderId).then(
+                        (response) => {
+                            let order = response.body.data;
+                            order.content = JSON.parse(order.content);
+                            order.date = dateFormat("YYYY-mm-dd HH:MM", new Date(order.date));
+                            this.server_order = order;
+                        },
+                        (response) => {
+                            layer.msg("初始化失败！", { icon: 2, time: 500 });
+                        }
+                    );
+                },
+                mounted() {
+                },
+                beforeDestroy() {
+
+                },
+                methods: {
+                    tally() {
+                        $.post(
+                            'http://linqiu.ltd/order/tally',
+                            {
+                                tableId: this.tableId,
+                                orderId: this.orderId
+                            },
+                            function (rs) {
+                                if (rs.code === 0) {
+                                    parent.parent.layer.msg("结算成功", { icon: 1, time: 500 });
+                                    parent.layer.close(parent.layer.getFrameIndex(window.name));
+                                } else if (rs.code === 401) {
+                                    parent.parent.layer.msg("订单结算成功,餐桌状态更新失败", { icon: 1, time: 500 });
+                                    parent.layer.close(parent.layer.getFrameIndex(window.name));
+                                } else {
+                                    layer.msg("服务器异常", { icon: 2, time: 500 });
+                                }
+                            }
+                        );
+                    }
+                }
+            })
+
+        })
+    </script>
+</body>

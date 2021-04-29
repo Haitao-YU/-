@@ -1,20 +1,27 @@
 package ltd.linqiu.service.impl;
 
 import ltd.linqiu.entity.Line;
+import ltd.linqiu.front.LineInfo;
 import ltd.linqiu.mapper.LineMapper;
 import ltd.linqiu.mapper.TableMapper;
 import ltd.linqiu.service.ILineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class LineService implements ILineService {
+    private static volatile boolean lock = false;
+
+
     @Autowired
     private LineMapper lineMapper;
     @Autowired
     private TableMapper tableMapper;
+
 
     @Override
     public List<Integer> getMealsNumberOption() {
@@ -26,56 +33,52 @@ public class LineService implements ILineService {
         }
     }
 
-    /**
-     * 查看整个队列
-     */
     @Override
     public List<Line> getAll() {
         return lineMapper.selectAll();
     }
 
-    /**
-     * 查看单个类型队列
-     */
+
     @Override
-    public List<Line> getListByMealsNumber(Integer mealsNumb) {
-        return lineMapper.selectByMealsNumber(mealsNumb);
+    public List<Line> getListByMealsNumber(Integer mealsNumber) {
+        return lineMapper.selectByMealsNumber(mealsNumber);
     }
 
-
-    /**
-     * 根据手机号获得自身位置
-     */
     @Override
     public Line getByPhone(String phone) {
         return lineMapper.selectByPhone(phone);
     }
 
-    /**
-     * 入队
-     */
     @Override
     public Line enqueue(Line in) {
+        while (lock) {
+            Thread.yield();
+        }
+        lock = true;
         // 检查是否已经存在
         if (lineMapper.selectByPhone(in.getPhone()) == null) {
             // 获得自身顺序
             in.setSerialNumber(lineMapper.sizeByMealsNumber(in.getMealsNumber()) + 1);
             // 入队
             if (lineMapper.insert(in) == 1) {
+                lock = false;
                 return in;
             } else {
+                lock = false;
                 throw new RuntimeException("入队失败");
             }
         } else {
+            lock = false;
             return null;
         }
     }
 
-    /**
-     * 取消排队
-     */
     @Override
     public Line cancelEnqueue(Line out) {
+        while (lock) {
+            Thread.yield();
+        }
+        lock = true;
         // 检查是否存在
         Line old = lineMapper.selectByPhone(out.getPhone());
         if (old != null) {
@@ -88,15 +91,16 @@ public class LineService implements ILineService {
                 lineMapper.updateSerialNumberByPhone(line);
             }
         }
+        lock = false;
         return old;
     }
 
-
-    /**
-     * 出队
-     */
     @Override
     public Line dequeue(Integer mealsNumber) {
+        while (lock) {
+            Thread.yield();
+        }
+        lock = true;
         Line out = null;
         List<Line> lineList = lineMapper.selectByMealsNumber(mealsNumber);
         if (lineList.size() > 0) {
@@ -105,6 +109,7 @@ public class LineService implements ILineService {
             out.setSerialNumber(0);
             // 删除出队元素
             if (lineMapper.deleteByPhone(out) != 1) {
+                lock = false;
                 throw new RuntimeException("删除失败");
             }
             // 更新表中其他元素的序号，必须从小到大顺序将序号-1,否则违反unique约束
@@ -112,11 +117,24 @@ public class LineService implements ILineService {
                 Line line = lineList.get(i);
                 line.setSerialNumber(line.getSerialNumber() - 1);
                 if (lineMapper.updateSerialNumberByPhone(line) != 1) {
+                    lock = false;
                     throw new RuntimeException("更新失败");
                 }
             }
         }
+        lock = false;
         return out;
     }
 
+    @Override
+    public LineInfo getInfosByMealsNumberPhone(Integer mealsNumber, String phone) {
+        LineInfo ret = new LineInfo();
+        ret.setNOfFreeTables(tableMapper.countByStateSeats(0, mealsNumber));
+        ret.setNOfLine(lineMapper.sizeByMealsNumber(mealsNumber));
+        Line old = lineMapper.selectByPhone(phone);
+        if (old != null && old.getMealsNumber().equals(mealsNumber)) {
+            ret.setMyPosition(old.getSerialNumber());
+        }
+        return ret;
+    }
 }

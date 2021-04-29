@@ -325,20 +325,29 @@
             href="https://beian.miit.gov.cn/#/Integrated/index">吉ICP备2021001494号-1</a>
     </div>
     <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+    <script src="../js/tools.js"></script>
     <script>
         layui.use(['form', 'jquery'], function () {
             var $ = layui.jquery,
                 form = layui.form,
                 layer = layui.layer;
 
-            $.get(
-                'http://linqiu.ltd/storeInfo/ifLogged',
-                function (rs) {
-                    if (rs.code === 0) {
-                        window.location = './main.html';
+            let logInfo = JSON.parse(getCookie("logInfo"));
+            if (logInfo) {
+                $.ajax({
+                    url: 'http://linqiu.ltd/storeInfo/adminLogin',
+                    type: 'POST',
+                    data: logInfo,
+                    success: function (rs) {
+                        if (rs.code === 0) {
+                            window.location = './main';
+                        } else {
+                            layer.msg('请重新手动登录');
+                        }
                     }
-                }
-            );
+                });
+            }
+
 
             // 登录过期的时候，跳出ifram框架
             if (top.location != self.location) top.location = self.location;
@@ -365,17 +374,19 @@
             form.on('submit(login)', function (data) {
                 data = data.field;
                 if (data.captcha.toLowerCase() == 'xszg') {
-                    $.post(
-                        'http://linqiu.ltd/storeInfo/adminLogin',
-                        data,
-                        function (rs) {
+                    $.ajax({
+                        url: 'http://linqiu.ltd/storeInfo/adminLogin',
+                        type: 'POST',
+                        data: data,
+                        success: function (rs) {
                             if (rs.code === 0) {
-                                window.location = './main.html';
+                                addCookie("logInfo", JSON.stringify(data), 24);
+                                window.location = './main';
                             } else {
                                 layer.msg('账号或密码错误');
                             }
                         }
-                    );
+                    });
                 } else {
                     layer.msg('验证码错误');
                 }

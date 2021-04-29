@@ -47,6 +47,11 @@
               "target": "_self"
             }
           ]
+        }, {
+          "title": "订单管理",
+          "href": "page/order.html",
+          "icon": "fa fa-th-large",
+          "target": "_self"
         },
         {
           "title": "排队队列",
@@ -55,13 +60,6 @@
           "target": "_self"
         }
       ]
-    },
-    {
-      "title": "柜台模式",
-      "icon": "fa fa-address-book",
-      "href": "",
-      "target": "_self",
-      "child": []
     }
   ]
 }

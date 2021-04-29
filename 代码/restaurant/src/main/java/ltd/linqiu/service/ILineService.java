@@ -1,6 +1,7 @@
 package ltd.linqiu.service;
 
 import ltd.linqiu.entity.Line;
+import ltd.linqiu.front.LineInfo;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface ILineService {
 
     List<Line> getAll();
 
-    List<Line> getListByMealsNumber(Integer mealsNumb);
+    List<Line> getListByMealsNumber(Integer mealsNumber);
 
     Line getByPhone(String phone);
 
@@ -19,5 +20,5 @@ public interface ILineService {
 
     Line dequeue(Integer mealsNumber);
 
-
+    LineInfo getInfosByMealsNumberPhone(Integer mealsNumber, String phone);
 }

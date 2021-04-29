@@ -26,8 +26,8 @@
                     <div @click="openStoreInfo" class="cover-layer">打开设置</div>
                 </div>
                 <div class="right">
-                    <div class="name" v-if="server_storeName!==null">{{server_storeName}}</div>
-                    <div class="state" v-if="server_storeState!==null">状态 : {{server_storeState}}</div>
+                    <div class="name" v-if="server_storeName!==null" v-html="server_storeName"></div>
+                    <div class="state" v-if="server_storeState!==null" v-html="'状态 : '+server_storeState"></div>
                 </div>
             </div>
         </div>
@@ -62,27 +62,27 @@
             <div class="content" v-if="server_tableStateCount!==null" style="cursor: pointer;"
                 @click="openTableManager">
                 <div class="table-info">
-                    <div class="num">{{server_tableStateCount[0]}}</div>
+                    <div class="num" v-html="server_tableStateCount[0]"></div>
                     <div class="lable">空闲桌数</div>
                 </div>
                 <div class="gap"></div>
                 <div class="table-info">
-                    <div class="num">{{server_tableStateCount[1]}}</div>
+                    <div class="num" v-html="server_tableStateCount[1]"></div>
                     <div class="lable">用餐桌数</div>
                 </div>
                 <div class="gap"></div>
                 <div class="table-info">
-                    <div class="num">{{server_tableStateCount[2]}}</div>
+                    <div class="num" v-html="server_tableStateCount[2]"></div>
                     <div class="lable">全部桌数</div>
                 </div>
                 <div class="gap"></div>
                 <div class="table-info">
-                    <div class="num">{{server_tableStateCount[3]}}</div>
+                    <div class="num" v-html="server_tableStateCount[3]"></div>
                     <div class="lable">开启桌数</div>
                 </div>
                 <div class="gap"></div>
                 <div class="table-info">
-                    <div class="num">{{server_tableStateCount[4]}}</div>
+                    <div class="num" v-html="server_tableStateCount[4]"></div>
                     <div class="lable">停用桌数</div>
                 </div>
             </div>
@@ -97,11 +97,11 @@
             <div class="classify">
                 <li>所在位置 : <span :class="active_index_0===-1?'option active':'option'" @click="setIndex(0,-1)">全部</span>
                     <span v-for="(position, index) in server_positionList" @click="setIndex(0,index)"
-                        :class="active_index_0===index?'option active':'option'">{{ position }}</span>
+                        :class="active_index_0===index?'option active':'option'" v-html="position"></span>
                 </li>
                 <li>桌台容量 : <span :class="active_index_1===-1?'option active':'option'" @click="setIndex(1,-1)">全部</span>
                     <span v-for=" (seats, index) in server_seatsList" @click="setIndex(1,index)"
-                        :class="active_index_1===index?'option active':'option'">{{ seats }}人</span>
+                        :class="active_index_1===index?'option active':'option'" v-html="seats+'人'"></span>
                 </li>
                 <li>桌台状态 : <span :class="active_index_2===-1?'option active':'option'" @click="setIndex(2,-1)">全部</span>
                     <span :class="active_index_2===0?'option active':'option'" @click="setIndex(2,0)">空闲</span>
@@ -118,7 +118,6 @@
                 <div style="width: 25px; height: 25px; background: rgb(169,169,169); border-radius: 15%; margin: 10px;">
                 </div>维修
             </div>
-
             <div class="tables">
                 <div v-for="(table, index) in server_table" v-if="server_table!=null">
                     <div v-if="tableFiliter(index)"
@@ -126,15 +125,11 @@
                         @click="clickTable(index)">
                         <div class="top">
                             <img :src="table.state===2?'../images/维修.png':'../images/茶杯.png'">
-                            <div class="table-id">{{table.id}}桌</div>
+                            <div class="table-id" v-html="table.id+'桌'"></div>
                         </div>
                         <div class="bottom">
-                            <div class="table-position">
-                                {{table.position}}
-                            </div>
-                            <div class="table-seats">
-                                {{table.seats}}人桌
-                            </div>
+                            <div class="table-position" v-html="table.position"></div>
+                            <div class="table-seats" v-html="table.seats+'人桌'"></div>
                         </div>
                     </div>
                 </div>
@@ -249,9 +244,27 @@
                         );
                     },
 
+
                     clickTable(index) {
-                        let table = this.server_table[index];
-                        layer.msg(JSON.stringify(table), { time: 500 })
+                        const that = this;
+                        const table = this.server_table[index];
+                        if (table.state == 1) {
+                            layer.open({
+                                title: '查看餐桌订单',
+                                type: 2,
+                                shade: 0.2,
+                                maxmin: true,
+                                shadeClose: true,
+                                area: ['50%', '98%'],
+                                content: '../page/orderDetail.html?tableid=' + table.id + "&orderid=" + table.orderId + "&write=true",
+                                end() {
+                                    that.updateData();
+                                }
+                            });
+                        } else {
+                            layer.msg("该餐桌暂无订单", { icon: 1, time: 500 })
+                        }
+
                     },
 
                     openTableManager() {
@@ -324,32 +337,34 @@
                         return true;
                     },
 
+                    updateData() {
+                        console.log('updateData');
+                        this.$http.get('http://linqiu.ltd/table/all').then(
+                            (response) => {
+                                let newTable = response.body.data;
+                                if (JSON.stringify(newTable) != JSON.stringify(this.server_table)) {
+                                    this.$set(this, "server_table", newTable);
+                                    this.$http.get('http://linqiu.ltd/table/stateCount').then(
+                                        (rs) => {
+                                            this.$set(this, "server_tableStateCount", rs.body.data);
+                                        },
+                                        (rs) => {
+                                            layer.msg("服务器异常", { icon: 2, time: 500 });
+                                        }
+                                    );
+                                }
+                            },
+                            (response) => {
+                                layer.msg("服务器异常", { icon: 2, time: 500 });
+                            }
+                        );
+                    },
+
                     timedTask() {
                         if (this.timer) {
                             clearInterval(this.timer)
                         } else {
-                            this.timer = setInterval(() => {
-                                this.$http.get('http://linqiu.ltd/table/all').then(
-                                    (response) => {
-                                        let newTable = response.body.data;
-                                        if (JSON.stringify(newTable) != JSON.stringify(this.server_table)) {
-                                            this.$set(this, "server_table", newTable);
-                                            this.$http.get('http://linqiu.ltd/table/stateCount').then(
-                                                (rs) => {
-                                                    this.$set(this, "server_tableStateCount", rs.body.data);
-                                                },
-                                                (rs) => {
-                                                    layer.msg("服务器异常", { icon: 2, time: 500 });
-                                                }
-                                            );
-                                        }
-                                    },
-                                    (response) => {
-                                        layer.msg("服务器异常", { icon: 2, time: 500 });
-                                    }
-                                );
-
-                            }, 10000);
+                            this.timer = setInterval(this.updateData, 5000);
                         }
                     }
 

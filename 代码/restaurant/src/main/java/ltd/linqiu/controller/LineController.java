@@ -3,6 +3,7 @@ package ltd.linqiu.controller;
 import ltd.linqiu.entity.CommonResult;
 import ltd.linqiu.entity.Line;
 import ltd.linqiu.entity.TableResult;
+import ltd.linqiu.front.LineInfo;
 import ltd.linqiu.service.ILineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import java.util.List;
 public class LineController {
     @Autowired
     private ILineService lineService;
+
 
     @GetMapping("/getMealsNumberOption")
     public CommonResult<List<Integer>> getMealsNumberOption() {
@@ -35,12 +37,21 @@ public class LineController {
         return new TableResult<>(0, "获取当前所有排队列表", lineList.size(), lineList);
     }
 
-    @GetMapping("/all/{mealsNumb}")
-    public TableResult<Line> all(@PathVariable("mealsNumb") Integer mealsNumb) {
-        List<Line> lineList = lineService.getListByMealsNumber(mealsNumb);
+    @GetMapping("/all/{mealsNumber}")
+    public TableResult<Line> all(@PathVariable("mealsNumber") Integer mealsNumber) {
+        List<Line> lineList = lineService.getListByMealsNumber(mealsNumber);
         return new TableResult<>(0, "获取特定排队列表", lineList.size(), lineList);
     }
 
+    @GetMapping("/infos/{mealsNumber}/{phone}")
+    public CommonResult<LineInfo> getInfosByMealsNumberPhone(@PathVariable("mealsNumber") Integer mealsNumber, @PathVariable("phone") String phone) {
+        LineInfo ret = lineService.getInfosByMealsNumberPhone(mealsNumber, phone);
+        if (ret.getNOfFreeTables() != null && ret.getNOfLine() != null) {
+            return new CommonResult<>(0, ret, "获取排队信息");
+        } else {
+            return new CommonResult<>(400, "获取排队信息失败");
+        }
+    }
 
     @GetMapping("/{phone}")
     public CommonResult<Line> getSerialNumberByPhone(@PathVariable String phone) {
@@ -50,7 +61,6 @@ public class LineController {
         } else {
             return new CommonResult<>(400, "该用户未在排队队列中");
         }
-
     }
 
     @PostMapping("/enqueue")
