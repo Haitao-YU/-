@@ -1,42 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8040201-d135-46fe-9bfc-54183968b2e6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/AdminController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/CarouselFigureController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/StoreInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/StoreInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/entity/CarouselFigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/entity/CarouselFigure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/ICarouselFigureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/ICarouselFigureService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/IStoreInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/IStoreInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/CarouselFigureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/CarouselFigureService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/StoreInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/StoreInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/page/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/storeInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/page/storeInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/AdminController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/CarouselFigureController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/CarouselFigureController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/IndexController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/StoreInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/StoreInfoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/entity/CarouselFigure.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/entity/CarouselFigure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/ICarouselFigureService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/ICarouselFigureService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/IStoreInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/IStoreInfoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/CarouselFigureService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/CarouselFigureService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/StoreInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/StoreInfoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/tools.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/tools.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/page/line.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/page/line.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/page/storeInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/page/storeInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/page/user-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/page/user-password.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/restaurant-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/restaurant-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/restaurant-1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/restaurant-1.0.jar.original" afterDir="false" />
-    </list>
+    <list default="true" id="f8040201-d135-46fe-9bfc-54183968b2e6" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -295,7 +260,7 @@
       <workItem from="1619425666525" duration="599000" />
       <workItem from="1619505867754" duration="2377000" />
       <workItem from="1619667733688" duration="2089000" />
-      <workItem from="1619691524999" duration="13200000" />
+      <workItem from="1619691524999" duration="13481000" />
     </task>
     <servers />
   </component>
@@ -385,22 +350,22 @@
       <screen x="67" y="0" width="1469" height="864" />
     </state>
     <state x="582" y="190" key="FileChooserDialogImpl/67.0.1469.864@67.0.1469.864" timestamp="1619698564228" />
-    <state width="1426" height="188" key="GridCell.Tab.0.bottom" timestamp="1619704490144">
+    <state width="1426" height="188" key="GridCell.Tab.0.bottom" timestamp="1619709729956">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="188" key="GridCell.Tab.0.bottom/67.0.1469.864@67.0.1469.864" timestamp="1619704490144" />
-    <state width="1426" height="188" key="GridCell.Tab.0.center" timestamp="1619704490144">
+    <state width="1426" height="188" key="GridCell.Tab.0.bottom/67.0.1469.864@67.0.1469.864" timestamp="1619709729956" />
+    <state width="1426" height="188" key="GridCell.Tab.0.center" timestamp="1619709729955">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="188" key="GridCell.Tab.0.center/67.0.1469.864@67.0.1469.864" timestamp="1619704490144" />
-    <state width="1426" height="188" key="GridCell.Tab.0.left" timestamp="1619704490143">
+    <state width="1426" height="188" key="GridCell.Tab.0.center/67.0.1469.864@67.0.1469.864" timestamp="1619709729955" />
+    <state width="1426" height="188" key="GridCell.Tab.0.left" timestamp="1619709729955">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="188" key="GridCell.Tab.0.left/67.0.1469.864@67.0.1469.864" timestamp="1619704490143" />
-    <state width="1426" height="188" key="GridCell.Tab.0.right" timestamp="1619704490144">
+    <state width="1426" height="188" key="GridCell.Tab.0.left/67.0.1469.864@67.0.1469.864" timestamp="1619709729955" />
+    <state width="1426" height="188" key="GridCell.Tab.0.right" timestamp="1619709729955">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="188" key="GridCell.Tab.0.right/67.0.1469.864@67.0.1469.864" timestamp="1619704490144" />
+    <state width="1426" height="188" key="GridCell.Tab.0.right/67.0.1469.864@67.0.1469.864" timestamp="1619709729955" />
     <state width="1426" height="120" key="GridCell.Tab.1.bottom" timestamp="1619701571945">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
