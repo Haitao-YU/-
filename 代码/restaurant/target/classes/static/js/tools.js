@@ -32,6 +32,7 @@ function getQueryVariable(variable) {
     return (false);
 }
 
+// 日期时间格式化
 function dateFormat(fmt, date) {
     let ret;
     const opt = {
@@ -73,4 +74,12 @@ function getCookie(objName) { //获取指定名称的cookie的值
         if (temp[0] == objName) return unescape(temp[1]); //解码
     }
     return false;
+}
+//删除cookies
+function delCookie(objName) {
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval = getCookie(objName);
+    if (cval != null)
+        document.cookie = objName + "=" + cval + ";expires=" + exp.toGMTString();
 }

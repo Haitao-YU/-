@@ -3,8 +3,10 @@ package ltd.linqiu.service.impl;
 import ltd.linqiu.entity.StoreInfo;
 import ltd.linqiu.mapper.StoreInfoMapper;
 import ltd.linqiu.service.IStoreInfoService;
+import ltd.linqiu.util.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -50,16 +52,40 @@ public class StoreInfoService implements IStoreInfoService {
         List<StoreInfo> before = storeInfoMapper.selectByName("状态");
         if (before.size() > 0) {
             StoreInfo state = before.get(0);
-            if (state.getValue().equals("营业中")){
+            if (state.getValue().equals("营业中")) {
                 state.setValue("已打烊");
-            }else {
+            } else {
                 state.setValue("营业中");
             }
             storeInfoMapper.update(state);
             return state;
-        }else{
+        } else {
             return null;
         }
 
+    }
+
+    @Override
+    public Integer defaultFoodImage(MultipartFile file) {
+        String url = FileUtil.save(file, "storeInfo");
+        if (url == null) {
+            return 400;
+        }
+        if (storeInfoMapper.update(new StoreInfo("餐品默认图片", "http://www.linqiu.ltd/file/" + url)) == 0) {
+            return 401;
+        }
+        return 0;
+    }
+
+    @Override
+    public Integer defaultTableImage(MultipartFile file) {
+        String url = FileUtil.save(file, "storeInfo");
+        if (url == null) {
+            return 400;
+        }
+        if (storeInfoMapper.update(new StoreInfo("餐桌默认图片", "http://www.linqiu.ltd/file/" + url)) == 0) {
+            return 401;
+        }
+        return 0;
     }
 }

@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
 
@@ -44,16 +42,12 @@ public class StoreInfoController {
     }
 
     @PostMapping("/adminLogin")
-    public CommonResult<StoreInfo> adminLogin(@RequestParam Map<String, String> data, HttpServletResponse response) {
+    public CommonResult<StoreInfo> adminLogin(@RequestParam Map<String, String> data) {
         String name = data.get("name");
         String password = data.get("password");
         String rightName = storeInfoService.getByName("admin-name").getValue();
         String rightPassword = storeInfoService.getByName("admin-password").getValue();
         if (name.equals(rightName) && password.equals(rightPassword)) {
-            Cookie cookie = new Cookie(name, password);
-            cookie.setMaxAge(86400); // 存活1天
-            cookie.setPath("/");
-            response.addCookie(cookie);
             return new CommonResult<>(0, "登录成功！");
 
         } else {
@@ -61,36 +55,42 @@ public class StoreInfoController {
         }
     }
 
-    @GetMapping("/ifLogged")
-    public CommonResult<StoreInfo> ifLogged(HttpServletRequest request) {
-        String rightName = storeInfoService.getByName("admin-name").getValue();
-        String rightPassword = storeInfoService.getByName("admin-password").getValue();
-        Cookie[] cookies = request.getCookies();
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                if (cookie.getName().equals(rightName)) {
-                    if (cookie.getValue().equals(rightPassword)) {
-                        return new CommonResult<>(0, "已登录");
-                    }
-                }
-            }
-        }
-        return new CommonResult<>(400, "未登录");
-    }
 
     @PostMapping("/edit")
     public CommonResult<List<StoreInfo>> modify(@RequestParam Map<String, String> data) {
-
         Integer flag = 1;
-
         for (String key : data.keySet()) {
             flag *= storeInfoService.modify(new StoreInfo(key, data.get(key)));
         }
-
         if (flag == 1) {
             return new CommonResult<>(0, "修改成功！");
         } else {
             return new CommonResult<>(400, "出现异常！");
+        }
+    }
+
+    
+    @PostMapping("/defaultFoodImage")
+    public CommonResult<StoreInfo> defaultFoodImage(@RequestParam("file") MultipartFile file) {
+        Integer code = storeInfoService.defaultFoodImage(file);
+        if (code == 400) {
+            return new CommonResult<>(400, "服务器保存文件失败");
+        } else if (code == 401) {
+            return new CommonResult<>(401, "服务器保存文件成功,但插入数据库失败");
+        } else {
+            return new CommonResult<>(0, "更新成功");
+        }
+    }
+
+    @PostMapping("/defaultTableImage")
+    public CommonResult<StoreInfo> defaultTableImage(@RequestParam("file") MultipartFile file) {
+        Integer code = storeInfoService.defaultTableImage(file);
+        if (code == 400) {
+            return new CommonResult<>(400, "服务器保存文件失败");
+        } else if (code == 401) {
+            return new CommonResult<>(401, "服务器保存文件成功,但插入数据库失败");
+        } else {
+            return new CommonResult<>(0, "更新成功");
         }
     }
 

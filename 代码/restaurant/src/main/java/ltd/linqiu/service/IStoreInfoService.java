@@ -1,6 +1,7 @@
 package ltd.linqiu.service;
 
 import ltd.linqiu.entity.StoreInfo;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -18,5 +19,8 @@ public interface IStoreInfoService {
 
     Integer modify(StoreInfo storeInfo);
 
+    Integer defaultFoodImage(MultipartFile file);
+
+    Integer defaultTableImage(MultipartFile file);
 
 }

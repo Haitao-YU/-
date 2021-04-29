@@ -37,14 +37,13 @@
                     :class="active_index_0===-1?'layui-btn layui-btn-primary active':'layui-btn layui-btn-primary'">总队列
                 </div>
                 <div v-for="(item,index) in server_mealsNumberOption" @click="switchLineType(index)"
-                    :class="active_index_0===index?'layui-btn layui-btn-primary active':'layui-btn layui-btn-primary'">
-                    {{ item + '人桌队列'}}
+                    :class="active_index_0===index?'layui-btn layui-btn-primary active':'layui-btn layui-btn-primary'"
+                    v-html="item + '人桌队列'">
                 </div>
             </div>
             <!-- 方法渲染数据表格 -->
             <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
             <script type="text/html" id="currentTableBar">
-                <!-- <a class="layui-btn layui-btn-normal layui-btn-xs data-count-switch" lay-event="arrange">安排就餐</a> -->
             <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">排队作废</a>
             </script>
 

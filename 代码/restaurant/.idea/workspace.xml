@@ -2,89 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8040201-d135-46fe-9bfc-54183968b2e6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/config/CrossConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/config/CrossConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/AdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/CarouselFigureController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/LineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/LineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/entity/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/entity/Line.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/entity/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/mapper/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/mapper/TableMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/mapper/TableMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/ILineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/ILineService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/IOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/IOrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/LineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/LineService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/TableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/TableService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/FoodMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/FoodTypeMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/api/init.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/api/init.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/StoreInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/controller/StoreInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/entity/CarouselFigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/entity/CarouselFigure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/ICarouselFigureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/ICarouselFigureService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/IStoreInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/IStoreInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/CarouselFigureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/CarouselFigureService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/StoreInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ltd/linqiu/service/impl/StoreInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/page/404.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/tools.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/tools.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/food.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/page/food.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/page/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/line.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/page/line.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/user-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/page/user-password.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/config/CrossConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/config/CrossConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/page/storeInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/page/storeInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/AdminController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/CarouselFigureController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/CarouselFigureController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/IndexController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/LineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/LineController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/OrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/entity/Line.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/entity/Line.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/entity/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/entity/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/mapper/OrderMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/mapper/OrderMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/mapper/TableMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/mapper/TableMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/ILineService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/ILineService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/IOrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/IOrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/LineService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/LineService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/OrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/TableService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/TableService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/FoodMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/FoodTypeMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/api/init.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/api/init.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/StoreInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/controller/StoreInfoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/entity/CarouselFigure.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/entity/CarouselFigure.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/ICarouselFigureService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/ICarouselFigureService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/IStoreInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/IStoreInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/CarouselFigureService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/CarouselFigureService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/StoreInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ltd/linqiu/service/impl/StoreInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/404.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/js/tools.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/tools.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/page/food.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/page/food.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/page/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/page/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/line.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/page/line.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/storeInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/page/storeInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/page/user-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/page/user-password.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/restaurant-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/restaurant-1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/restaurant-1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/restaurant-1.0.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/02NrHjdTvgvoaf690413eea1bbc2981664798bdec5bb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/0buWFe7pNbg4af690413eea1bbc2981664798bdec5bb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/2Nav8QXAtIzQfa3902936cadcfbf3ca869c12b364cec.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/3qwv8euuGbJe1a89cc4763d8cdd3805c2f298ee4ecfc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/5IcKvUZJOPmWb632080ab92e0d745aab2a7f1adc9e4e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/8FDo49fbjzijfa3902936cadcfbf3ca869c12b364cec.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/8H77scOPenD21e9bbf5b5fd1b648a59b94e957c865f5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/9PMpekgDPRRX694d20021fb09fc3f2022c550c986b55.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/BWYmq6uY0kj6fa3902936cadcfbf3ca869c12b364cec.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/ESJPCZu46nr924f92e86ffe9f29cfc832b31ad83694a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/GMGjSAUbdNT61e9bbf5b5fd1b648a59b94e957c865f5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/MNNCuiX36zCaaf690413eea1bbc2981664798bdec5bb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/N9pfzatzIsAG0fc8475010dad744bb9264e681bfb1ae.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/O4b4WySXeE6L1e9bbf5b5fd1b648a59b94e957c865f5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/PUD2AifQdpC4af690413eea1bbc2981664798bdec5bb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/R9c4keJB20j205676bbd5c399e6ad6d97137bd206037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/T9FAQriSfM1Q05676bbd5c399e6ad6d97137bd206037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/VbD60qf0rPk8af690413eea1bbc2981664798bdec5bb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/Wgfbujh9FPkDfa3902936cadcfbf3ca869c12b364cec.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/Z1leiO0WzX3P0fc8475010dad744bb9264e681bfb1ae.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/ZS7xB6FY9r8g1e9bbf5b5fd1b648a59b94e957c865f5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/bdhi9gTYAoxIaf690413eea1bbc2981664798bdec5bb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/bt0PaX74A32Ufa3902936cadcfbf3ca869c12b364cec.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/cZy3gCw5XdbO1e9bbf5b5fd1b648a59b94e957c865f5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/cleFk6DcOqhIfa3902936cadcfbf3ca869c12b364cec.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/dh0h9cGiSTzU1e9bbf5b5fd1b648a59b94e957c865f5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/eenzrKUNnqka1e9bbf5b5fd1b648a59b94e957c865f5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/emW1fw6dY2SZ0fc8475010dad744bb9264e681bfb1ae.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/ivWlLyJEJuIjaf690413eea1bbc2981664798bdec5bb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/mipegf3I6oTXfa3902936cadcfbf3ca869c12b364cec.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/p1xUr0MVdn9y0fc8475010dad744bb9264e681bfb1ae.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/s7zuO8zIXfHM0fc8475010dad744bb9264e681bfb1ae.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/t1djXYIiSHLafa3902936cadcfbf3ca869c12b364cec.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/t2AuXKOn2lBf0fc8475010dad744bb9264e681bfb1ae.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/upload/2021-03-29/xRx4Vf27PMJ20fc8475010dad744bb9264e681bfb1ae.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +68,20 @@
         <item name="restaurant@119.29.14.89" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="restaurant: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="restaurant@119.29.14.89" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="restaurant: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="carousel_figure: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="restaurant@119.29.14.89" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="restaurant: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="store_info: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -177,25 +142,25 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\毕设\代码\restaurant\src\main\resources\static" />
-      <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant\src\main\java" />
-      <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant" />
-      <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant\src\main\resources\static" />
-      <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant\src\main\resources\templates" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ltd.linqiu.util" />
-      <recent name="ltd.linqiu.controller" />
-      <recent name="ltd.linqiu.service.impl" />
-      <recent name="ltd.linqiu.service" />
-      <recent name="ltd.linqiu.mapper" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\毕设\代码\restaurant\src\main\resources\static\page" />
       <recent name="D:\毕设\代码\restaurant\src\main\resources\mapper" />
       <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant\target\classes\main" />
       <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant\src\main\java\main" />
+      <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant\src\main\resources\static" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ltd.linqiu.controller" />
+      <recent name="ltd.linqiu.config" />
+      <recent name="ltd.linqiu.util" />
+      <recent name="ltd.linqiu.service.impl" />
+      <recent name="ltd.linqiu.service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\毕设\代码\restaurant\src\main\resources\static\page" />
+      <recent name="D:\毕设\代码\restaurant\src\main\resources\static" />
+      <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant\src\main\java" />
+      <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant" />
       <recent name="C:\Users\Tyler\Desktop\毕设\代码\restaurant\src\main\resources\static" />
     </key>
   </component>
@@ -329,6 +294,8 @@
       <workItem from="1619403724844" duration="7038000" />
       <workItem from="1619425666525" duration="599000" />
       <workItem from="1619505867754" duration="2377000" />
+      <workItem from="1619667733688" duration="2089000" />
+      <workItem from="1619691524999" duration="13200000" />
     </task>
     <servers />
   </component>
@@ -394,58 +361,62 @@
       <screen x="67" y="0" width="1469" height="864" />
     </state>
     <state x="275" y="166" width="1155" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.0.1469.864@67.0.1469.864" timestamp="1617025391001" />
-    <state x="779" y="222" key="#com.intellij.ide.util.MemberChooser" timestamp="1619335724695">
+    <state x="779" y="222" key="#com.intellij.ide.util.MemberChooser" timestamp="1619703379254">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state x="779" y="222" key="#com.intellij.ide.util.MemberChooser/67.0.1469.864@67.0.1469.864" timestamp="1619335724695" />
-    <state x="433" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1616568164415">
+    <state x="779" y="222" key="#com.intellij.ide.util.MemberChooser/67.0.1469.864@67.0.1469.864" timestamp="1619703379254" />
+    <state x="433" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1619696011907">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state x="433" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.0.1469.864@67.0.1469.864" timestamp="1616568164415" />
+    <state x="433" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.0.1469.864@67.0.1469.864" timestamp="1619696011907" />
     <state x="364" y="30" key="CommitChangelistDialog2" timestamp="1619164262686">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
     <state x="364" y="30" key="CommitChangelistDialog2/67.0.1469.864@67.0.1469.864" timestamp="1619164262686" />
+    <state x="321" y="244" key="DUMP_DIALOG_DIMENSION_KEY" timestamp="1619669971035">
+      <screen x="67" y="0" width="1469" height="864" />
+    </state>
+    <state x="321" y="244" key="DUMP_DIALOG_DIMENSION_KEY/67.0.1469.864@67.0.1469.864" timestamp="1619669971035" />
     <state x="160" y="93" width="1283" height="678" key="DiffContextDialog" timestamp="1616673824249">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
     <state x="160" y="93" width="1283" height="678" key="DiffContextDialog/67.0.1469.864@67.0.1469.864" timestamp="1616673824249" />
-    <state x="582" y="190" key="FileChooserDialogImpl" timestamp="1619335472910">
+    <state x="582" y="190" key="FileChooserDialogImpl" timestamp="1619698564228">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state x="582" y="190" key="FileChooserDialogImpl/67.0.1469.864@67.0.1469.864" timestamp="1619335472910" />
-    <state width="1426" height="132" key="GridCell.Tab.0.bottom" timestamp="1619413738230">
+    <state x="582" y="190" key="FileChooserDialogImpl/67.0.1469.864@67.0.1469.864" timestamp="1619698564228" />
+    <state width="1426" height="188" key="GridCell.Tab.0.bottom" timestamp="1619704490144">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="132" key="GridCell.Tab.0.bottom/67.0.1469.864@67.0.1469.864" timestamp="1619413738230" />
-    <state width="1426" height="132" key="GridCell.Tab.0.center" timestamp="1619413738230">
+    <state width="1426" height="188" key="GridCell.Tab.0.bottom/67.0.1469.864@67.0.1469.864" timestamp="1619704490144" />
+    <state width="1426" height="188" key="GridCell.Tab.0.center" timestamp="1619704490144">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="132" key="GridCell.Tab.0.center/67.0.1469.864@67.0.1469.864" timestamp="1619413738230" />
-    <state width="1426" height="132" key="GridCell.Tab.0.left" timestamp="1619413738230">
+    <state width="1426" height="188" key="GridCell.Tab.0.center/67.0.1469.864@67.0.1469.864" timestamp="1619704490144" />
+    <state width="1426" height="188" key="GridCell.Tab.0.left" timestamp="1619704490143">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="132" key="GridCell.Tab.0.left/67.0.1469.864@67.0.1469.864" timestamp="1619413738230" />
-    <state width="1426" height="132" key="GridCell.Tab.0.right" timestamp="1619413738230">
+    <state width="1426" height="188" key="GridCell.Tab.0.left/67.0.1469.864@67.0.1469.864" timestamp="1619704490143" />
+    <state width="1426" height="188" key="GridCell.Tab.0.right" timestamp="1619704490144">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="132" key="GridCell.Tab.0.right/67.0.1469.864@67.0.1469.864" timestamp="1619413738230" />
-    <state width="1426" height="214" key="GridCell.Tab.1.bottom" timestamp="1619413425548">
+    <state width="1426" height="188" key="GridCell.Tab.0.right/67.0.1469.864@67.0.1469.864" timestamp="1619704490144" />
+    <state width="1426" height="120" key="GridCell.Tab.1.bottom" timestamp="1619701571945">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="214" key="GridCell.Tab.1.bottom/67.0.1469.864@67.0.1469.864" timestamp="1619413425548" />
-    <state width="1426" height="214" key="GridCell.Tab.1.center" timestamp="1619413425548">
+    <state width="1426" height="120" key="GridCell.Tab.1.bottom/67.0.1469.864@67.0.1469.864" timestamp="1619701571945" />
+    <state width="1426" height="120" key="GridCell.Tab.1.center" timestamp="1619701571945">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="214" key="GridCell.Tab.1.center/67.0.1469.864@67.0.1469.864" timestamp="1619413425548" />
-    <state width="1426" height="214" key="GridCell.Tab.1.left" timestamp="1619413425548">
+    <state width="1426" height="120" key="GridCell.Tab.1.center/67.0.1469.864@67.0.1469.864" timestamp="1619701571945" />
+    <state width="1426" height="120" key="GridCell.Tab.1.left" timestamp="1619701571945">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="214" key="GridCell.Tab.1.left/67.0.1469.864@67.0.1469.864" timestamp="1619413425548" />
-    <state width="1426" height="214" key="GridCell.Tab.1.right" timestamp="1619413425548">
+    <state width="1426" height="120" key="GridCell.Tab.1.left/67.0.1469.864@67.0.1469.864" timestamp="1619701571945" />
+    <state width="1426" height="120" key="GridCell.Tab.1.right" timestamp="1619701571945">
       <screen x="67" y="0" width="1469" height="864" />
     </state>
-    <state width="1426" height="214" key="GridCell.Tab.1.right/67.0.1469.864@67.0.1469.864" timestamp="1619413425548" />
+    <state width="1426" height="120" key="GridCell.Tab.1.right/67.0.1469.864@67.0.1469.864" timestamp="1619701571945" />
     <state x="261" y="181" key="Maven.ArtifactSearchDialog" timestamp="1614147448366">
       <screen x="67" y="0" width="1469" height="864" />
     </state>

@@ -2,8 +2,10 @@
   <dictionary name="Tyler">
     <words>
       <w>appid</w>
+      <w>authc</w>
       <w>docx</w>
       <w>linqiu</w>
+      <w>shiro</w>
     </words>
   </dictionary>
 </component>
