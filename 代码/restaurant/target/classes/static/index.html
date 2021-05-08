@@ -61,13 +61,13 @@
                     </li>
                     <li class="layui-nav-item layuimini-setting">
 
-                        <a id="adminName" href="javascript:;">管理员名称</a>
+                        <a id="adminId" href="javascript:;">管理员名称</a>
 
                         <dl class="layui-nav-child">
-
                             <dd>
-                                <a href="javascript:;" layuimini-content-href="page/user-password.html"
-                                    data-title="修改密码" data-icon="fa fa-gears">修改密码</a>
+                                <a id="modifyPassword" href="javascript:;"
+                                    layuimini-content-href="page/user-password.html" data-title="修改密码"
+                                    data-icon="fa fa-gears">修改密码</a>
                             </dd>
                             <dd>
                                 <hr>
@@ -139,25 +139,24 @@
                 miniAdmin = layui.miniAdmin,
                 miniTongji = layui.miniTongji;
 
-            // // 页面登录检查
-            // let logInfo = JSON.parse(getCookie("logInfo"));
-            // if (logInfo) {
-            //     $.ajax({
-            //         url: 'http://linqiu.ltd/storeInfo/adminLogin',
-            //         type: 'POST',
-            //         data: logInfo,
-            //         success: function (rs) {
-            //             if (rs.code != 0) {
-            //                 window.location = "/login";
-            //             } else {
-            //                 $("#adminName").html(logInfo.name);
-            //             }
-            //         }
-            //     });
-            // } else {
-            //     window.location = "/login";
-            // }
-
+            // 页面登录检查
+            let logInfo = JSON.parse(getCookie("logInfo"));
+            if (logInfo) {
+                $.ajax({
+                    url: 'http://linqiu.ltd/admin/login',
+                    type: 'POST',
+                    data: logInfo,
+                    success: function (rs) {
+                        if (rs.code != 0) {
+                            window.location = "/login";
+                        } else {
+                            $("#adminId").html(logInfo.id);
+                        }
+                    }
+                });
+            } else {
+                window.location = "/login";
+            }
 
             var options = {
                 iniUrl: "api/init.json",    // 初始化接口

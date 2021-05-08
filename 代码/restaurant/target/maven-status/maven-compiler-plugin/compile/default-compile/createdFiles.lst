@@ -7,7 +7,6 @@ ltd\linqiu\service\IOrderService.class
 ltd\linqiu\service\impl\FoodService.class
 ltd\linqiu\front\OneOfMenu.class
 ltd\linqiu\service\IStoreInfoService.class
-ltd\linqiu\entity\CommonResult.class
 ltd\linqiu\mapper\UserMapper.class
 ltd\linqiu\mapper\StoreInfoMapper.class
 ltd\linqiu\controller\IndexController.class
@@ -33,7 +32,6 @@ ltd\linqiu\mapper\FoodTypeMapper.class
 ltd\linqiu\controller\StoreInfoController.class
 ltd\linqiu\controller\FoodController.class
 ltd\linqiu\service\IUserService.class
-ltd\linqiu\entity\TableResult.class
 ltd\linqiu\entity\User.class
 ltd\linqiu\service\ICarouselFigureService.class
 ltd\linqiu\controller\CarouselFigureController.class

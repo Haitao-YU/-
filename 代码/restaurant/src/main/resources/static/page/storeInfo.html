@@ -45,7 +45,16 @@
                                 <label id="key_2" class="layui-form-label required"></label>
                                 <div class="layui-input-block">
                                     <input id="value_2" type="text" lay-verify="phone" placeholder="请输入店铺联系方式"
-                                        value="18844114670" class="layui-input">
+                                        class="layui-input">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label id="key_7" class="layui-form-label required"></label>
+                                <div class="layui-input-block">
+                                    <input id="value_7" type="text" lay-verify="number" placeholder="请输入餐位费"
+                                        class="layui-input">
+                                    <tip>每人餐位费用</tip>
                                 </div>
                             </div>
 
@@ -174,7 +183,7 @@
                         title: '轮播图片',
                         align: "center",
                         templet: function (d) {
-                            return '<div onclick="show_img(this)" ><img src="' + d.url + '"  width="auto" height="auto"></div>';
+                            return '<div onclick="show_img(this)" style="cursor: pointer;" ><img src="' + d.url + '"  width="auto" height="auto"></div>';
                         }
                     },
                     {

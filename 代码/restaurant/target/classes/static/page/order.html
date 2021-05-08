@@ -212,7 +212,7 @@
                         },
                         {
                             field: 'content',
-                            width: 270,
+                            width: 400,
                             title: '点餐内容',
                             templet: function (item) {
                                 const content = JSON.parse(item.content);
@@ -247,10 +247,13 @@
                         },
                         {
                             field: 'sum',
-                            width: 120,
-                            title: '订单金额(¥)',
-                            align: "center",
-                            sort: true
+                            width: 110,
+                            title: '订单金额',
+                            align: "right",
+                            sort: true,
+                            templet: function (item) {
+                                return item.sum.toFixed(2) + ' ¥'
+                            }
                         },
                         {
                             title: '操作',
@@ -276,7 +279,7 @@
                     shade: 0.2,
                     maxmin: true,
                     area: ['50%', '95%'],
-                    content: '../page/orderDetail.html?tableid=' + data.tableId + "&orderid=" + data.id,
+                    content: '../page/orderDetail.html?orderid=' + data.id,
                 });
             };
 

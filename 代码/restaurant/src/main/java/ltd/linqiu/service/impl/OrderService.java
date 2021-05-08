@@ -86,22 +86,4 @@ public class OrderService implements IOrderService {
         return orderMapper.selectByPhoneState(phone, state);
     }
 
-
-    //    public static void main(String[] args) {
-    //        OrderFood orderFood = new OrderFood(1, "name", 12.3, "image", "remark", 2);
-    //        System.out.println(JSON.toJSONString(orderFood));
-    //        List<OrderFood> list = new ArrayList<>();
-    //        list.add(new OrderFood(1, "name1", 12.30, "imageUrl", "remark", 1));
-    //        list.add(new OrderFood(2, "name2", 12.30, "imageUrl", "remark", 2));
-    //        list.add(new OrderFood(3, "name3", 12.30, "imageUrl", "remark", 3));
-    //        System.out.println(JSON.toJSONString(list));
-    //        List<OrderFood> l = JSON.parseObject(
-    //                "[{\"count\":2,\"id\":1,\"image\":\"image\",\"name\":\"name\"," + "\"price\":12.3," + "\"remark\":\"remark\"},{\"count\":2,\"id\":2,\"image\":\"image\",\"name\":\"name\",\"price\":12.3," + "\"remark\":\"remark\"},{\"count\":2,\"id\":3,\"image\":\"image\",\"name\":\"name\",\"price\":12.3," + "\"remark\":\"remark\"}]",
-    //                List.class);
-    //        System.out.println(l.get(1));
-    //
-    //        OrderFood f = JSON.parseObject(String.valueOf(l.get(1)), OrderFood.class);
-    //
-    //        System.out.println(f.toString());
-    //    }
 }

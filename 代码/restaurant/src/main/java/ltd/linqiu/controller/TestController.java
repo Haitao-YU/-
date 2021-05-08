@@ -1,7 +1,7 @@
 package ltd.linqiu.controller;
 
 import ltd.linqiu.entity.FoodType;
-import ltd.linqiu.entity.TableResult;
+import ltd.linqiu.response.TableResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>回复评论</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../css/public.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+
+        #images {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layui-form layuimini-form">
+
+        <div class="layui-form-item">
+            <input hidden name="id">
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">客户评论</label>
+            <div class="layui-input-block">
+                <textarea id="text" class="layui-textarea" disabled></textarea>
+            </div>
+
+        </div>
+
+        <div id="images_box" class="layui-form-item">
+
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">商家回复</label>
+            <div class="layui-input-block">
+                <textarea name="reply" placeholder="请输入内容" class="layui-textarea"></textarea>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">回复</button>
+            </div>
+        </div>
+    </div>
+    <script src="../../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+    <script src="../../js/tools.js"></script>
+    <script>
+        layui.use(['form'], function () {
+            var form = layui.form,
+                layer = layui.layer,
+                $ = layui.$;
+
+            //监听提交
+            form.on('submit(saveBtn)', function (data) {
+                console.log(data.field)
+                $.post(
+                    'http://linqiu.ltd/remark/reply',
+                    data.field,
+                    function (rs) {
+                        console.log(rs)
+                        if (rs.code === 0) {
+                            parent.parent.layer.msg("操作成功！", { icon: 1, time: 500 });
+                            parent.layer.close(parent.layer.getFrameIndex(window.name));
+                            window.parent.location.reload();
+                        } else {
+                            layer.msg("操作失败！", { icon: 2, time: 500 });
+                        }
+                    }
+                );
+                return false;
+            });
+
+            // 放大显示图片
+            window.show_img = function (t) {
+                var t = $(t).find("img");
+                var src = $(t).attr('src');
+                var img = new Image();
+                img.onload = function () {
+                    var max_height = $(window).height() - 100;
+                    var max_width = $(window).width();
+                    var rate = Math.min(1, max_height / img.height, max_width / img.width);
+                    var imgHeight = img.height * rate;
+                    var imgWidth = img.width * rate;
+                    var imgHtml = "<img src='" + src + "' width='" + imgWidth + "px' height='" + imgHeight + "px'/>";
+                    layer.open({
+                        type: 1,
+                        title: false,
+                        closeBtn: 0,
+                        area: ['auto', 'auto'],
+                        skin: 'layui-layer-nobg',
+                        shadeClose: true,
+                        content: imgHtml
+                    });
+                }
+                img.src = src;
+            }
+
+        });
+    </script>
+</body>
+
+</html>

@@ -18,13 +18,13 @@ public interface OrderMapper {
 
     List<Order> selectByConditionsStateGreater(Order order);
 
-    @Select("select * from `order` where id = #{id}")
+    @Select("select * from `order` where id = #{id} order by id desc")
     Order selectById(@Param("id") Integer id);
 
-    @Select("select * from `order` where phone = #{phone}")
+    @Select("select * from `order` where phone = #{phone} order by id desc")
     List<Order> selectByPhone(@Param("phone") String phone);
 
-    @Select("select * from `order` where phone = #{phone} and state = #{state}")
+    @Select("select * from `order` where phone = #{phone} and state = #{state} order by id desc")
     List<Order> selectByPhoneState(@Param("phone") String phone, @Param("state") Integer state);
 
     //insert

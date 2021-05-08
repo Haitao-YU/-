@@ -1,8 +1,8 @@
 package ltd.linqiu.controller;
 
 import ltd.linqiu.entity.CarouselFigure;
-import ltd.linqiu.entity.CommonResult;
-import ltd.linqiu.entity.TableResult;
+import ltd.linqiu.response.CommonResult;
+import ltd.linqiu.response.TableResult;
 import ltd.linqiu.service.ICarouselFigureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

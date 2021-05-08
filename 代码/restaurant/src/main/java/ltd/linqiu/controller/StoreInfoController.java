@@ -1,6 +1,6 @@
 package ltd.linqiu.controller;
 
-import ltd.linqiu.entity.CommonResult;
+import ltd.linqiu.response.CommonResult;
 import ltd.linqiu.entity.StoreInfo;
 import ltd.linqiu.service.IStoreInfoService;
 import org.springframework.beans.factory.annotation.Autowired;

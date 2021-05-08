@@ -1,8 +1,8 @@
 package ltd.linqiu.controller;
 
-import ltd.linqiu.entity.CommonResult;
 import ltd.linqiu.entity.Order;
-import ltd.linqiu.entity.TableResult;
+import ltd.linqiu.response.CommonResult;
+import ltd.linqiu.response.TableResult;
 import ltd.linqiu.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,11 +42,8 @@ public class OrderController {
             } catch (Exception e) {
                 return new TableResult<>(400, "查询参数有误", 0, null);
             }
-
         }
-
     }
-
 
     @PostMapping("/add")
     public CommonResult<Integer> add(Order data) {
@@ -82,6 +78,7 @@ public class OrderController {
         return new TableResult<>(0, "根据手机号获取订单", ret.size(), ret);
     }
 
+
     @GetMapping("/{phone}/{state}")
     public TableResult<Order> getByPhoneState(@PathVariable("phone") String phone, @PathVariable("state") Integer state) {
         List<Order> ret = orderService.getByPhoneState(phone, state);
@@ -89,8 +86,15 @@ public class OrderController {
     }
 
     @GetMapping("/id/{id}")
-    public CommonResult<Order> getByPhone(@PathVariable("id") Integer id) {
+    public CommonResult<Order> getById(@PathVariable("id") Integer id) {
         Order ret = orderService.getById(id);
-        return new CommonResult<>(0, ret, "根据id获取订单");
+        if (ret != null) {
+            return new CommonResult<>(0, ret, "根据手机号获取订单");
+        } else {
+            return new CommonResult<>(400, "未找到");
+        }
     }
+
+
+
 }

@@ -1,8 +1,8 @@
 package ltd.linqiu.controller;
 
-import ltd.linqiu.entity.CommonResult;
+import ltd.linqiu.response.CommonResult;
 import ltd.linqiu.entity.Table;
-import ltd.linqiu.entity.TableResult;
+import ltd.linqiu.response.TableResult;
 import ltd.linqiu.service.ITableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -299,7 +299,7 @@
                 <div class="center">
                     <div class="item">
                         <span class="icon icon-2"></span>
-                        <input type="text" name="name" lay-verify="required" placeholder="请输入登录账号" maxlength="24" />
+                        <input type="text" name="id" lay-verify="required" placeholder="请输入登录账号" maxlength="24" />
                     </div>
 
                     <div class="item">
@@ -336,7 +336,7 @@
             let logInfo = JSON.parse(getCookie("logInfo"));
             if (logInfo) {
                 $.ajax({
-                    url: 'http://linqiu.ltd/storeInfo/adminLogin',
+                    url: 'http://linqiu.ltd/admin/login',
                     type: 'POST',
                     data: logInfo,
                     success: function (rs) {
@@ -376,7 +376,7 @@
                 data = data.field;
                 if (data.captcha.toLowerCase() == 'xszg') {
                     $.ajax({
-                        url: 'http://linqiu.ltd/storeInfo/adminLogin',
+                        url: 'http://linqiu.ltd/admin/login',
                         type: 'POST',
                         data: data,
                         success: function (rs) {

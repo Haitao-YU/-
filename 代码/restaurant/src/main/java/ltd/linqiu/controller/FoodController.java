@@ -1,8 +1,8 @@
 package ltd.linqiu.controller;
 
-import ltd.linqiu.entity.CommonResult;
+import ltd.linqiu.response.CommonResult;
 import ltd.linqiu.entity.Food;
-import ltd.linqiu.entity.TableResult;
+import ltd.linqiu.response.TableResult;
 import ltd.linqiu.front.OneOfMenu;
 import ltd.linqiu.service.IFoodService;
 import org.springframework.beans.factory.annotation.Autowired;

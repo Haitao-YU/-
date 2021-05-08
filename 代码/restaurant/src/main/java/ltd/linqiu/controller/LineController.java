@@ -1,8 +1,8 @@
 package ltd.linqiu.controller;
 
-import ltd.linqiu.entity.CommonResult;
+import ltd.linqiu.response.CommonResult;
 import ltd.linqiu.entity.Line;
-import ltd.linqiu.entity.TableResult;
+import ltd.linqiu.response.TableResult;
 import ltd.linqiu.front.LineInfo;
 import ltd.linqiu.service.ILineService;
 import org.springframework.beans.factory.annotation.Autowired;

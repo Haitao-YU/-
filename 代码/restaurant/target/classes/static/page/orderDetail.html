@@ -202,7 +202,7 @@
                 </div>
             </div>
             <div class="other_item">
-                <div class="left">餐位费 <span>¥0</span></div>
+                <div class="left">餐位费 <span v-html="'¥'+server_order.mealFee"></span></div>
                 <div class="right" v-html="'x'+server_order.nofDiners"></div>
             </div>
             <div class="bottom">
@@ -268,7 +268,6 @@
                     return {
                         // 本地定义数据
                         orderId: null,
-                        tableId: null,
                         write: false,
                         // 服务端数据
                         server_order: null
@@ -276,9 +275,7 @@
                 },
                 created() {
                     this.orderId = getQueryVariable("orderid");
-                    this.tableId = getQueryVariable("tableid");
                     this.write = getQueryVariable("write");
-                    console.log(this.write);
                     this.$http.get('http://linqiu.ltd/order/id/' + this.orderId).then(
                         (response) => {
                             let order = response.body.data;
@@ -301,7 +298,7 @@
                         $.post(
                             'http://linqiu.ltd/order/tally',
                             {
-                                tableId: this.tableId,
+                                tableId: this.server_order.tableId,
                                 orderId: this.orderId
                             },
                             function (rs) {

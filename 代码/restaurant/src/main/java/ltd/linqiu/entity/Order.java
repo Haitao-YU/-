@@ -20,6 +20,7 @@ public class Order {
     private String content;
     private String tableId;
     private Integer nOfDiners;
+    private Double mealFee;
     private Double sum;
     private String remark;
 

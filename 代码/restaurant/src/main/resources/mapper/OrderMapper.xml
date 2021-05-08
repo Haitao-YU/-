@@ -6,8 +6,8 @@
     <!--  插入一个Order并回填id  -->
     <insert id="insert" parameterType="ltd.linqiu.entity.Order"
             useGeneratedKeys="true" keyColumn="id" keyProperty="id">
-        insert into `order` (date, state, phone, content, tableId, nOfDiners, sum, remark)
-        values (now(), 0, #{phone}, #{content}, #{tableId}, #{nOfDiners}, #{sum}, #{remark})
+        insert into `order` (date, state, phone, content, tableId, nOfDiners, mealFee, sum, remark)
+        values (now(), 0, #{phone}, #{content}, #{tableId}, #{nOfDiners}, #{mealFee}, #{sum}, #{remark})
     </insert>
 
 
@@ -26,6 +26,7 @@
             <if test="sum!=null">and sum=#{sum}</if>
             <if test="remark!=null">and remark like concat('%',#{remark},'%')</if>
         </where>
+        order by id desc
     </select>
 
     <!--  条件查询  -->
@@ -43,6 +44,7 @@
             <if test="sum!=null">and sum=#{sum}</if>
             <if test="remark!=null">and remark like concat('%',#{remark},'%')</if>
         </where>
+        order by id desc
     </select>
 
 </mapper>
