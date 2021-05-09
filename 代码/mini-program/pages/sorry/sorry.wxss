@@ -1,0 +1,28 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background: white;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 300rpx;
+}
+
+image {
+  width: 200rpx;
+  height: 180rpx;
+}
+
+.info {
+  width: 750rpx;
+  text-align: center;
+  color: var(--text-color-gray);
+  margin-top: 20rpx;
+  font-size: 32rpx;
+}

@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/menu/menu",
+    "pages/sorry/sorry",
+    "pages/pay/pay",
+    "pages/line/line",
+    "pages/orders/orders",
+    "pages/orderDetail/orderDetail",
+    "pages/remark/remark",
+    "pages/remarks/remarks",
+    "pages/remarkDetail/remarkDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "在线点餐小程序",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

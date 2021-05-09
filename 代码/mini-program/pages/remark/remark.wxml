@@ -1,0 +1,54 @@
+<view class="main">
+  <!-- 订单内容 -->
+  <view class="order">
+    <view class="food_box">
+      <scroll-view class="left" scroll-x>
+        <view class="food" wx:for="{{order.content}}" wx:for-item="food" wx:for-index="foodIndex" wx:key="id">
+          <image src="{{food.image}}"></image>
+          <view class="name">{{food.name}}</view>
+        </view>
+      </scroll-view>
+      <view class="right">
+        <view class="text_box">
+          <view class="text">共</view>
+          <view class="text">{{order.foodCount}}</view>
+          <view class="text">件</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--星星评价-->
+  <view class="score_row">
+    <view class="label" style="font-weight:bold">评分</view>
+    <view class="stars  {{score>=1? 'on': ''}}" data-score="1" bindtap="getScore"></view>
+    <view class="stars  {{score>=2? 'on': ''}}" data-score="2" bindtap="getScore"></view>
+    <view class="stars  {{score>=3? 'on': ''}}" data-score="3" bindtap="getScore"></view>
+    <view class="stars  {{score>=4? 'on': ''}}" data-score="4" bindtap="getScore"></view>
+    <view class="stars  {{score>=5? 'on': ''}}" data-score="5" bindtap="getScore"></view>
+    <view class="label">
+      {{score==1?'非常差':score==2?'差':score==3?'一般':score==4?'好':score>=5?'非常好':''}}
+    </view>
+  </view>
+
+  <!--文本域  -->
+  <view class="textarea_box">
+    <textarea class="textarea" bindinput="getText" placeholder="亲，您可以选择从菜品口味、环境、服务等方面分享用餐感受哦~"
+      maxlength="300"></textarea>
+  </view>
+
+  <view class="image_box">
+    <view class="image_item" wx:for="{{images}}" wx:key="*this">
+      <image src="{{item}}"></image>
+      <image bindtap="removeImage" data-index="{{index}}" class="close" src="../../images/close.png"></image>
+    </view>
+    <view class="image_item">
+      <image hidden="{{images.length>=maxImageCount}}" bindtap="getImage" src="../../images/upload_image.png"></image>
+    </view>
+  </view>
+
+  <!--发布按钮  -->
+  <view class="btn_box">
+    <button bindtap="submit">发布</button>
+  </view>
+</view>

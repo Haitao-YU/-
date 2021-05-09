@@ -1,0 +1,27 @@
+<view class="main" hidden="{{!lineInfos}}">
+  <view class="space" style="height:10rpx;"></view>
+  <view class="title">{{inline?'正在排队, 请耐心等待 ...':'选择要排队的餐桌类型'}}</view>
+  <view class="wait" hidden="{{!inline}}"> 已经等了 {{waitTime?waitTime:''}}</view>
+  <view class="option_box">
+    <view class="{{index==optionIndex?'option active':'option'}}" wx:for="{{optionList}}" wx:key="*this"
+      bindtap="chooseMealsNumber" data-index="{{index}}">
+      {{item}}人桌
+    </view>
+  </view>
+  <view class="space"></view>
+  <view class="info_box" hidden="{{!lineInfos}}">
+    <view class="line">{{optionList[optionIndex]}}人桌共有{{lineInfos.nofLine}}人正在排队</view>
+    <view class="table">
+      目前该类型餐桌空闲数量为{{lineInfos.nofFreeTables}}{{lineInfos.nofFreeTables>lineInfos.nofLine?', 可直接入座':''}}</view>
+  </view>
+  <view class="position_box" hidden="{{!inline}}">
+    <view class="position">{{lineInfos.myPosition?lineInfos.myPosition:''}}</view>
+    <view class="label">我在排队中的位置</view>
+    <view class="label" hidden="{{lineInfos.myPosition!=1}}">您已是1号,请联系店员安排就座</view>
+  </view>
+
+  <view class="enqueue_box" hidden="{{inline}}">
+    <view class="enqueue" bindtap="enqueue">开始排队</view>
+  </view>
+  <view class="cancel" bindtap="cancel" hidden="{{!inline}}">取消排队</view>
+</view>

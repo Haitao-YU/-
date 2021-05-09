@@ -1,0 +1,192 @@
+.top {
+  height: 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top .filter {
+  height: 80%;
+  width: 710rpx;
+  background: white;
+  border-radius: 10rpx;
+  display: flex;
+  color: var(--text-color-gray);
+  font-weight: bold;
+  font-size: 28rpx;
+}
+
+.top .filterBtn {
+  flex: 1;
+  width: 100rpx;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top .active {
+  background: var(--theme-color);
+  color: white;
+}
+
+.content {
+  height: 92%;
+}
+
+.content .order {
+  width: 670rpx;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  padding: 20rpx;
+  background: white;
+  border-radius: 10rpx;
+}
+
+.content .order .title {
+  display: flex;
+  padding-bottom: 15rpx;
+  border-bottom: 2rpx lightgray solid;
+}
+
+.content .order .title .left {
+  flex: 3;
+  display: flex;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.content .order .title .right {
+  flex: 1;
+  font-size: 28rpx;
+  color: var(--text-color-gray);
+  text-align: right;
+}
+
+.content .order .food_box {
+  position: relative;
+  margin-top: 20rpx;
+}
+
+.content .order .food_box .left {
+  white-space: nowrap;
+  display: flex;
+}
+
+.content .order .food_box .left .food {
+  display: inline-block;
+  margin-right: 10rpx;
+}
+
+.content .order .food_box .left .food image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+}
+
+.content .order .food_box .left .food .name {
+  width: 120rpx;
+  font-size: 20rpx;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-color-gray)
+}
+
+
+.content .order .food_box .right {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  top: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content .order .food_box .right .text_box .text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  color: var(--text-color-gray);
+}
+
+.content .order .row {
+  display: flex;
+  margin-top: 20rpx;
+}
+
+.content .order .row .date {
+  flex: 1;
+  font-size: 24rpx;
+}
+
+.content .order .row .total {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.content .order .row .total .label {
+  font-size: 24rpx;
+  margin-right: 10rpx;
+  color: var(--text-color-gray);
+}
+
+.content .order .row .total .sum {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.content .order .btn_box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.content .order .btn_box .btn {
+  width: 140rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  margin-left: 20rpx;
+  font-size: 26rpx;
+  text-align: center;
+  border-radius: 10rpx;
+}
+
+.content .order .btn_box .evaluate {
+  background: var(--theme-color);
+  color: white;
+}
+
+.content .order .btn_box .detail {
+  box-sizing: border-box;
+  border: 2rpx lightgray solid;
+  color: var(--text-color-gray);
+}
+
+.not_found {
+  height: 92%;
+}
+
+.not_found image {
+  width: 300rpx;
+  height: 200rpx;
+  margin-left: 225rpx;
+  margin-right: 225rpx;
+  margin-top: 400rpx;
+}
+
+.not_found .text {
+  width: 750rpx;
+  color: var(--text-color-gray);
+  text-align: center;
+  margin-top: 60rpx;
+}

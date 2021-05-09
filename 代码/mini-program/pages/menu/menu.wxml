@@ -1,0 +1,160 @@
+<view class="main">
+  <!-- 头部信息栏 -->
+  <view class="head">
+    <view class="float">
+      <view wx:if="{{nOfDiners}}" class="item">{{nOfDiners}}人</view>
+      <view class="item">{{tableId}}桌</view>
+    </view>
+    <view class="left">
+      <image src="{{storeInfoList[5].value}}"></image>
+    </view>
+    <view class="right">
+      <view class="row">
+        <view style="font-weight:bold;font-size:32rpx;">{{storeInfoList[0].value}}</view>
+      </view>
+      <view class="row">
+        <view class="label">联系电话: </view>
+        <view class="value">{{storeInfoList[2].value}}</view>
+      </view>
+      <view class="row">
+        <view class="label" style="white-space:nowrap;">地址: </view>
+        <view class="value">{{storeInfoList[1].value}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="menu_container">
+    <!-- 左侧分类 -->
+    <scroll-view class="left_menu" scroll-y>
+      <view wx:for="{{menu}}" wx:key="id" class="menu_item {{index===currentLeftIndex?'active':''}}"
+        bindtap="handleLeftMenuTap" data-index="{{index}}">
+        <text>{{item.name}}</text>
+        <view class="badge" wx:if="{{badgeCountList[index]>0}}"><text>{{badgeCountList[index]}}</text></view>
+      </view>
+    </scroll-view>
+
+    <!-- 右侧餐品内容 -->
+    <scroll-view class="right_content" scroll-y scroll-top='{{topNum}}'>
+      <block wx:for="{{menu[currentLeftIndex].foodList}}" wx:key="id">
+        <view class="food_item" wx:if="{{item.state!==2}}">
+          <view class="image_info">
+            <image src="{{item.image}}"></image>
+            <view wx:if="{{item.state===1}}" class="image_cover">
+              <view>售罄</view>
+            </view>
+          </view>
+          <view class="text_info">
+            <view class="name">{{item.name}}</view>
+            <view class="remark">{{item.remark}}</view>
+            <view class="monthly_sales">月售数:{{item.monthlySales}}</view>
+            <view class="price"><text>¥</text>{{item.price}}</view>
+            <view class="count" wx:if="{{item.state===0}}">
+              <image class="btn" data-para="{{ {index:index,tag:'minus'} }}"
+                hidden="{{ foodCounterList[currentLeftIndex][index]==0?true:false }}"
+                src="{{index==pressingMinusBtnIndex?'../../images/minus_active.png':'../../images/minus.png'}}"
+                bindtouchstart="handlePressBtn" bindtouchend="handleBtnTouchEnd" bindtap="handleBtnTap">
+              </image>
+              <view class="count_num" hidden="{{ foodCounterList[currentLeftIndex][index]==0?true:false }}">
+                {{foodCounterList[currentLeftIndex][index]}}
+              </view>
+              <image class="btn" data-para="{{ {index:index,tag:'plus'} }}"
+                src="{{index==pressingPlusBtnIndex?'../../images/plus_active.png':'../../images/plus.png'}}"
+                bindtouchstart="handlePressBtn" bindtouchend="handleBtnTouchEnd" bindtap="handleBtnTap">
+              </image>
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <!-- 购物车页面打开时的遮盖层，遮盖以上内容 -->
+  <view class="cover_layer" hidden="{{!showCoverLayer}}" bindtap="handleCloseCartPage"></view>
+
+  <!-- 购物车详情页面 -->
+  <view class="cart_page" hidden="{{!showCartPage}}">
+    <view class="head" bindtap="clearCart">
+      <image class="trash_can" src="../../images/trash_can.png"></image>
+      <view class="clear">清空购物车</view>
+    </view>
+    <scroll-view class="cart_content" scroll-y>
+      <block wx:for="{{cartList}}" wx:key="id">
+        <view class="cart_item" style="{{index===0?'border:none':''}}">
+          <view class="image_info">
+            <image src="{{menu[item[0]].foodList[item[1]].image}}"></image>
+          </view>
+          <view class="text_info">
+            <view class="name">{{menu[item[0]].foodList[item[1]].name}}</view>
+            <view class="remark">{{menu[item[0]].foodList[item[1]].remark}}</view>
+            <view class="price"><text>¥</text>{{menu[item[0]].foodList[item[1]].price}}</view>
+            <view class="count">
+              <image class="btn" data-para="{{ {index:index,tag:'minus'} }}"
+                src="{{index==pressingMinusBtnIndex?'../../images/minus_active.png':'../../images/minus.png'}}"
+                bindtap="handleCartBtnTap">
+              </image>
+              <view class="count_num">
+                {{item[2]}}
+              </view>
+              <image class="btn" data-para="{{ {index:index,tag:'plus'} }}"
+                src="{{index==pressingPlusBtnIndex?'../../images/plus_active.png':'../../images/plus.png'}}"
+                bindtap="handleCartBtnTap">
+              </image>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class="content_bottom">
+        <view>没有啦 ~</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 购物车底部合计 -->
+  <view class="cart_bottom">
+    <view class="left" bindtap="handleTapCartImage">
+      <image src="../../images/cart.png"></image>
+      <view class="sum_badge" wx:if="{{numOfSelectedFood>0}}"> <text>{{ numOfSelectedFood }}</text> </view>
+      <view class="sum_container">
+        <view class="sum">{{'合计 : '+sum+' 元'}}</view>
+      </view>
+    </view>
+    <view class="right" bindtouchstart="handleHoverStart" bindtouchend="handleHoverEnd" bindtap="jumpToOrder"
+      style="{{hover?'background:rgb(241,196,113)':numOfSelectedFood>0?'background:orange;':''}}">
+      <text>选好了</text>
+    </view>
+  </view>
+
+  <!-- 选择就餐人数 -->
+  <view class="nOfDiners_page" hidden="{{!showNOfDiners}}">
+    <view class="title">
+      请选择就餐人数
+    </view>
+    <view class="cancel" bindtap="cancel">取消</view>
+    <view class="line"></view>
+    <view class="option_box">
+      <view class="row">
+        <view bindtap="chooseNOfDiners" wx:for="12345" wx:key="*this" data-nofdiners="{{item}}"
+          class="{{nOfDiners_==item?'option active':'option'}}">
+          {{item}}
+        </view>
+      </view>
+      <view class="row">
+        <view bindtap="chooseNOfDiners" wx:for="6789" wx:key="*this" data-nofdiners="{{item}}"
+          class="{{nOfDiners_==item?'option active':'option'}}">
+          {{item}}
+        </view>
+        <view bindtap="chooseNOfDiners" data-nofdiners="10" class="{{nOfDiners_==10?'option active':'option'}}">10
+        </view>
+      </view>
+      <view class="row">
+        <view bindtap="chooseNOfDiners" data-nofdiners="11" class="{{nOfDiners_==11?'option active':'option'}}">11
+        </view>
+        <view bindtap="chooseNOfDiners" data-nofdiners="12" class="{{nOfDiners_==12?'option active':'option'}}"
+          style="flex:5;">12人及以上</view>
+      </view>
+    </view>
+    <view class="submit_btn" bindtap="submitNOfDiners">
+      确定选择
+    </view>
+  </view>
+</view>

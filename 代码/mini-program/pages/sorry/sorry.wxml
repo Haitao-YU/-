@@ -1,0 +1,8 @@
+<view class="main">
+  <view class="box">
+    <view>
+      <image src="../../images/sorry.png"></image>
+    </view>
+    <viwe class="info">{{info}}</viwe>
+  </view>
+</view>

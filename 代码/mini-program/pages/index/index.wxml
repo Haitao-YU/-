@@ -1,0 +1,53 @@
+<view class="bg">
+  <view class="top"></view>
+</view>
+
+<view class="body">
+  <!-- 轮播图 -->
+  <view class="swiper_box">
+    <swiper class="swiper" autoplay indicator-dots circular>
+      <block wx:for="{{carouselFigures}}" wx:key="id">
+        <swiper-item>
+          <image src="{{item.url}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="row">
+    <!-- <button hidden="{{userPhone}}" class="btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"
+      style="flex:2;">
+      <image src="../../images/user.png"></image>
+      <view class="label" wx:if="{{userPhone==null}}">授权登录</view>
+      <view class="label" wx:else>欢迎你!
+        {{userPhone[0]+userPhone[1]+userPhone[2]+'****'+userPhone[7]+userPhone[8]+userPhone[9]+userPhone[10]}}</view>
+    </button> -->
+    <button class="btn" bindtap="fake_getPhoneNumber" style="flex:2;">
+      <!-- hidden="{{!userPhone}}" -->
+      <image src="../../images/user.png"></image>
+      <view class="label" wx:if="{{userPhone==null}}">授权登录</view>
+      <view class="label" wx:else>欢迎你!
+        {{userPhone[0]+userPhone[1]+userPhone[2]+'****'+userPhone[7]+userPhone[8]+userPhone[9]+userPhone[10]}}</view>
+    </button>
+    <button class="btn" style="flex:1;" bindtap="jumpToMenu">
+      <image src="../../images/scan.png"></image>
+      <view class="label">扫码点餐</view>
+    </button>
+  </view>
+
+  <view class="row">
+    <button class="btn" style="flex:1;" bindtap="jumpToLine">
+      <image src="../../images/line.png"></image>
+      <view class="label">排队预约</view>
+    </button>
+    <button class="btn" style="flex:1;" bindtap="jumpToRemarks">
+      <image src="../../images/remark.png"></image>
+      <view class="label">餐厅评价</view>
+    </button>
+    <button class="btn" style="flex:1;" bindtap="jumpToOrder">
+      <image src="../../images/order.png"></image>
+      <view class="label">我的订单</view>
+    </button>
+  </view>
+
+</view>

@@ -1,0 +1,138 @@
+.filter {
+  position: relative;
+  height: 5%;
+  padding: 15rpx;
+  display: flex;
+  background: white;
+}
+
+.filter .item {
+  position: relative;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.filter .item .text {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.filter .item .border {
+  position: absolute;
+  height: 20rpx;
+  bottom: 5rpx;
+  width: 120%;
+  border-radius: 10rpx;
+  background: rgba(255, 165, 0, 0.4);
+}
+
+.scroll_remark {
+  width: 750rpx;
+  height: 91%;
+}
+
+.remarks {
+  position: relative;
+}
+
+.remarks .remark {
+  margin: 1%;
+  margin-bottom: 10rpx;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  background: white;
+}
+
+.remarks .press {
+  background: rgb(248, 248, 248);
+}
+
+.remarks .remark .row {
+  display: flex;
+  align-items: center;
+}
+
+.remarks .remark .score {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.remarks .remark .score .stars {
+  width: 30rpx;
+  height: 30rpx;
+  background-size: 30rpx 30rpx;
+  margin-left: 10rpx;
+}
+
+.remarks .remark .score .on {
+  width: 30rpx;
+  height: 30rpx;
+  background-size: 30rpx 30rpx;
+  margin-left: 10rpx;
+}
+
+.remarks .remark .date {
+  flex: 1;
+  font-size: 24rpx;
+  color: var(--text-color-gray);
+  text-align: right;
+}
+
+.remarks .remark .text {
+  font-size: 28rpx;
+  padding-top: 20rpx;
+  padding-bottom: 10rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+
+.remarks .remark .reply {
+  border-top: lightgray 1rpx solid;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 28rpx;
+}
+
+.remarks .remark .reply .text{
+  color: gray;
+}
+
+.remarks .remark .gray {
+  color: var(--text-color-gray-light-2);
+}
+
+.remarks .remark .images {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.remarks .remark image {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 10rpx;
+}
+
+.goTop{
+  position: absolute;
+  bottom: 50rpx;
+  right: 30rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: var(--theme-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.goTop image{
+  width: 70rpx;
+  height: 70rpx;
+}

@@ -1,0 +1,150 @@
+page{
+  background: white;
+}
+
+.main {
+  background: white;
+}
+
+.score_row {
+  padding: 30rpx 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.score_row .label {
+  font-size: 28rpx;
+  color: var(--text-color-gray);
+  margin-left: 40rpx;
+  padding-top: 5rpx;
+}
+
+
+.score_row .stars {
+  width: 50rpx;
+  height: 50rpx;
+  background-size: 50rpx 50rpx;
+  margin-left: 30rpx;
+}
+
+.score_row .on {
+  width: 50rpx;
+  height: 50rpx;
+  background-size: 50rpx 50rpx;
+  transform: scale(1, 1)
+}
+
+.textarea_box {
+  width: 750rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textarea_box .textarea {
+  width: 650rpx;
+  border: lightgray 2rpx solid;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  padding: 20rpx;
+}
+
+.image_box {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30rpx;
+  padding: 0 20rpx;
+}
+
+.image_box .image_item {
+  position: relative;
+  margin: 10rpx;
+}
+
+.image_box .image_item image {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.image_box .image_item .close {
+  position: absolute;
+  top: 10rpx;
+  left: 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.btn_box {
+  width: 700rpx;
+  margin: 25rpx auto;
+}
+
+.btn_box button {
+  background: var(--theme-color);
+  color: #fff;
+}
+
+
+/* order */
+.order {
+  width: 670rpx;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  padding: 20rpx;
+  background: white;
+  border-radius: 10rpx;
+}
+
+.order .food_box {
+  position: relative;
+  margin-top: 20rpx;
+}
+
+.order .food_box .left {
+  white-space: nowrap;
+  display: flex;
+}
+
+.order .food_box .left .food {
+  display: inline-block;
+  margin-right: 10rpx;
+}
+
+.order .food_box .left .food image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+}
+
+.order .food_box .left .food .name {
+  width: 120rpx;
+  font-size: 20rpx;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-color-gray)
+}
+
+
+.order .food_box .right {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  top: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order .food_box .right .text_box .text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  color: var(--text-color-gray);
+}

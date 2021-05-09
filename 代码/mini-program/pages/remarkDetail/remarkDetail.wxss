@@ -1,0 +1,78 @@
+.remark {
+  margin: 1%;
+  margin-bottom: 10rpx;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  background: white;
+}
+
+.press {
+  background: rgb(248, 248, 248);
+}
+
+.remark .row {
+  display: flex;
+  align-items: center;
+}
+
+.remark .score {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.remark .score .stars {
+  width: 30rpx;
+  height: 30rpx;
+  background-size: 30rpx 30rpx;
+  margin-left: 10rpx;
+}
+
+.remark .score .on {
+  width: 30rpx;
+  height: 30rpx;
+  background-size: 30rpx 30rpx;
+  margin-left: 10rpx;
+}
+
+.remark .date {
+  flex: 1;
+  font-size: 24rpx;
+  color: var(--text-color-gray);
+  text-align: right;
+}
+
+.remark .text {
+  font-size: 28rpx;
+  padding-top: 20rpx;
+  padding-bottom: 10rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+
+.remark .reply {
+  border-top: lightgray 1rpx solid;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 28rpx;
+}
+
+.remark .reply .text {
+  color: gray;
+}
+
+.remark .gray {
+  color: var(--text-color-gray-light-2);
+}
+
+.remark .images {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.remark image {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 10rpx;
+}

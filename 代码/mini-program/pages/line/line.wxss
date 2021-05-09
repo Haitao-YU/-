@@ -1,0 +1,132 @@
+page {
+  background: white;
+}
+
+.main {
+  background: white;
+}
+
+.title {
+  font-weight: bold;
+  padding: 20rpx;
+  padding-top: 100rpx;
+}
+
+.wait {
+  padding-left: 20rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  font-size: 26rpx;
+  color: var(--text-color-gray-light-1);
+}
+
+.option_box {
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  width: 750rpx;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.option_box .option {
+  width: 200rpx;
+  height: 80rpx;
+  margin: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+  border: lightgray 2rpx solid;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: var(--text-color-gray);
+}
+
+.option_box .active {
+  color: white;
+  background: var(--theme-color);
+  border: none;
+}
+
+.info_box {
+  padding: 30rpx;
+}
+
+.info_box .line {
+  font-size: 30rpx;
+  font-weight: bold;
+  padding: 10rpx;
+}
+
+.info_box .table {
+  font-size: 26rpx;
+  padding: 10rpx;
+  color: var(--text-color-gray-light-1);
+}
+
+.enqueue_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50rpx;
+}
+
+.enqueue {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 100rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--theme-color-light-2);
+}
+
+.cancel{
+  position: absolute;
+  right: 40rpx;
+  top: 40rpx;
+  width: 180rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--theme-color);
+}
+
+.position_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.position_box .position {
+  margin-top: 100rpx;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  font-size: 120rpx;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 100rpx;
+  background-color: var(--theme-color-light-2);
+}
+
+.position_box .label {
+  margin-top: 30rpx;
+  width: 750rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: var(--text-color-gray);
+}

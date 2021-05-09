@@ -1,0 +1,88 @@
+<view class="main">
+  <scroll-view class="top" scroll-y>
+    <!-- 餐品费用 -->
+    <view class="block" wx:if="{{foodTotal!=null}}">
+      <view class="head">餐品费用</view>
+      <view class="content">
+        <view class="food_item" wx:for="{{content}}" wx:key="id">
+          <view class="image_info">
+            <image src="{{item.image}}"></image>
+          </view>
+          <view class="text_info">
+            <view class="name">{{item.name}}</view>
+            <view class="remark">{{item.remark}}</view>
+            <view class="price"><text>¥</text>{{item.price}}</view>
+            <view class="count">
+              <view class="num">
+                x {{item.count}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view>共 <text> ¥{{foodTotal}} </text> </view>
+      </view>
+    </view>
+
+    <!-- 其他费用 -->
+    <view class="block" wx:if="{{otherTotal!=null}}">
+      <view class="head">其他费用</view>
+      <view class="content">
+        <view wx:if="{{nOfDiners}}" class="other_item" style="margin-top:30rpx;">
+          <view class="cell">餐位费 <text>¥{{mealFee}}</text></view>
+          <view class="cell"> x {{nOfDiners}}</view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view>共 <text> ¥{{otherTotal}} </text> </view>
+      </view>
+    </view>
+
+    <!-- 备注 -->
+    <view class="block">
+      <view class="head">备注</view>
+      <view class="input_box">
+        <textarea  hidden="{{showPay}}" class="remark" placeholder-class="remark" bindinput="inputRemark" auto-height
+          placeholder="口味、偏好等要求"></textarea>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 选择支付 -->
+  <view class="total" wx:if="{{sum!=null}}">
+    <view class="bar">
+      <view class="left"><text> <text style="font-size:28rpx;"> ¥ </text>{{sum}}</text> </view>
+      <view class="right" hover-class="right_hover" bindtap="handlePay">立即支付</view>
+    </view>
+  </view>
+
+  <view class="cover_layer" hidden="{{!showCover}}"></view>
+
+  <view class="pay_box" hidden="{{!showPay}}">
+    <view class="pay">
+      <view class="head">
+        <view class="left">
+          <image bindtap="closePay" src="../../images/x.png"></image>
+        </view>
+        <view class="right">使用密码</view>
+      </view>
+      <view class="name">可以的店、</view>
+      <view class="money">
+        <view class="unit">¥</view>
+        <view class="amount">{{sum}}</view>
+      </view>
+      <view class="method">
+        <view class="left">
+          支付方式
+        </view>
+        <view class="right">
+          <image class="coin" src="../../images/loose_change.png"></image>
+          <view>零钱</view>
+          <image class="arrow" src="../../images/right.png"></image>
+        </view>
+      </view>
+      <view class="btn_box"><button bindtap="pay" type="primary">确认支付</button></view>
+    </view>
+  </view>
+</view>

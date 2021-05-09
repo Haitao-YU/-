@@ -1,0 +1,37 @@
+<view class="main">
+  <view class="filter">
+    <view class="item" wx:for="{{filterItems}}" wx:key="*this" data-index="{{index}}" bindtap="filter">
+      <view class="border" hidden="{{index!=filterIndex}}"></view>
+      <view class="text">{{item}}</view>
+    </view>
+  </view>
+  <view style="height:1%"></view>
+  <scroll-view class="scroll_remark" scroll-y scroll-top="{{scrollTop}}">
+    <view class="remarks" wx:for="{{filterIndex==0?remarkList:remarkMine}}" wx:for-item="remark" wx:key="id">
+      <view class="remark" hover-class="press" hover-stay-time="200" data-images="{{remark.images}}"
+        bindtap="tapRemark">
+        <view class="row">
+          <view class="score">
+            <view class="stars  {{remark.score>=1? 'on': ''}}"></view>
+            <view class="stars  {{remark.score>=2? 'on': ''}}"></view>
+            <view class="stars  {{remark.score>=3? 'on': ''}}"></view>
+            <view class="stars  {{remark.score>=4? 'on': ''}}"></view>
+            <view class="stars  {{remark.score>=5? 'on': ''}}"></view>
+          </view>
+          <view class="date">{{remark.date}}</view>
+        </view>
+        <view class="text {{remark.text?'':'gray'}}">{{remark.text?remark.text:'无文字评价'}}</view>
+        <view class="images">
+          <image wx:for="{{remark.images}}" wx:for-item="image" wx:key="*this" src="{{image}}"></image>
+        </view>
+        <view class="reply" style="{{remark.reply?'':'display:none;'}}">
+          <view class="text" style="flex:1;">商家回复: </view>
+          <view class="text" style="flex:4;">{{remark.reply}}</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="goTop" bindtap="goTop">
+    <image src="../../images/goTop.png"></image>
+  </view>
+</view>

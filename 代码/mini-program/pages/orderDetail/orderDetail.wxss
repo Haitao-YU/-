@@ -1,0 +1,149 @@
+.title {
+  font-weight: bold;
+  margin: 25rpx;
+}
+
+.block {
+  width: 700rpx;
+  margin: 25rpx;
+  padding-top: 15rpx;
+  background: white;
+  border-radius: 15rpx;
+}
+
+.block .head {
+  font-size: 30rpx;
+  font-weight: bold;
+  padding-left: 20rpx;
+  color: var(--text-color-gray);
+  padding-bottom: 10rpx;
+  border-bottom: lightgray solid 2rpx;
+}
+
+.block .food_item {
+  display: flex;
+  margin: 10rpx;
+  padding: 10rpx;
+}
+
+.block .food_item .image_info {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.block .food_item .image_info image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+}
+
+.block .food_item .text_info {
+  position: relative;
+  flex: 2;
+}
+
+.block .food_item .text_info .name {
+  margin: 10rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  text-align: left;
+}
+
+.block .food_item .text_info .remark {
+  margin: 10rpx;
+  font-size: 20rpx;
+  color: var(--text-color-gray);
+  text-align: left;
+}
+
+.block .food_item .text_info .price {
+  width: 20%;
+  margin: 10rpx;
+  font-size: 30rpx;
+  text-align: left;
+  color: var(--text-color-red);
+}
+
+.block .food_item .text_info .price text {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: var(--text-color-red);
+}
+
+.block .food_item .text_info .count {
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+  display: flex;
+}
+
+.block .food_item .text_info .count .num {
+  font-size: 30rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.block .other_item {
+  display: flex;
+  margin-top: 30rpx;
+}
+
+.block .other_item .left {
+  flex: 1;
+  color: var(--text-color-gray-light-1);
+  font-size: 28rpx;
+  padding-left: 80rpx;
+}
+
+.block .other_item .left text {
+  color: var(--text-color-red);
+}
+
+.block .other_item .right {
+  flex: 1;
+  color: var(--text-color-gray-light-1);
+  font-size: 28rpx;
+  padding-right: 85rpx;
+  text-align: right;
+}
+
+
+
+.block .bottom {
+  padding: 30rpx;
+  text-align: right;
+  font-size: 30rpx;
+}
+
+.block .bottom text {
+  font-weight: bold;
+  font-size: 42rpx;
+  color: var(--text-color-red);
+}
+
+.block .cus_remark {
+  font-size: 28rpx;
+  padding: 20rpx;
+}
+
+.block .order_info {
+  padding: 20rpx;
+}
+
+.block .order_info .info {
+  display: flex;
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+
+.block .order_info .info .left {
+  flex: 1;
+  color: var(--text-color-gray);
+}
+
+.block .order_info .info .right {
+  flex: 3;
+  text-align: right;
+}

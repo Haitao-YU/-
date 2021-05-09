@@ -1,0 +1,65 @@
+<view class="main">
+
+  <view class="top">
+    <view class="filter">
+      <view class="{{filterIndex==0?'filterBtn active':'filterBtn'}}"
+        style="border:none;border-top-left-radius:10rpx;border-bottom-left-radius:10rpx;" bindtap="filter"
+        data-index="0">
+        全部
+      </view>
+      <view class="{{filterIndex==1?'filterBtn active':'filterBtn'}}" bindtap="filter" data-index="1">进行中</view>
+      <view class="{{filterIndex==2?'filterBtn active':'filterBtn'}}" bindtap="filter" data-index="2">待评价</view>
+      <view class="{{filterIndex==3?'filterBtn active':'filterBtn'}}"
+        style="border-top-right-radius:10rpx;border-bottom-right-radius:10rpx;" bindtap="filter" data-index="3">已评价
+      </view>
+    </view>
+  </view>
+
+  <scroll-view hidden="{{orderToShow==null}}" class="content" scroll-y scroll-top='{{topNum}}'>
+    <view class="order" wx:for="{{orderToShow}}" wx:for-item="order" wx:for-index="orderIndex" wx:key="id">
+      <view class="title">
+        <view class="left">桌号 · {{order.tableId}}</view>
+        <view class="right">{{order.state==0?'订单进行中':(order.state==1?'订单已完成':'已评价')}}</view>
+      </view>
+      <view class="food_box">
+        <scroll-view class="left" scroll-x>
+          <view class="food" wx:for="{{order.content}}" wx:for-item="food" wx:for-index="foodIndex" wx:key="id">
+            <image src="{{food.image}}"></image>
+            <view class="name">{{food.name}}</view>
+          </view>
+        </scroll-view>
+        <view class="right">
+          <view class="text_box">
+            <view class="text">共</view>
+            <view class="text">{{order.foodCount}}</view>
+            <view class="text">件</view>
+          </view>
+        </view>
+      </view>
+      <view class="row">
+        <view class="date">下单时间 : {{order.date}}</view>
+        <view class="total">
+          <view class="label">合计</view>
+          <view class="sum">¥{{order.sum}}</view>
+        </view>
+      </view>
+      <view class="btn_box">
+        <view class="btn detail" data-index="{{orderIndex}}" bindtap="jumpToOrderDetail">
+          查看详情
+        </view>
+        <view class="btn detail" wx:if="{{order.state==2}}" data-index="{{orderIndex}}" bindtap="jumpToRemarkDetail">
+          查看评价
+        </view>
+        <view class=" btn evaluate" wx:if="{{order.state==1}}" data-index="{{orderIndex}}" bindtap="jumpToRemark">
+          评价
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view hidden="{{orderToShow!=null}}" class="not_found">
+    <image src="../../images/none.png"></image>
+    <view class="text">暂无订单</view>
+  </view>
+
+</view>
