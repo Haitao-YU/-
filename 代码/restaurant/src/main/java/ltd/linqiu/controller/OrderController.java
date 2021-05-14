@@ -40,6 +40,7 @@ public class OrderController {
                 List<Order> ret = orderService.getByConditions(conditions);
                 return new TableResult<>(0, "条件查询结果", ret.size(), ret);
             } catch (Exception e) {
+                e.printStackTrace();
                 return new TableResult<>(400, "查询参数有误", 0, null);
             }
         }
@@ -78,7 +79,6 @@ public class OrderController {
         return new TableResult<>(0, "根据手机号获取订单", ret.size(), ret);
     }
 
-
     @GetMapping("/{phone}/{state}")
     public TableResult<Order> getByPhoneState(@PathVariable("phone") String phone, @PathVariable("state") Integer state) {
         List<Order> ret = orderService.getByPhoneState(phone, state);
@@ -94,7 +94,5 @@ public class OrderController {
             return new CommonResult<>(400, "未找到");
         }
     }
-
-
 
 }

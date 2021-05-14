@@ -31,7 +31,6 @@
                 </div>
             </div>
         </div>
-
         <!-- 快捷功能 -->
         <div class="block quick-function">
             <div class="head">
@@ -53,7 +52,6 @@
                 </div>
             </div>
         </div>
-
         <!-- 桌台数据 -->
         <div class="block table-data">
             <div class="head">
@@ -88,10 +86,19 @@
             </div>
         </div>
 
+
         <!-- 桌台模式 -->
         <div class="block" style="width: 100%;">
             <div class="head">
                 <div class="title">桌台模式</div>
+            </div>
+
+            <div class="informs" :hidden="!server_inform">
+                <div class="inform" v-for="(inform, index) in server_inform">
+                    <div class="info" v-html="inform.tableId + '号桌有新的订单啦'"></div>
+                    <div class="date" v-html=" inform.date"></div>
+                    <img class="close" @click="closeInform(index)" src="../images/close.png" />
+                </div>
             </div>
 
             <div class="classify">
@@ -118,6 +125,7 @@
                 <div style="width: 25px; height: 25px; background: rgb(169,169,169); border-radius: 15%; margin: 10px;">
                 </div>维修
             </div>
+
             <div class="tables">
                 <div v-for="(table, index) in server_table" v-if="server_table!=null">
                     <div v-if="tableFiliter(index)"
@@ -137,6 +145,52 @@
 
 
         </div>
+
+        <!-- 营业额信息 -->
+        <div class="block table-data" style="width: 100%;">
+            <div class="head">
+                <div class="title">营业额信息</div>
+            </div>
+            <div class="content" v-if="server_tableStateCount!==null" style="cursor: pointer;"
+                @click="openTableManager">
+                <div class="table-info">
+                    <div class="num" v-html="'0'"></div>
+                    <div class="lable">今日营业额</div>
+                </div>
+                <div class="gap"></div>
+                <div class="table-info">
+                    <div class="num" v-html="'0'"></div>
+                    <div class="lable">昨日营业额</div>
+                </div>
+                <div class="gap"></div>
+                <div class="table-info">
+                    <div class="num" v-html="'5240.00'"></div>
+                    <div class="lable">本周销售</div>
+                </div>
+                <div class="gap"></div>
+                <div class="table-info">
+                    <div class="num" v-html="'5240.00'"></div>
+                    <div class="lable">上周销售</div>
+                </div>
+                <div class="gap"></div>
+                <div class="table-info">
+                    <div class="num" v-html="'10244.50'"></div>
+                    <div class="lable">本月销售</div>
+                </div>
+                <div class="gap"></div>
+                <div class="table-info">
+                    <div class="num" v-html="'10244.50'"></div>
+                    <div class="lable">上月销售</div>
+                </div>
+                <div class="gap"></div>
+                <div class="table-info">
+                    <div class="num" v-html="'45237.50'"></div>
+                    <div class="lable">总销售</div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
     <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
@@ -163,6 +217,7 @@
                         server_storeState: null,
                         server_positionList: null,
                         server_seatsList: null,
+                        server_inform: null,
                     }
                 },
                 created() {
@@ -218,6 +273,14 @@
                                 layer.msg("初始化失败！", { icon: 2, time: 500 });
                             }
                         );
+                        this.$http.get('http://linqiu.ltd/inform/all').then(
+                            (response) => {
+                                this.$set(this, "server_inform", response.body.data);
+                            },
+                            (response) => {
+                                layer.msg("初始化失败！", { icon: 2, time: 500 });
+                            }
+                        );
                     },
 
                     onOff() {
@@ -244,6 +307,13 @@
                         );
                     },
 
+                    closeInform(index) {
+                        let informs = this.server_inform;
+                        const inform = informs[index];
+                        this.$http.get('http://linqiu.ltd/inform/check/' + inform.tableId);
+                        informs.splice(index, 1);
+                        this.$set(this, "server_inform", informs);
+                    },
 
                     clickTable(index) {
                         const that = this;
@@ -347,6 +417,14 @@
                                     this.$http.get('http://linqiu.ltd/table/stateCount').then(
                                         (rs) => {
                                             this.$set(this, "server_tableStateCount", rs.body.data);
+                                        },
+                                        (rs) => {
+                                            layer.msg("服务器异常", { icon: 2, time: 500 });
+                                        }
+                                    );
+                                    this.$http.get('http://linqiu.ltd/inform/all').then(
+                                        (rs) => {
+                                            this.$set(this, "server_inform", rs.body.data);
                                         },
                                         (rs) => {
                                             layer.msg("服务器异常", { icon: 2, time: 500 });

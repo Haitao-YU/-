@@ -58,6 +58,7 @@ public class TableService implements ITableService {
     @Override
     public Integer switchState(String id, Integer state) {
         Table old = tableMapper.selectById(id);
+
         if (old == null) {
             return 0;
         } else {

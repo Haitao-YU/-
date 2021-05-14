@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>食物管理</title>
+    <title>排队管理</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -30,7 +30,7 @@
             <blockquote class="layui-elem-quote layui-text layui-quote-nm">
                 <div>在该页面商家可查看客户当前的排队状况，并可手动安排提前就餐。对于参与排队却找不到的顾客，也可以将其排队作废。</div>
                 <br>
-                <div>页面每10秒向服务器发送一次请求，查询队列数据是否有变化，若有变化则更新页面显示。点击下方队列类型按钮可手动发送请求。</div>
+                <div>页面每3秒向服务器发送一次请求，查询队列数据是否有变化，若有变化则更新页面显示。点击下方队列类型按钮可手动发送请求。</div>
             </blockquote>
             <div class="filter">
                 <div @click="switchLineType(-1)"
@@ -111,6 +111,12 @@
                                                 field: 'serialNumber',
                                                 width: 150,
                                                 title: '排队序号',
+                                                align: "center",
+                                                sort: true
+                                            }, {
+                                                field: 'date',
+                                                width: 250,
+                                                title: '开始时间',
                                                 align: "center",
                                                 sort: true
                                             },
@@ -201,7 +207,7 @@
                                     url += '/' + this.server_mealsNumberOption[index];
                                 }
                                 this.renderTable(title, url);
-                            }, 10000);
+                            }, 3000);
                         }
                     }
                 }

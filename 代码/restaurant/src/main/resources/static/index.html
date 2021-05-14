@@ -138,23 +138,23 @@
                 miniTongji = layui.miniTongji;
 
             // 页面登录检查
-            let logInfo = JSON.parse(getCookie("logInfo"));
-            if (logInfo) {
-                $.ajax({
-                    url: 'http://linqiu.ltd/admin/login',
-                    type: 'POST',
-                    data: logInfo,
-                    success: function (rs) {
-                        if (rs.code != 0) {
-                            window.location = "/login";
-                        } else {
-                            $("#adminId").html(logInfo.id);
-                        }
-                    }
-                });
-            } else {
-                window.location = "/login";
-            }
+            // let logInfo = JSON.parse(getCookie("logInfo"));
+            // if (logInfo) {
+            //     $.ajax({
+            //         url: 'http://linqiu.ltd/admin/login',
+            //         type: 'POST',
+            //         data: logInfo,
+            //         success: function (rs) {
+            //             if (rs.code != 0) {
+            //                 window.location = "/login";
+            //             } else {
+            //                 $("#adminId").html(logInfo.id);
+            //             }
+            //         }
+            //     });
+            // } else {
+            //     window.location = "/login";
+            // }
 
             var options = {
                 iniUrl: "api/init.json",    // 初始化接口

@@ -288,3 +288,34 @@
      padding-right: 10px;
      text-align: right;
  }
+
+
+ .informs {
+     margin: 10px;
+     margin-bottom: 0;
+     display: flex;
+     color: white;
+     flex-wrap: wrap;
+ }
+
+
+ .informs .inform {
+     margin: 5px;
+     padding: 10px;
+     border-radius: 5px;
+     background: rgba(84, 162, 188, 0.8);
+     display: flex;
+     align-items: center;
+ }
+
+ .informs .inform .date {
+     font-size: 10px;
+     margin-left: 10px;
+ }
+
+ .informs .inform .close {
+     width: 14px;
+     height: 15px;
+     cursor: pointer;
+     margin-left: 10px;
+ }

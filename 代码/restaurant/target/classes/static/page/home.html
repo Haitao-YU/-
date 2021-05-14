@@ -94,6 +94,14 @@
                 <div class="title">桌台模式</div>
             </div>
 
+            <div class="informs" :hidden="!server_inform">
+                <div class="inform" v-for="(inform, index) in server_inform">
+                    <div class="info" v-html="inform.tableId + '号桌有新的订单啦'"></div>
+                    <div class="date" v-html=" inform.date"></div>
+                    <img class="close" @click="closeInform(index)" src="../images/close.png" />
+                </div>
+            </div>
+
             <div class="classify">
                 <li>所在位置 : <span :class="active_index_0===-1?'option active':'option'" @click="setIndex(0,-1)">全部</span>
                     <span v-for="(position, index) in server_positionList" @click="setIndex(0,index)"
@@ -118,6 +126,7 @@
                 <div style="width: 25px; height: 25px; background: rgb(169,169,169); border-radius: 15%; margin: 10px;">
                 </div>维修
             </div>
+
             <div class="tables">
                 <div v-for="(table, index) in server_table" v-if="server_table!=null">
                     <div v-if="tableFiliter(index)"
@@ -163,6 +172,7 @@
                         server_storeState: null,
                         server_positionList: null,
                         server_seatsList: null,
+                        server_inform: null,
                     }
                 },
                 created() {
@@ -218,6 +228,14 @@
                                 layer.msg("初始化失败！", { icon: 2, time: 500 });
                             }
                         );
+                        this.$http.get('http://linqiu.ltd/inform/all').then(
+                            (response) => {
+                                this.$set(this, "server_inform", response.body.data);
+                            },
+                            (response) => {
+                                layer.msg("初始化失败！", { icon: 2, time: 500 });
+                            }
+                        );
                     },
 
                     onOff() {
@@ -244,6 +262,13 @@
                         );
                     },
 
+                    closeInform(index) {
+                        let informs = this.server_inform;
+                        const inform = informs[index];
+                        this.$http.get('http://linqiu.ltd/inform/check/' + inform.tableId);
+                        informs.splice(index, 1);
+                        this.$set(this, "server_inform", informs);
+                    },
 
                     clickTable(index) {
                         const that = this;
@@ -347,6 +372,14 @@
                                     this.$http.get('http://linqiu.ltd/table/stateCount').then(
                                         (rs) => {
                                             this.$set(this, "server_tableStateCount", rs.body.data);
+                                        },
+                                        (rs) => {
+                                            layer.msg("服务器异常", { icon: 2, time: 500 });
+                                        }
+                                    );
+                                    this.$http.get('http://linqiu.ltd/inform/all').then(
+                                        (rs) => {
+                                            this.$set(this, "server_inform", rs.body.data);
                                         },
                                         (rs) => {
                                             layer.msg("服务器异常", { icon: 2, time: 500 });

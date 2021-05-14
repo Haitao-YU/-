@@ -30,7 +30,7 @@ public class AdminController {
     @PostMapping("/modifyPassword")
     public CommonResult<StoreInfo> modifyPassword(@RequestParam Map<String, String> data) {
         Integer res = adminService.modifyPassword(data);
-        return new CommonResult<>(res, res == 0 ? "登录成功" : res == 401 ? "旧密码错误" : res == 402 ? "账号不存在" : "修改异常");
+        return new CommonResult<>(res, res == 0 ? "修改成功" : res == 401 ? "旧密码错误" : res == 402 ? "账号不存在" : "修改异常");
     }
 
 }

@@ -2,6 +2,7 @@ package ltd.linqiu.service.impl;
 
 import ltd.linqiu.entity.Line;
 import ltd.linqiu.entity.Order;
+import ltd.linqiu.mapper.InformMapper;
 import ltd.linqiu.mapper.OrderMapper;
 import ltd.linqiu.mapper.TableMapper;
 import ltd.linqiu.service.ILineService;
@@ -21,7 +22,10 @@ public class OrderService implements IOrderService {
     @Autowired
     private TableMapper tableMapper;
     @Autowired
+    private InformMapper informMapper;
+    @Autowired
     private ILineService lineService;
+
 
     @Override
     public List<Order> getAll() {
@@ -33,7 +37,7 @@ public class OrderService implements IOrderService {
     public List<Order> getByConditions(Map<String, String> conditions) throws Exception {
         Order order = new Order(conditions);
         // 当state为3时，查询状态为已完成的订单（包括未评价1和已评价2）
-        if (order.getState() == 3) {
+        if (order.getState() != null && order.getState() == 3) {
             order.setState(0);
             return orderMapper.selectByConditionsStateGreater(order);
         }
@@ -50,6 +54,8 @@ public class OrderService implements IOrderService {
             if (tableMapper.updateStateOrderIdById(1, order.getId(), order.getTableId()) == 0) {
                 throw new Exception("订单插入时餐桌信息更新失败!");
             }
+            // 向后台添加订单通知
+            informMapper.insert(order.getTableId());
             // 删除用户的排队信息
             lineService.cancelEnqueue(new Line(order.getPhone(), null, null, null));
             return true;

@@ -143,7 +143,7 @@ Page({
     } else {
       wx.showModal({
         title: "微信授权",
-        content: "申请获得你微信绑定的手机号18844114670",
+        content: "申请获得你微信绑定的手机号",
         cancelText: "拒绝",
         confirmText: "允许",
         success(res) {
@@ -213,10 +213,10 @@ Page({
         tool.busy();
       }
     })
-    wx.login({
-      success: res => {
-        console.log(res);
-      }
-    })
+    // wx.login({
+    //   success: res => {
+    //     console.log(res);
+    //   }
+    // })
   }
 })
