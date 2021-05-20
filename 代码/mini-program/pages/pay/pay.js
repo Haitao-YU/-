@@ -43,30 +43,43 @@ Page({
     const that = this;
     this.closePay();
     wx.request({
-      url: wx.getStorageSync('ip_address') + "/order/add",
-      method: 'post',
-      data: {
-        phone: wx.getStorageSync('userPhone'),
-        nOfDiners: that.data.nOfDiners,
-        mealFee: that.data.mealFee,
-        tableId: that.data.tableId,
-        sum: that.data.sum,
-        remark: that.data.remark,
-        content: JSON.stringify(that.data.content)
-      },
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
+      url: wx.getStorageSync('ip_address') + '/storeInfo/状态',
+      method: "GET",
       success(res) {
-        if (res.data.code == 0) {
-          tool.msg("支付成功", "success");
-          setTimeout(function () {
-            wx.reLaunch({
-              url: '../index/index',
-            })
-          }, 1000)
+        if (res.data.data.value == "营业中") {
+          wx.request({
+            url: wx.getStorageSync('ip_address') + "/order/add",
+            method: 'post',
+            data: {
+              phone: wx.getStorageSync('userPhone'),
+              nOfDiners: that.data.nOfDiners,
+              mealFee: that.data.mealFee,
+              tableId: that.data.tableId,
+              sum: that.data.sum,
+              remark: that.data.remark,
+              content: JSON.stringify(that.data.content)
+            },
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            success(r) {
+              if (r.data.code == 0) {
+                tool.msg("支付成功", "success");
+                setTimeout(function () {
+                  wx.reLaunch({
+                    url: '../index/index',
+                  })
+                }, 1000)
+              } else {
+                tool.busy()
+              }
+            },
+            fail() {
+              tool.busy();
+            }
+          })
         } else {
-          tool.busy()
+          tool.msg("店铺已打烊,无法下单！");
         }
       },
       fail() {

@@ -13,11 +13,11 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="restaurant@119.29.14.89" uuid="ab9238a9-4c07-4dc0-b027-30bd3e5e90c4">
+    <data-source source="LOCAL" name="@119.29.14.89" uuid="ab9238a9-4c07-4dc0-b027-30bd3e5e90c4">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://119.29.14.89:3306/restaurant</jdbc-url>
+      <jdbc-url>jdbc:mysql://119.29.14.89:3366/</jdbc-url>
       <driver-properties>
         <property name="serverTimezone" value="Asia/Shanghai" />
       </driver-properties>

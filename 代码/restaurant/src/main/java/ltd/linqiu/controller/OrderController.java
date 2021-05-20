@@ -95,4 +95,10 @@ public class OrderController {
         }
     }
 
+    @GetMapping("/count")
+    public CommonResult<List<Double>> getOrderCount() {
+        List<Double> ret = orderService.getOrderCount();
+        return new CommonResult<>(0, ret, "获取订单金额统计");
+    }
+
 }

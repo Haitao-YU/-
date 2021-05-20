@@ -16,7 +16,7 @@ public interface OrderMapper {
 
     List<Order> selectByConditions(Order order);
 
-    List<Order> selectByConditionsStateGreater(Order order);
+    List<Order> selectByConditionsStateGreater(@Param("order") Order order, @Param("state1") int state1, @Param("state2") int state2);
 
     @Select("select * from `order` where id = #{id} order by id desc")
     Order selectById(@Param("id") Integer id);
@@ -33,4 +33,27 @@ public interface OrderMapper {
     //update
     @Update("update `order` set state = #{state} where id = #{id}")
     Integer updateStateById(@Param("state") Integer state, @Param("id") Integer id);
+
+
+    // select
+    @Select("select sum(sum) from `order` where to_days(date) = to_days(now())")
+    Double today();
+
+    @Select("select sum(sum) from `order` where to_days(date) = to_days(now()) - 1")
+    Double lastDay();
+
+    @Select("select sum(sum) from `order` where YEARWEEK(date_format(date,'%Y-%m-%d'))=YEARWEEK(now())")
+    Double thisWeek();
+
+    @Select("select sum(sum) from `order` where YEARWEEK(date_format(date,'%Y-%m-%d'))=YEARWEEK(now()) - 1")
+    Double lastWeek();
+
+    @Select("select sum(sum) from `order` where date_format(date, '%Y%m') = date_format(CURDATE(), '%Y%m')")
+    Double thisMonth();
+
+    @Select("select sum(sum) from `order` where period_diff(date_format(now(), '%Y%m'), date_format(date, '%Y%m')) = 1")
+    Double lastMonth();
+
+    @Select("select sum(sum) from `order`")
+    Double allSum();
 }

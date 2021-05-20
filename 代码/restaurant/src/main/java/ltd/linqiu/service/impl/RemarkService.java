@@ -41,7 +41,8 @@ public class RemarkService implements IRemarkService {
     public Integer add(Remark remark) {
         if (remarkMapper.insert(remark) == 1) {
             // 更新订单状态
-            orderMapper.updateStateById(2, remark.getOrderId());
+            orderMapper.updateStateById(orderMapper.selectById(remark.getOrderId()).getState() + 2,
+                    remark.getOrderId());
             return 1;
         }
         return 0;
@@ -69,8 +70,8 @@ public class RemarkService implements IRemarkService {
 
     @Override
     @Transactional
-    public Integer delete(Remark remark) {
-        return remarkMapper.delete(remark);
+    public Integer deleteImages(Remark remark) {
+        return remarkMapper.deleteImagesById(remark.getId());
     }
 
 

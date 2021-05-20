@@ -137,7 +137,7 @@
                 miniAdmin = layui.miniAdmin,
                 miniTongji = layui.miniTongji;
 
-            // // 页面登录检查
+            // 页面登录检查
             let logInfo = JSON.parse(getCookie("logInfo"));
             if (logInfo) {
                 $.ajax({
@@ -170,7 +170,7 @@
             miniAdmin.render(options);
 
             $('.login-out').on("click", function () {
-                layer.msg('退出登录成功', { icon: 1, time: 500 }, function () {
+                layer.msg('退出登录成功', { icon: 1, time: 1500 }, function () {
                     delCookie("logInfo");
                     window.location = '/login';
                 });

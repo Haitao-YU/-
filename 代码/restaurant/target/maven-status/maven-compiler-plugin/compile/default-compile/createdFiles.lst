@@ -1,5 +1,4 @@
 ltd\linqiu\service\impl\FoodTypeService.class
-ltd\linqiu\service\impl\UserService.class
 ltd\linqiu\entity\Table.class
 ltd\linqiu\controller\UserController.class
 ltd\linqiu\entity\Order.class
@@ -7,7 +6,6 @@ ltd\linqiu\service\IOrderService.class
 ltd\linqiu\service\impl\FoodService.class
 ltd\linqiu\front\OneOfMenu.class
 ltd\linqiu\service\IStoreInfoService.class
-ltd\linqiu\mapper\UserMapper.class
 ltd\linqiu\mapper\StoreInfoMapper.class
 ltd\linqiu\controller\IndexController.class
 ltd\linqiu\front\LineInfo.class
@@ -31,15 +29,11 @@ ltd\linqiu\entity\StoreInfo.class
 ltd\linqiu\mapper\FoodTypeMapper.class
 ltd\linqiu\controller\StoreInfoController.class
 ltd\linqiu\controller\FoodController.class
-ltd\linqiu\service\IUserService.class
-ltd\linqiu\entity\User.class
 ltd\linqiu\service\ICarouselFigureService.class
 ltd\linqiu\controller\CarouselFigureController.class
-ltd\linqiu\controller\TestController.class
 ltd\linqiu\mapper\CarouselFigureMapper.class
 ltd\linqiu\service\impl\OrderService.class
 ltd\linqiu\util\String2Date.class
-ltd\linqiu\front\OrderFood.class
 ltd\linqiu\mapper\FoodMapper.class
 ltd\linqiu\mapper\TableMapper.class
 ltd\linqiu\controller\OrderController.class

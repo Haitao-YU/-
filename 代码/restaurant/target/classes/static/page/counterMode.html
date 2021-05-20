@@ -173,13 +173,13 @@
                                 vm.$ATD(this, "server_table", response.body.data);
                             },
                             (response) => {
-                                layer.msg("初始化失败！", { icon: 2, time: 500 });
+                                layer.msg("初始化失败！", { icon: 2, time: 1500 });
                             }
                         );
                     },
                     clickTable: function (index) {
                         let table = this.server_table[index];
-                        layer.msg(JSON.stringify(table), { time: 500 })
+                        layer.msg(JSON.stringify(table), { time: 1000 })
                     }
 
                 }

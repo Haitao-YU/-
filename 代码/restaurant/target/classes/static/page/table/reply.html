@@ -68,11 +68,11 @@
                     function (rs) {
                         console.log(rs)
                         if (rs.code === 0) {
-                            parent.parent.layer.msg("操作成功！", { icon: 1, time: 500 });
+                            parent.parent.layer.msg("操作成功！", { icon: 1, time: 1500 });
                             parent.layer.close(parent.layer.getFrameIndex(window.name));
                             window.parent.location.reload();
                         } else {
-                            layer.msg("操作失败！", { icon: 2, time: 500 });
+                            layer.msg("操作失败！", { icon: 2, time: 1500 });
                         }
                     }
                 );

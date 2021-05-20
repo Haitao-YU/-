@@ -29,6 +29,9 @@ public interface RemarkMapper {
     @Update("update remark set images = #{images} where id = #{id}")
     Integer updateImagesById(@Param("images") String images, @Param("id") Integer id);
 
+    @Update("update remark set images = null where id = #{id}")
+    Integer deleteImagesById(@Param("id") Integer id);
+
     @Update("update remark set reply = #{reply} where id = #{id}")
     Integer updateReplyById(@Param("reply") String reply, @Param("id") Integer id);
 }

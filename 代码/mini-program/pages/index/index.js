@@ -32,6 +32,9 @@ Page({
               userPhone: null
             })
           }
+        },
+        fail() {
+          tool.msg("请重试");
         }
       })
     } else {

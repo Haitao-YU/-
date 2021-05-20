@@ -42,7 +42,7 @@
                     <img src="../images/叫号.png">
                     <div class="label">叫号</div>
                 </div>
-                <div class="function-button" style="background-color: rgb(245,173,52);">
+                <div class="function-button" @click="openOrderManager" style="background-color: rgb(245,173,52);">
                     <img src="../images/账单.png">
                     <div class="label">账单</div>
                 </div>
@@ -151,40 +151,39 @@
             <div class="head">
                 <div class="title">营业额信息</div>
             </div>
-            <div class="content" v-if="server_tableStateCount!==null" style="cursor: pointer;"
-                @click="openTableManager">
+            <div class="content" v-if="server_orderCount!==null">
                 <div class="table-info">
-                    <div class="num" v-html="'0'"></div>
+                    <div class="num" v-html="server_orderCount[0]"></div>
                     <div class="lable">今日营业额</div>
                 </div>
                 <div class="gap"></div>
                 <div class="table-info">
-                    <div class="num" v-html="'0'"></div>
+                    <div class="num" v-html="server_orderCount[1]"></div>
                     <div class="lable">昨日营业额</div>
                 </div>
                 <div class="gap"></div>
                 <div class="table-info">
-                    <div class="num" v-html="'5240.00'"></div>
+                    <div class="num" v-html="server_orderCount[2]"></div>
                     <div class="lable">本周销售</div>
                 </div>
                 <div class="gap"></div>
                 <div class="table-info">
-                    <div class="num" v-html="'5240.00'"></div>
+                    <div class="num" v-html="server_orderCount[3]"></div>
                     <div class="lable">上周销售</div>
                 </div>
                 <div class="gap"></div>
                 <div class="table-info">
-                    <div class="num" v-html="'10244.50'"></div>
+                    <div class="num" v-html="server_orderCount[4]"></div>
                     <div class="lable">本月销售</div>
                 </div>
                 <div class="gap"></div>
                 <div class="table-info">
-                    <div class="num" v-html="'10244.50'"></div>
+                    <div class="num" v-html="server_orderCount[5]"></div>
                     <div class="lable">上月销售</div>
                 </div>
                 <div class="gap"></div>
                 <div class="table-info">
-                    <div class="num" v-html="'45237.50'"></div>
+                    <div class="num" v-html="server_orderCount[6]"></div>
                     <div class="lable">总销售</div>
                 </div>
             </div>
@@ -218,6 +217,7 @@
                         server_positionList: null,
                         server_seatsList: null,
                         server_inform: null,
+                        server_orderCount: null
                     }
                 },
                 created() {
@@ -237,7 +237,7 @@
                                 this.$set(this, "server_tableStateCount", response.body.data);
                             },
                             (response) => {
-                                layer.msg("初始化失败！", { icon: 2, time: 500 });
+                                layer.msg("初始化失败！", { icon: 2, time: 1500 });
                             }
                         );
                         this.$http.get('http://linqiu.ltd/storeInfo/店铺名称').then(
@@ -245,7 +245,7 @@
                                 this.$set(this, "server_storeName", response.body.data.value);
                             },
                             (response) => {
-                                layer.msg("初始化失败！", { icon: 2, time: 500 });
+                                layer.msg("初始化失败！", { icon: 2, time: 1500 });
                             }
                         );
                         this.$http.get('http://linqiu.ltd/storeInfo/状态').then(
@@ -253,7 +253,7 @@
                                 this.$set(this, "server_storeState", response.body.data.value);
                             },
                             (response) => {
-                                layer.msg("初始化失败！", { icon: 2, time: 500 });
+                                layer.msg("初始化失败！", { icon: 2, time: 1500 });
                             }
                         );
                         this.$http.get('http://linqiu.ltd/table/classify').then(
@@ -262,7 +262,7 @@
                                 this.$set(this, "server_seatsList", response.body.data.seatsList);
                             },
                             (response) => {
-                                layer.msg("初始化失败！", { icon: 2, time: 500 });
+                                layer.msg("初始化失败！", { icon: 2, time: 1500 });
                             }
                         );
                         this.$http.get('http://linqiu.ltd/table/all').then(
@@ -270,7 +270,7 @@
                                 this.$set(this, "server_table", response.body.data);
                             },
                             (response) => {
-                                layer.msg("初始化失败！", { icon: 2, time: 500 });
+                                layer.msg("初始化失败！", { icon: 2, time: 1500 });
                             }
                         );
                         this.$http.get('http://linqiu.ltd/inform/all').then(
@@ -278,29 +278,38 @@
                                 this.$set(this, "server_inform", response.body.data);
                             },
                             (response) => {
-                                layer.msg("初始化失败！", { icon: 2, time: 500 });
+                                layer.msg("初始化失败！", { icon: 2, time: 1500 });
+                            }
+                        );
+                        this.$http.get('http://linqiu.ltd/order/count').then(
+                            (response) => {
+                                console.log(response.body);
+                                this.$set(this, "server_orderCount", response.body.data);
+                            },
+                            (response) => {
+                                layer.msg("初始化失败！", { icon: 2, time: 1500 });
                             }
                         );
                     },
 
                     onOff() {
-                        let msg = this.server_storeState === "营业中" ? "关闭" : "打开";
-                        layer.confirm('确定' + msg + '店铺？',
+                        let msg = this.server_storeState === "营业中" ? "打烊" : "打开";
+                        layer.confirm('确定' + msg + '店铺？' + (msg == "打烊" ? "客户将无法使用小程序点餐。" : "客户将可以使用小程序点餐。"),
                             { icon: 0, title: false, btn: ['确定', '取消'] },
-                            function (index) {
+                            (index) => {
                                 this.$http.get('http://linqiu.ltd/storeInfo/onOff').then(
                                     (response) => {
                                         let code = response.body.code;
                                         if (code === 0) {
                                             this.$set(this, "server_storeState", response.body.data.value);
-                                            parent.layer.msg(msg + "成功！", { icon: 1, time: 500 });
+                                            parent.layer.msg(msg + "成功！" + (msg == "打烊" ? "请记得结算所有订单！" : "开始营业啦！"), { icon: 1, time: 1500 });
                                             layer.closeAll('dialog');
                                         } else {
-                                            layer.msg("操作失败", { icon: 2, time: 500 });
+                                            layer.msg("操作失败", { icon: 2, time: 1500 });
                                         }
                                     },
                                     (response) => {
-                                        layer.msg("连接服务器失败", { icon: 2, time: 500 });
+                                        layer.msg("连接服务器失败", { icon: 2, time: 1500 });
                                     }
                                 );
                             }
@@ -332,7 +341,7 @@
                                 }
                             });
                         } else {
-                            layer.msg("该餐桌暂无订单", { icon: 1, time: 500 })
+                            layer.msg("该餐桌暂无订单", { icon: 1, time: 1500 })
                         }
 
                     },
@@ -358,6 +367,18 @@
                             shadeClose: true,
                             area: ['98%', '90%'],
                             content: '../page/line.html'
+                        });
+                    },
+
+                    openOrderManager() {
+                        layer.open({
+                            title: '订单管理',
+                            type: 2,
+                            shade: 0.2,
+                            maxmin: true,
+                            shadeClose: true,
+                            area: ['98%', '90%'],
+                            content: '../page/order.html'
                         });
                     },
 
@@ -419,7 +440,7 @@
                                             this.$set(this, "server_tableStateCount", rs.body.data);
                                         },
                                         (rs) => {
-                                            layer.msg("服务器异常", { icon: 2, time: 500 });
+                                            layer.msg("服务器异常", { icon: 2, time: 1500 });
                                         }
                                     );
                                     this.$http.get('http://linqiu.ltd/inform/all').then(
@@ -427,13 +448,21 @@
                                             this.$set(this, "server_inform", rs.body.data);
                                         },
                                         (rs) => {
-                                            layer.msg("服务器异常", { icon: 2, time: 500 });
+                                            layer.msg("服务器异常", { icon: 2, time: 1500 });
+                                        }
+                                    );
+                                    this.$http.get('http://linqiu.ltd/order/count').then(
+                                        (rs) => {
+                                            this.$set(this, "server_orderCount", rs.body.data);
+                                        },
+                                        (rs) => {
+                                            layer.msg("服务器异常", { icon: 2, time: 1500 });
                                         }
                                     );
                                 }
                             },
                             (response) => {
-                                layer.msg("服务器异常", { icon: 2, time: 500 });
+                                layer.msg("服务器异常", { icon: 2, time: 1500 });
                             }
                         );
                     },

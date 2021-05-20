@@ -16,7 +16,7 @@ public interface IRemarkService {
 
     Boolean uploadImage(Integer id, MultipartFile file);
 
-    Integer delete(Remark remark);
+    Integer deleteImages(Remark remark);
 
     Integer reply(String reply, Integer id);
 }

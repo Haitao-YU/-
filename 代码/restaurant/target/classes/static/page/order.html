@@ -51,10 +51,14 @@
                                         <div class="layui-input-inline">
                                             <select id="state" name="state">
                                                 <option value='' selected>全部</option>
-                                                <option value="0">进行中（未完成）</option>
-                                                <option value="3">已完成</option>
-                                                <option value="1">未评价（已完成）</option>
-                                                <option value="2">已评价（已完成）</option>
+                                                <option value="4">进行中</option>
+                                                <option value="5">已完成</option>
+                                                <option value="6">未评价</option>
+                                                <option value="7">已评价</option>
+                                                <option value="0">进行中,未评价</option>
+                                                <option value="2">进行中,已评价</option>
+                                                <option value="1">已完成,未评价</option>
+                                                <option value="3">已完成,已评价</option>
                                             </select>
                                         </div>
                                     </div>
@@ -180,14 +184,14 @@
                         },
                         {
                             field: 'id',
-                            width: 100,
+                            width: 75,
                             title: '编号',
                             align: "center",
                             sort: true
                         },
                         {
                             field: 'date',
-                            width: 150,
+                            width: 145,
                             title: '下单时间',
                             align: "center",
                             sort: true,
@@ -198,21 +202,21 @@
                         },
                         {
                             field: 'state',
-                            width: 90,
+                            width: 130,
                             title: '状态',
                             align: 'center',
                             templet: function (item) {
                                 const state = item.state;
                                 return "<button type='button' class='layui-btn "
-                                    + (state === 0 ? "layui-btn-warm" : state === 1 ? "layui-btn-primary" : "")
+                                    + ((state === 0 || state == 2) ? "layui-btn-warm" : state === 3 ? "layui-btn-primary" : "")
                                     + " layui-btn-sm layui-btn-radius'>"
-                                    + (state === 0 ? "进行中" : state === 1 ? "待评价" : "已评价") + "</button>"
+                                    + (state === 0 ? "进行中,未评价" : state === 1 ? "已完成,未评价" : state === 2 ? "进行中,已评价" : "已完成,已评价") + "</button>"
                             },
                             sort: true
                         },
                         {
                             field: 'content',
-                            width: 400,
+                            width: 280,
                             title: '点餐内容',
                             templet: function (item) {
                                 const content = JSON.parse(item.content);
@@ -226,7 +230,7 @@
                         },
                         {
                             field: 'phone',
-                            width: 130,
+                            width: 120,
                             title: '客户手机号',
                             align: "center",
                             sort: true
@@ -365,7 +369,6 @@
                 }
                 renderTable();
             })
-
         });
     </script>
 

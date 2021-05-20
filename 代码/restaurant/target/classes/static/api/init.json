@@ -62,7 +62,7 @@
       {
         "title": "评论管理",
         "href": "page/remark.html",
-        "icon": "fa fa-street-view",
+        "icon": "fa fa-comments-o",
         "target": "_self"
       }
 

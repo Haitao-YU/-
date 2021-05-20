@@ -29,20 +29,20 @@
         order by id desc
     </select>
 
-    <!--  条件查询  -->
+    <!--  （状态或） 条件查询  -->
     <select id="selectByConditionsStateGreater" parameterType="ltd.linqiu.entity.Order"
             resultType="ltd.linqiu.entity.Order">
         select * from `order`
         <where>
-            <if test="id!=null">id=#{id}</if>
-            <if test="date!=null">and date between #{date} and date_add(#{date}, interval 1 day)</if>
-            <if test="state!=null">and state>#{state}</if>
-            <if test="phone!=null">and phone like concat('%',#{phone},'%')</if>
-            <if test="content!=null">and content like concat('%',#{content},'%')</if>
-            <if test="tableId!=null">and tableId=#{tableId}</if>
-            <if test="nOfDiners!=null">and nOfDiners=#{nOfDiners}</if>
-            <if test="sum!=null">and sum=#{sum}</if>
-            <if test="remark!=null">and remark like concat('%',#{remark},'%')</if>
+            <if test="order.id!=null">id=#{order.id}</if>
+            <if test="order.date!=null">and date between #{order.date} and date_add(#{order.date}, interval 1 day)</if>
+            <if test="order.state!=null">and (state=#{state1} or state=#{state2})</if>
+            <if test="order.phone!=null">and phone like concat('%',#{order.phone},'%')</if>
+            <if test="order.content!=null">and content like concat('%',#{order.content},'%')</if>
+            <if test="order.tableId!=null">and tableId=#{order.tableId}</if>
+            <if test="order.nOfDiners!=null">and nOfDiners=#{order.nOfDiners}</if>
+            <if test="order.sum!=null">and sum=#{order.sum}</if>
+            <if test="order.remark!=null">and remark like concat('%',#{order.remark},'%')</if>
         </where>
         order by id desc
     </select>

@@ -25,19 +25,25 @@ Page({
         orderToShow = orderList;
       } else if (filterIndex == 1) {
         for (let order of orderList) {
-          if (order.state == 0) {
+          if (order.state % 2 == 0) {
             orderToShow.push(order);
           }
         }
       } else if (filterIndex == 2) {
         for (let order of orderList) {
-          if (order.state == 1) {
+          if (order.state % 2 == 1) {
             orderToShow.push(order);
           }
         }
       } else if (filterIndex == 3) {
         for (let order of orderList) {
-          if (order.state == 2) {
+          if (order.state <= 1) {
+            orderToShow.push(order);
+          }
+        }
+      } else if (filterIndex == 4) {
+        for (let order of orderList) {
+          if (order.state >= 2) {
             orderToShow.push(order);
           }
         }

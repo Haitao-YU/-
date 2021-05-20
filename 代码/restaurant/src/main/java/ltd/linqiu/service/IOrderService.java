@@ -19,4 +19,6 @@ public interface IOrderService {
     List<Order> getByPhone(String phone);
 
     List<Order> getByPhoneState(String phone, Integer state);
+
+    List<Double> getOrderCount();
 }

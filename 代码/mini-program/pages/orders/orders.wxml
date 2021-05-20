@@ -8,9 +8,10 @@
         全部
       </view>
       <view class="{{filterIndex==1?'filterBtn active':'filterBtn'}}" bindtap="filter" data-index="1">进行中</view>
-      <view class="{{filterIndex==2?'filterBtn active':'filterBtn'}}" bindtap="filter" data-index="2">待评价</view>
-      <view class="{{filterIndex==3?'filterBtn active':'filterBtn'}}"
-        style="border-top-right-radius:10rpx;border-bottom-right-radius:10rpx;" bindtap="filter" data-index="3">已评价
+      <view class="{{filterIndex==2?'filterBtn active':'filterBtn'}}" bindtap="filter" data-index="2">已完成</view>
+      <view class="{{filterIndex==3?'filterBtn active':'filterBtn'}}" bindtap="filter" data-index="3">待评价</view>
+      <view class="{{filterIndex==4?'filterBtn active':'filterBtn'}}"
+        style="border-top-right-radius:10rpx;border-bottom-right-radius:10rpx;" bindtap="filter" data-index="4">已评价
       </view>
     </view>
   </view>
@@ -19,7 +20,7 @@
     <view class="order" wx:for="{{orderToShow}}" wx:for-item="order" wx:for-index="orderIndex" wx:key="id">
       <view class="title">
         <view class="left">桌号 · {{order.tableId}}</view>
-        <view class="right">{{order.state==0?'订单进行中':(order.state==1?'订单已完成':'已评价')}}</view>
+        <view class="right">{{order.state%2==0?'订单进行中':'订单已完成'}}</view>
       </view>
       <view class="food_box">
         <scroll-view class="left" scroll-x>
@@ -47,10 +48,10 @@
         <view class="btn detail" data-index="{{orderIndex}}" bindtap="jumpToOrderDetail">
           查看详情
         </view>
-        <view class="btn detail" wx:if="{{order.state==2}}" data-index="{{orderIndex}}" bindtap="jumpToRemarkDetail">
+        <view class="btn detail" wx:if="{{order.state>=2}}" data-index="{{orderIndex}}" bindtap="jumpToRemarkDetail">
           查看评价
         </view>
-        <view class=" btn evaluate" wx:if="{{order.state==1}}" data-index="{{orderIndex}}" bindtap="jumpToRemark">
+        <view class=" btn evaluate" wx:if="{{order.state<=1}}" data-index="{{orderIndex}}" bindtap="jumpToRemark">
           评价
         </view>
       </view>

@@ -30,7 +30,7 @@
             <blockquote class="layui-elem-quote layui-text layui-quote-nm">
                 <div>在该页面商家可查看客户当前的排队状况，并可手动安排提前就餐。对于参与排队却找不到的顾客，也可以将其排队作废。</div>
                 <br>
-                <div>页面每10秒向服务器发送一次请求，查询队列数据是否有变化，若有变化则更新页面显示。点击下方队列类型按钮可手动发送请求。</div>
+                <div>页面每3秒向服务器发送一次请求，查询队列数据是否有变化，若有变化则更新页面显示。点击下方队列类型按钮可手动发送请求。</div>
             </blockquote>
             <div class="filter">
                 <div @click="switchLineType(-1)"
@@ -91,7 +91,7 @@
                                 this.$set(this, "server_mealsNumberOption", response.body.data);
                             },
                             (response) => {
-                                layer.msg("初始化失败！", { icon: 2, time: 500 });
+                                layer.msg("初始化失败！", { icon: 2, time: 1500 });
                             }
                         );
                     },
@@ -166,10 +166,10 @@
                                             function (rs) {
                                                 if (rs.code === 0) {
                                                     layer.close(index);
-                                                    parent.layer.msg("操作成功！", { icon: 1, time: 500 });
+                                                    parent.layer.msg("操作成功！", { icon: 1, time: 1500 });
                                                     that.switchLineType(that.active_index_0);
                                                 } else {
-                                                    layer.msg("删除失败！", { icon: 2, time: 500 });
+                                                    layer.msg("删除失败！", { icon: 2, time: 1500 });
                                                 }
                                             }
                                         );
@@ -207,7 +207,7 @@
                                     url += '/' + this.server_mealsNumberOption[index];
                                 }
                                 this.renderTable(title, url);
-                            }, 10000);
+                            }, 3000);
                         }
                     }
                 }

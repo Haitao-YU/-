@@ -51,11 +51,11 @@
                             data.field,
                             function (rs) {
                                 if (rs.code === 0) {
-                                    parent.parent.parent.layer.msg("添加成功！", { icon: 1, time: 500 });
+                                    parent.parent.parent.layer.msg("添加成功！", { icon: 1, time: 1500 });
                                     parent.layer.close(parent.layer.getFrameIndex(window.name));
                                     window.parent.location.reload();
                                 } else {
-                                    layer.msg("添加失败，该种类名称已存在！", { icon: 2, time: 500 });
+                                    layer.msg("添加失败，该种类名称已存在！", { icon: 2, time: 1500 });
                                 }
                             }
                         );

@@ -78,7 +78,6 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: (res) => {
-        console.log(res);
         if (res.data.code == 0) {
           const images = this.data.images;
           if (images.length > 0) {

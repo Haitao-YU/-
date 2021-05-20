@@ -39,7 +39,7 @@
         <auth-type>PASSWORD</auth-type>
       </ssh-properties>
     </data-source>
-    <data-source name="restaurant@119.29.14.89" uuid="ab9238a9-4c07-4dc0-b027-30bd3e5e90c4">
+    <data-source name="@119.29.14.89" uuid="ab9238a9-4c07-4dc0-b027-30bd3e5e90c4">
       <database-info product="MySQL" version="5.7.31-log" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.21 (Revision: 33f65445a1bcc544eb0120491926484da168f199)" dbms="MYSQL" exact-version="5.7.31" exact-driver-version="8.0">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
@@ -49,9 +49,15 @@
       <user-name>root</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema" qname="@" />
+          <node kind="schema">
+            <name qname="gym" />
+            <name qname="restaurant" />
+            <name qname="volunteer" />
+            <name qname="new_schema" />
+          </node>
         </introspection-scope>
       </schema-mapping>
+      <legacy-introspector>true</legacy-introspector>
     </data-source>
   </component>
 </project>

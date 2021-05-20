@@ -131,7 +131,7 @@
                                 'http://linqiu.ltd/table/enableAll',
                                 function (rs) {
                                     if (rs.code === 0) {
-                                        parent.layer.msg("启用成功！", { icon: 1, time: 500 });
+                                        parent.layer.msg("启用成功！", { icon: 1, time: 1500 });
                                         parent.layer.close(index);
                                         window.location.reload();
                                     } else {
@@ -175,29 +175,33 @@
                                 data,
                                 function (rs) {
                                     if (rs.code === 0) {
-                                        parent.layer.msg("删除成功！", { icon: 1, time: 500 });
+                                        parent.layer.msg("删除成功！", { icon: 1, time: 1500 });
                                         parent.layer.close(index);
                                         window.location.reload();
                                     } else {
-                                        layer.msg("删除失败！", { icon: 2, time: 500 });
+                                        layer.msg("删除失败！", { icon: 2, time: 1500 });
                                     }
                                 }
                             );
                         }
                     );
                 } else if (obj.event === 'switch') {
-                    layer.open({
-                        title: '选择餐桌状态',
-                        type: 2,
-                        shade: 0.3,
-                        area: ['20%', '20%'],
-                        content: '../page/table/switchTableState.html',
-                        success: function (layero, index) {
-                            var body = layer.getChildFrame('body', index);
-                            body.find("[name='id']").val(data.id);
-                            body.find("[name='state']").val(data.state);
-                        }
-                    });
+                    if (data.orderId) {
+                        layer.msg("存在未结算的订单，无法切换状态", { icon: 2, time: 1500 });
+                    } else {
+                        layer.open({
+                            title: '选择餐桌状态',
+                            type: 2,
+                            shade: 0.3,
+                            area: ['20%', '20%'],
+                            content: '../page/table/switchTableState.html',
+                            success: function (layero, index) {
+                                var body = layer.getChildFrame('body', index);
+                                body.find("[name='id']").val(data.id);
+                                body.find("[name='state']").val(data.state);
+                            }
+                        });
+                    }
                 }
             });
 

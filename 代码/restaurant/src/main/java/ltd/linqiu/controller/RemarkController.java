@@ -61,9 +61,9 @@ public class RemarkController {
         }
     }
 
-    @PostMapping("/delete")
-    public CommonResult<Integer> delete(Remark remark) {
-        if (remarkService.delete(remark) == 1) {
+    @PostMapping("/deleteImages")
+    public CommonResult<Integer> deleteImages(Remark remark) {
+        if (remarkService.deleteImages(remark) == 1) {
             return new CommonResult<>(0, "删除成功！");
         } else {
             return new CommonResult<>(400, "删除失败！");

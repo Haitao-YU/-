@@ -145,10 +145,10 @@
                     data.field,
                     function (rs) {
                         if (rs.code === 0) {
-                            parent.layer.msg("更新成功！", { icon: 1, time: 500 });
+                            parent.layer.msg("更新成功！", { icon: 1, time: 1500 });
                             window.location.reload();
                         } else {
-                            layer.msg("操作失败！", { icon: 2, time: 500 });
+                            layer.msg("操作失败！", { icon: 2, time: 1500 });
                         }
                     }
                 );
@@ -161,10 +161,10 @@
                     data.field,
                     function (rs) {
                         if (rs.code === 0) {
-                            parent.layer.msg("更新成功！", { icon: 1, time: 500 });
+                            parent.layer.msg("更新成功！", { icon: 1, time: 1500 });
                             window.location.reload();
                         } else {
-                            layer.msg("操作失败！", { icon: 2, time: 500 });
+                            layer.msg("操作失败！", { icon: 2, time: 1500 });
                         }
                     }
                 );
@@ -202,14 +202,14 @@
                 done: function (res) {
                     //上传完毕回调
                     if (res.code == 0) {
-                        layer.msg(res.msg, { icon: 1, time: 500 });
+                        layer.msg(res.msg, { icon: 1, time: 1500 });
                         table.reload('carouselFigure');
                     } else {
-                        layer.msg(res.msg, { icon: 2, time: 500 });
+                        layer.msg(res.msg, { icon: 2, time: 1500 });
                     }
                 },
                 error: function () {
-                    layer.msg("执行失败", { icon: 2, time: 500 });
+                    layer.msg("执行失败", { icon: 2, time: 1500 });
                 }
             });
 
@@ -219,14 +219,14 @@
                 done: function (res) {
                     //上传完毕回调
                     if (res.code == 0) {
-                        layer.msg(res.msg, { icon: 1, time: 500 });
+                        layer.msg(res.msg, { icon: 1, time: 1500 });
                         window.location.reload();
                     } else {
-                        layer.msg(res.msg, { icon: 2, time: 500 });
+                        layer.msg(res.msg, { icon: 2, time: 1500 });
                     }
                 },
                 error: function () {
-                    layer.msg("执行失败", { icon: 2, time: 500 });
+                    layer.msg("执行失败", { icon: 2, time: 1500 });
                 }
             });
 
@@ -236,14 +236,14 @@
                 done: function (res) {
                     //上传完毕回调
                     if (res.code == 0) {
-                        layer.msg(res.msg, { icon: 1, time: 500 });
+                        layer.msg(res.msg, { icon: 1, time: 1500 });
                         window.location.reload();
                     } else {
-                        layer.msg(res.msg, { icon: 2, time: 500 });
+                        layer.msg(res.msg, { icon: 2, time: 1500 });
                     }
                 },
                 error: function () {
-                    layer.msg("执行失败", { icon: 2, time: 500 });
+                    layer.msg("执行失败", { icon: 2, time: 1500 });
                 }
             });
 
@@ -260,11 +260,11 @@
                                 data,
                                 function (rs) {
                                     if (rs.code === 0) {
-                                        layer.msg("删除成功！", { icon: 1, time: 500 });
+                                        layer.msg("删除成功！", { icon: 1, time: 1500 });
                                         parent.layer.close(index);
                                         table.reload('carouselFigure');
                                     } else {
-                                        layer.msg("删除失败！", { icon: 2, time: 500 });
+                                        layer.msg("删除失败！", { icon: 2, time: 1500 });
                                     }
                                 }
                             );

@@ -284,7 +284,7 @@
                             this.server_order = order;
                         },
                         (response) => {
-                            layer.msg("初始化失败！", { icon: 2, time: 500 });
+                            layer.msg("初始化失败！", { icon: 2, time: 1500 });
                         }
                     );
                 },
@@ -303,13 +303,13 @@
                             },
                             function (rs) {
                                 if (rs.code === 0) {
-                                    parent.parent.layer.msg("结算成功", { icon: 1, time: 500 });
+                                    parent.parent.layer.msg("结算成功", { icon: 1, time: 1500 });
                                     parent.layer.close(parent.layer.getFrameIndex(window.name));
                                 } else if (rs.code === 401) {
-                                    parent.parent.layer.msg("订单结算成功,餐桌状态更新失败", { icon: 1, time: 500 });
+                                    parent.parent.layer.msg("订单结算成功,餐桌状态更新失败", { icon: 1, time: 1500 });
                                     parent.layer.close(parent.layer.getFrameIndex(window.name));
                                 } else {
-                                    layer.msg("服务器异常", { icon: 2, time: 500 });
+                                    layer.msg("服务器异常", { icon: 2, time: 1500 });
                                 }
                             }
                         );
